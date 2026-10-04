@@ -14,7 +14,8 @@ estão na tabela `TRILHA`, no começo de `assets/site.js`:
 | `07-sequencia.mp3` | cenas 3 a 6: DeLorean, Parque dos Bebês, Matrix, praia | cerca de 33 s (9 + 7,5 + 7,5 + 8,5) |
 | `08-jogo.mp3` | jogo da velha | em loop, 1 a 3 min |
 | `09-resultado.mp3` | resultado | em loop |
-| `10-fim.mp3` | tela de fim | em loop |
+| `10-fim.mp3` | tela de FIM | em loop |
+| `11-trailer.mp3` | trailer "A Galáxia dos Nomes" | em loop |
 
 Toda faixa toca em loop, com fade de entrada e saída na troca. Momentos que
 apontam para o mesmo arquivo continuam a música sem recomeçar (é o caso da

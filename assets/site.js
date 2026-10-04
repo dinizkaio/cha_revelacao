@@ -114,7 +114,8 @@
     aventura: 'assets/som/07-sequencia.mp3',
     jogo: 'assets/som/08-jogo.mp3',
     resultado: 'assets/som/09-resultado.mp3',
-    fim: 'assets/som/10-fim.mp3'
+    fim: 'assets/som/10-fim.mp3',
+    trailer: 'assets/som/11-trailer.mp3'
   };
   const trilha = (() => {
     let atual = null, arquivoAtual = null;
@@ -436,11 +437,11 @@
       ? 'Kaio: "Bernardo, fechado." Nanda: "calma, deixa eu pensar."'
       : 'Kaio: "Aurora, fechado." Nanda: "calma, deixa eu pensar."';
     clearTimeout(timerTrailer);
-    timerTrailer = setTimeout(() => { $('#trailer').hidden = false; telaFim.classList.add('trailer-ativo'); som.videocassete(); }, 4500);
+    timerTrailer = setTimeout(() => { $('#trailer').hidden = false; telaFim.classList.add('trailer-ativo'); som.videocassete(); trilha.tocar('trailer'); }, 4500);
   };
   aoSair.fim = () => clearTimeout(timerTrailer);
   $('#tela-fim').addEventListener('click', () => {
-    if ($('#trailer').hidden) { clearTimeout(timerTrailer); $('#trailer').hidden = false; $('#tela-fim').classList.add('trailer-ativo'); }
+    if ($('#trailer').hidden) { clearTimeout(timerTrailer); $('#trailer').hidden = false; $('#tela-fim').classList.add('trailer-ativo'); trilha.tocar('trailer'); }
     else irPara('resultado');
   });
 
