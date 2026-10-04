@@ -123,7 +123,7 @@
   // `inicio` (opcional) é onde a volta recomeça, para pular uma narração que só deve tocar uma vez.
   const LOOP = {
     capa: { fim: 170.0, cruzar: 1.5 },
-    seletor: { fim: 175.0, cruzar: 1.5, inicio: 0 }
+    seletor: { fim: 175.0, cruzar: 1.5, inicio: 45 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
