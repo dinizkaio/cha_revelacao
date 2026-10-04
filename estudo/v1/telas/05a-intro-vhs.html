@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Intro 1 · VHS</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.tela{background:#050505;color:#fff}
+.ruido{position:absolute;inset:0;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.faixa{position:absolute;left:0;right:0;height:26px;background:rgba(255,255,255,.35);filter:blur(3px)}
+.cores{position:absolute;left:0;right:0;bottom:120px;height:34px;background:linear-gradient(90deg,#fff,#ff0,#0ff,#0f0,#f0f,#f00,#00f,#000);opacity:.55;transform:skewX(-20deg)}
+.osd{position:absolute;font-family:var(--f-vhs);font-size:84px;letter-spacing:.06em;text-shadow:3px 0 #0ff,-3px 0 #f0f}
+.centro{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center}
+.centro .l1{font-family:var(--f-vhs);font-size:60px;color:#bbb;letter-spacing:.14em}
+.centro .l2{font-family:var(--f-vhs);font-size:150px;line-height:1;letter-spacing:.06em;text-shadow:4px 0 #0ff,-4px 0 #f0f}
+.centro .l3{font-family:var(--f-vhs);font-size:52px;color:#bbb;letter-spacing:.1em;margin-top:10px}
+</style></head>
+<body><div class="tela scanlines">
+  <div class="ruido"></div>
+  <div class="faixa" style="top:180px"></div>
+  <div class="faixa" style="top:720px;height:12px"></div>
+  <div class="cores"></div>
+  <div class="osd" style="left:80px;top:50px">▶ PLAY</div>
+  <div class="osd" style="right:80px;top:50px">SP &nbsp;0:00:03</div>
+  <div class="osd" style="left:80px;bottom:46px;font-size:56px;color:#ddd">TRACKING ▮▮▮▮▮▯▯</div>
+  <div class="centro">
+    <div class="l1">COPA GUARUJÁ / SJC HOME VIDEO</div>
+    <div class="l2">NANDA &amp; CAIO</div>
+    <div class="l3">CHÁ REVELAÇÃO · GRAVADO EM 2026 · NÃO REBOBINADA</div>
+  </div>
+</div></body></html>

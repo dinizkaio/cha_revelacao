@@ -2,38 +2,35 @@
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Seletor</title>
 <link rel="stylesheet" href="base.css">
 <style>
-.tela{background:var(--tinta);color:var(--papel);display:flex;flex-direction:column;align-items:center;padding:60px 80px 50px}
-.tela.meiotom{background-image:radial-gradient(rgba(255,255,255,.07) 1.4px,transparent 1.6px)}
-.topo{display:flex;flex-direction:column;align-items:center;gap:18px}
-.etiqueta{background:var(--ipe);color:var(--tinta)}
-h1{margin:10px 0 0;font-family:var(--f-nome);font-size:88px;color:#fff;letter-spacing:.02em}
-.sub{margin:4px 0 0;font-size:28px;color:#d9c7a6;max-width:980px;text-align:center}
-.cartas{display:flex;gap:60px;margin-top:40px}
-.carta{width:560px;height:520px;border-radius:40px;border:8px solid rgba(255,255,255,.18);background:#3a2a1e;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 26px;position:relative;overflow:hidden}
-.carta img{height:380px;margin-bottom:8px}
-.carta .nome{font-size:70px;color:#fff;letter-spacing:.04em}
-.carta.m{background:var(--menino)}
-.carta.f{background:var(--menina)}
-.carta.sel{border-color:var(--ipe);box-shadow:0 0 0 10px rgba(255,194,51,.35),0 24px 60px rgba(0,0,0,.5);transform:scale(1.04)}
-.carta .check{position:absolute;top:22px;right:22px;width:76px;height:76px;border-radius:50%;background:var(--ipe);border:6px solid var(--tinta);display:grid;place-items:center;font:900 40px var(--f-corpo);color:var(--tinta)}
-.carta .pos{position:absolute;top:28px;left:28px;font:800 20px var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85)}
-.acoes{margin-top:44px;display:flex;align-items:center;gap:40px}
-.aviso{margin-top:22px;font-size:22px;color:#b9a687;text-align:center;max-width:900px}
-.aviso b{color:var(--ipe)}
+.topo{position:absolute;left:0;right:0;top:70px;text-align:center}
+.sub{margin-top:30px;font-size:34px;letter-spacing:.06em;text-transform:uppercase}
+.cartas{position:absolute;left:50%;top:260px;transform:translateX(-50%);display:flex;gap:90px}
+.polaroid.a{transform:rotate(-2deg)}.polaroid.b{transform:rotate(2deg)}
+.acao{position:absolute;left:50%;transform:translateX(-50%);bottom:70px}
+.cassete{left:60px;bottom:70px;width:300px;height:188px;transform:rotate(-14deg);filter:drop-shadow(0 10px 10px rgba(0,0,0,.4))}
+.aviso{position:absolute;right:60px;bottom:44px;font-size:20px;text-transform:uppercase;letter-spacing:.04em;color:#3a3a3a;text-align:right;width:640px;line-height:1.4}
 </style></head>
-<body><div class="tela meiotom">
-  <div class="topo">
-    <span class="etiqueta">🔒 Área restrita · só quem sabe o segredo</span>
-    <h1>Quem vem aí?</h1>
-    <p class="sub">Escolha, confirme e entregue o computador. A partir daí, ninguém mais vê esta tela — nem os pais.</p>
+<body><script src="props.js"></script>
+<div class="tela crt">
+  <div class="pontos"><i></i><i></i><i></i></div>
+  <div class="vidro">
+    <div class="chuvisco"></div>
+    <svg class="rabisco" style="left:110px;top:430px;color:#ff3d9a;width:120px;height:120px;transform:rotate(-15deg)"><use href="#heart"/></svg>
+    <svg class="rabisco" style="right:150px;top:150px;color:#e2c22a;width:110px;height:110px"><use href="#smiley"/></svg>
+    <svg class="rabisco" style="right:120px;top:520px;color:#3d8bff;width:100px;height:100px;transform:rotate(20deg)"><use href="#star5"/></svg>
+    <svg class="rabisco" style="right:260px;bottom:110px;color:#ff3d9a;width:90px;height:90px;transform:rotate(-20deg)"><use href="#star5"/></svg>
+    <svg class="rabisco" style="left:230px;top:140px;color:#3d8bff;width:80px;height:80px;transform:rotate(12deg)"><use href="#sparkle"/></svg>
+    <svg class="prop cassete"><use href="#cassette"/></svg>
+    <div class="topo">
+      <span class="etiqueta grande">Qual é o resultado?</span>
+      <div class="sub">Escolha o gênero do bebê:</div>
+    </div>
+    <div class="cartas">
+      <div class="polaroid m a sel"><div class="foto"><img src="kaio.svg" alt=""></div><span class="etiqueta nome">Menino</span><span class="radio on"></span></div>
+      <div class="polaroid f b"><div class="foto"><img src="nanda.svg" alt=""></div><span class="etiqueta nome">Menina</span><span class="radio"></span></div>
+    </div>
+    <div class="acao"><a class="botao" href="#">Confirmar</a></div>
+    <div class="aviso">🔒 Só quem guarda o segredo vê esta tela.<br>O botão fica cinza até escolher.</div>
   </div>
-  <div class="cartas">
-    <div class="carta m"><span class="pos">Opção 1</span><img src="menino.svg" alt=""><p class="nome">Menino</p></div>
-    <div class="carta f sel"><span class="pos">Opção 2</span><span class="check">✓</span><img src="menina.svg" alt=""><p class="nome">Menina</p></div>
-  </div>
-  <div class="acoes">
-    <a class="botao" href="#">Confirmar</a>
-  </div>
-  <p class="aviso">Depois de confirmar, <b>a escolha some da tela e fica trancada</b> até alguém apertar o play.</p>
-  <div class="nota-estudo" style="right:60px;top:60px">Tela da "guardiã do segredo" (sua concunhada). Fundo escuro de propósito: parece um bastidor, não um palco.</div>
+  <div class="legenda">2. SELETOR DE GÊNERO</div>
 </div></body></html>

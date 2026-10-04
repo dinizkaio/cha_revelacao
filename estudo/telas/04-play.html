@@ -2,33 +2,46 @@
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Play</title>
 <link rel="stylesheet" href="base.css">
 <style>
-.tela{background:var(--papel);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.marca{position:absolute;top:44px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:18px}
-.marca .titulo{font-size:44px}
-.marca .nome{font-size:40px;color:var(--menino)}
-.marca .nome em{font-style:normal;color:var(--menina)}
-.fita{position:relative;width:520px;height:300px;background:#1d1d1d;border:8px solid var(--tinta);border-radius:16px;box-shadow:16px 16px 0 var(--tinta);display:grid;place-items:center}
-.fita::before{content:"";position:absolute;left:60px;right:60px;top:70px;height:120px;background:#0b0b0b;border-radius:14px;border:4px solid #333}
-.fita .r{position:absolute;top:92px;width:80px;height:80px;border-radius:50%;background:#fff;border:10px solid #777;box-shadow:inset 0 0 0 8px #222}
-.fita .r1{left:86px}.fita .r2{right:86px}
-.fita .et{position:absolute;left:40px;right:40px;bottom:18px;height:58px;background:#fff;border:3px solid var(--tinta);font:28px/52px var(--f-vhs);color:var(--tinta);letter-spacing:.06em}
-h1{font-family:var(--f-nome);font-size:100px;margin:54px 0 0;letter-spacing:.02em}
-p{font-size:32px;margin:10px auto 0;color:var(--tinta-2);max-width:1000px}
-.play{margin-top:46px;width:260px;height:260px;border-radius:50%;background:var(--ipe);border:10px solid var(--tinta);box-shadow:14px 14px 0 var(--tinta);display:grid;place-items:center;position:relative}
-.play::after{content:"";width:0;height:0;border-left:110px solid var(--tinta);border-top:66px solid transparent;border-bottom:66px solid transparent;margin-left:26px}
-.dica{position:absolute;bottom:44px;left:0;right:0;font-size:22px;color:var(--tinta-2);font-weight:600}
-.pers{position:absolute;bottom:0;height:400px}
-.pers.m{left:80px}.pers.f{right:80px}
-.cadeado{position:absolute;top:46px;right:60px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:4px solid var(--tinta);border-radius:999px;padding:8px 20px;font:800 22px var(--f-corpo)}
+.topo{position:absolute;left:0;right:0;top:70px;text-align:center}
+.sub{margin-top:26px;font-size:30px;letter-spacing:.06em;text-transform:uppercase;line-height:1.35}
+.fita{position:absolute;left:50%;top:300px;width:820px;height:484px;margin-left:-410px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5))}
+.play{position:absolute;left:50%;top:380px;width:170px;height:170px;margin-left:-85px;border-radius:50%;border:8px solid var(--magenta);box-shadow:0 0 30px var(--magenta),inset 0 0 30px rgba(255,61,154,.6);display:grid;place-items:center;background:rgba(40,0,30,.6)}
+.play::after{content:"";border-left:70px solid var(--magenta);border-top:42px solid transparent;border-bottom:42px solid transparent;margin-left:16px;filter:drop-shadow(0 0 12px var(--magenta))}
+.raio{position:absolute;left:50%;top:465px;width:60px;height:8px;background:var(--rosa);border-radius:4px;transform-origin:0 50%;box-shadow:0 0 10px var(--magenta)}
+.etq-play{position:absolute;left:50%;top:690px;transform:translateX(-50%) rotate(-1.5deg);font-size:54px}
+.seg{position:absolute;left:50%;transform:translateX(-50%);bottom:40px;width:900px;font-size:20px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#3a3a3a;text-align:center}
+.pizza{left:120px;top:150px;width:170px;height:170px;transform:rotate(-25deg)}
+.slinky{left:60px;top:560px;width:260px;height:170px}
+.gameboy{right:120px;top:150px;width:160px;height:256px;transform:rotate(12deg)}
+.tv{left:90px;bottom:60px;width:260px;height:224px}
+.dino{right:110px;bottom:70px;width:300px;height:210px;fill:#8a3fc8;transform:scaleX(-1)}
+.cassete{right:400px;top:160px;width:170px;height:106px;transform:rotate(8deg)}
+.prop{filter:drop-shadow(0 8px 8px rgba(0,0,0,.35))}
 </style></head>
-<body><div class="tela grao">
-  <div class="marca"><span class="titulo">Chá Revelação</span><span class="nome"><em>Nanda</em> &amp; Caio</span></div>
-  <span class="cadeado">🔒 Segredo trancado</span>
-  <div class="fita"><span class="r r1"></span><span class="r r2"></span><span class="et">NANDA &amp; CAIO · CHÁ REVELAÇÃO · 2026</span></div>
-  <h1>Fita na máquina.</h1>
-  <p>Pode ligar o projetor: esta tela não entrega nada. Quando todo mundo estiver olhando, aperte o play.</p>
-  <div class="play"></div>
-  <p class="dica">PLAY · ou a tecla ESPAÇO · · · (pra recomeçar do zero, segure o título por 5 segundos)</p>
-  <img class="pers m" src="menino.svg" alt="">
-  <img class="pers f" src="menina.svg" alt="">
+<body><script src="props.js"></script>
+<div class="tela crt">
+  <div class="pontos"><i></i><i></i><i></i></div>
+  <div class="vidro">
+    <div class="chuvisco"></div>
+    <svg class="rabisco" style="left:380px;top:520px;color:#ff3d9a;width:80px;height:80px"><use href="#sparkle"/></svg>
+    <svg class="rabisco" style="right:380px;top:300px;color:#e2c22a;width:100px;height:100px;transform:rotate(15deg)"><use href="#star5"/></svg>
+    <svg class="rabisco" style="left:460px;top:240px;color:#3d8bff;width:90px;height:90px;transform:rotate(-10deg)"><use href="#heart"/></svg>
+    <svg class="prop pizza"><use href="#pizza"/></svg>
+    <svg class="prop slinky"><use href="#slinky"/></svg>
+    <svg class="prop gameboy"><use href="#gameboy"/></svg>
+    <svg class="prop tv"><use href="#oldtv"/></svg>
+    <svg class="prop dino"><use href="#trex"/></svg>
+    <svg class="prop cassete"><use href="#cassette"/></svg>
+    <div class="topo">
+      <span class="etiqueta grande">Tá tudo pronto!</span>
+      <div class="sub">Agora é só apertar o play<br>e começar essa aventura!</div>
+    </div>
+    <svg class="prop fita"><use href="#vhs"/></svg>
+    <div class="play"></div>
+    <i class="raio" style="transform:rotate(-30deg) translateX(100px)"></i><i class="raio" style="transform:rotate(-150deg) translateX(100px)"></i>
+    <i class="raio" style="transform:rotate(-70deg) translateX(100px)"></i><i class="raio" style="transform:rotate(-110deg) translateX(100px)"></i>
+    <span class="etiqueta etq-play">Play</span>
+    <div class="seg">🔒 Segredo trancado. Esta tela é igual pros dois resultados: pode ligar o projetor.<br>Play no botão ou na tecla espaço.</div>
+  </div>
+  <div class="legenda">4. TELA DE PLAY</div>
 </div></body></html>

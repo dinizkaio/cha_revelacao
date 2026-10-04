@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Capa</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.tela{background:var(--papel)}
+.ceu{position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 40% at 50% 110%,var(--papel-3),transparent 70%),
+  linear-gradient(180deg,#fff3d6,var(--papel) 60%)}
+.caixa{position:absolute;left:50%;top:50%;width:1180px;transform:translate(-50%,-50%) rotate(-1.2deg);padding:54px 70px 60px;text-align:center}
+.faixa{display:inline-block;background:var(--laranja);color:#fff;font:800 24px/1 var(--f-corpo);letter-spacing:.22em;text-transform:uppercase;padding:12px 28px;border-radius:999px;border:5px solid var(--tinta)}
+.caixa .titulo{font-size:150px;margin-top:22px;color:var(--tinta);text-shadow:6px 6px 0 var(--ipe)}
+.caixa .nome{font-size:116px;color:var(--menino);margin-top:6px;letter-spacing:.02em}
+.caixa .nome em{font-style:normal;color:var(--menina)}
+.caixa .nome .e{color:var(--tinta);font-size:76px;vertical-align:middle}
+.tag{margin:26px auto 0;font:700 36px/1.2 var(--f-corpo);color:var(--tinta-2)}
+.tag small{display:block;font-size:22px;font-weight:600;opacity:.85;margin-top:4px}
+.acoes{margin-top:34px}
+.selo{position:absolute;right:-34px;top:-40px;width:230px;height:230px;border-radius:50%;background:var(--ipe);border:6px solid var(--tinta);display:grid;place-items:center;text-align:center;font:800 22px/1.15 var(--f-corpo);transform:rotate(12deg);box-shadow:8px 8px 0 var(--tinta)}
+.selo b{font-family:var(--f-nome);font-size:34px;display:block;letter-spacing:.02em}
+.vhs-etiqueta{position:absolute;left:300px;bottom:-30px;background:#fff;border:4px solid var(--tinta);padding:8px 18px;font:600 20px var(--f-vhs);font-size:28px;transform:rotate(2deg);letter-spacing:.04em}
+.pers{position:absolute;bottom:-20px;z-index:3}
+.pers.m{left:96px;height:560px}
+.pers.f{right:96px;height:540px}
+.sol{position:absolute;left:50%;top:-240px;width:1600px;height:1600px;margin-left:-800px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,194,51,.28) 0 7deg,transparent 7deg 14deg);opacity:.5}
+</style></head>
+<body><div class="tela grao">
+  <div class="ceu"></div>
+  <div class="sol"></div>
+  <div class="ipe-flor" style="left:120px;top:90px;transform:rotate(20deg)"></div>
+  <div class="ipe-flor" style="left:1700px;top:140px;transform:rotate(-30deg) scale(.8)"></div>
+  <div class="ipe-flor" style="left:1500px;top:900px;transform:rotate(50deg) scale(1.2)"></div>
+  <div class="ipe-flor" style="left:300px;top:960px;transform:rotate(-10deg) scale(.7)"></div>
+  <img class="pers m" src="menino.svg" alt="">
+  <img class="pers f" src="menina.svg" alt="">
+  <div class="caixa cartaz">
+    <div class="selo"><span><b>Nova!</b>cópia caseira<br>em VHS</span></div>
+    <span class="faixa">Sessão da Tarde apresenta</span>
+    <h1 class="titulo">Chá Revelação</h1>
+    <p class="nome"><em>Nanda</em> <span class="e">&amp;</span> Caio</p>
+    <p class="tag">"Seremos pais na adolescência."<small>(ela, 33 · ele, 37 — mas a gente finge que não)</small></p>
+    <div class="acoes"><a class="botao" href="#">▶ Começar</a></div>
+    <div class="vhs-etiqueta">1989 · 1993 · 2026 — GUARUJÁ / SÃO JOSÉ DOS CAMPOS</div>
+  </div>
+</div></body></html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Seletor · celular</title>
+<link rel="stylesheet" href="base.css">
+<style>
+body{font-size:16px}
+.tela{width:390px;height:844px;background:var(--tinta);color:var(--papel);display:flex;flex-direction:column;align-items:center;padding:28px 18px 22px;background-image:radial-gradient(rgba(255,255,255,.07) 1.2px,transparent 1.4px);background-size:12px 12px}
+.etiqueta{font-size:11px;background:var(--ipe);color:var(--tinta);letter-spacing:.1em}
+h1{margin:12px 0 0;font-family:var(--f-nome);font-size:44px;color:#fff;letter-spacing:.02em}
+.sub{margin:4px 0 0;font-size:15px;color:#d9c7a6;text-align:center;line-height:1.35}
+.cartas{display:flex;flex-direction:column;gap:14px;margin-top:18px;width:100%}
+.carta{height:230px;border-radius:24px;border:5px solid rgba(255,255,255,.18);display:flex;align-items:flex-end;gap:14px;padding:0 20px;position:relative;overflow:hidden}
+.carta img{height:200px}
+.carta .nome{font-size:40px;color:#fff;letter-spacing:.04em;margin-bottom:26px}
+.carta.m{background:var(--menino)}
+.carta.f{background:var(--menina)}
+.carta.sel{border-color:var(--ipe);box-shadow:0 0 0 5px rgba(255,194,51,.35)}
+.carta .check{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;background:var(--ipe);border:3px solid var(--tinta);display:grid;place-items:center;font:900 22px var(--f-corpo);color:var(--tinta)}
+.botao{margin-top:20px;font-size:26px;border-width:4px;box-shadow:6px 6px 0 var(--tinta);width:100%;border-radius:16px}
+.aviso{margin-top:14px;font-size:14px;color:#b9a687;text-align:center;line-height:1.35}
+.aviso b{color:var(--ipe)}
+</style></head>
+<body><div class="tela">
+  <span class="etiqueta">🔒 Só quem sabe o segredo</span>
+  <h1>Quem vem aí?</h1>
+  <p class="sub">Escolha, confirme e devolva o aparelho.</p>
+  <div class="cartas">
+    <div class="carta m"><img src="menino.svg" alt=""><p class="nome">Menino</p></div>
+    <div class="carta f sel"><span class="check">✓</span><img src="menina.svg" alt=""><p class="nome">Menina</p></div>
+  </div>
+  <a class="botao" href="#">Confirmar</a>
+  <p class="aviso">Depois de confirmar, <b>a escolha some da tela</b> e fica trancada até o play.</p>
+</div></body></html>

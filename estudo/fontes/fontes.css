@@ -65,6 +65,13 @@
   src: url("Bungee-400.woff2") format('woff2');
   
 }@font-face {
+  font-family: 'Bungee Inline';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Bungee_Inline-400.woff2") format('woff2');
+  
+}@font-face {
   font-family: 'Bungee Shade';
   font-style: normal;
   font-weight: 400;
@@ -185,6 +192,13 @@
   src: url("Righteous-400.woff2") format('woff2');
   
 }@font-face {
+  font-family: 'Rock Salt';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Rock_Salt-400.woff2") format('woff2');
+  
+}@font-face {
   font-family: 'Rubik Mono One';
   font-style: normal;
   font-weight: 400;
@@ -197,6 +211,13 @@
   font-weight: 400;
   font-display: swap;
   src: url("Shrikhand-400.woff2") format('woff2');
+  
+}@font-face {
+  font-family: 'Special Elite';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Special_Elite-400.woff2") format('woff2');
   
 }@font-face {
   font-family: 'Titan One';

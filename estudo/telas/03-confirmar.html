@@ -2,31 +2,33 @@
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Confirmar</title>
 <link rel="stylesheet" href="base.css">
 <style>
-.tela{background:var(--tinta);color:var(--papel)}
-.fundo{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.4px,transparent 1.6px);background-size:14px 14px;filter:blur(2px);opacity:.5}
-.fundo .cartas{position:absolute;left:50%;top:300px;transform:translateX(-50%);display:flex;gap:60px}
-.fundo .carta{width:560px;height:520px;border-radius:40px;background:var(--menino);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.fundo .carta.f{background:var(--menina)}
-.fundo .carta img{height:380px;margin-bottom:60px}
-.veu{position:absolute;inset:0;background:rgba(10,6,4,.72)}
-.modal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:1040px;padding:56px 64px 54px;text-align:center;color:var(--tinta)}
-.modal h2{font-family:var(--f-nome);font-size:92px;margin:0;letter-spacing:.02em}
-.modal p{font-size:30px;margin:18px 0 0;color:var(--tinta-2)}
-.escolha{display:inline-flex;align-items:center;gap:18px;margin-top:26px;padding:12px 30px 12px 14px;border-radius:999px;background:var(--menina);color:#fff;border:6px solid var(--tinta);font-family:var(--f-nome);font-size:54px;letter-spacing:.04em}
-.escolha img{height:84px;width:84px;object-fit:cover;object-position:top;border-radius:50%;background:#fff;border:4px solid var(--tinta)}
-.acoes{display:flex;justify-content:center;gap:28px;margin-top:40px}
-.acoes .botao{white-space:nowrap;font-size:36px}
+.topo{position:absolute;left:0;right:0;top:70px;text-align:center}
+.sub{margin-top:30px;font-size:34px;letter-spacing:.06em;text-transform:uppercase}
+.carta{position:absolute;left:50%;top:250px;transform:translateX(-50%) rotate(-1.5deg)}
+.polaroid{width:420px}.polaroid .foto{height:400px}.polaroid .foto img{height:370px}
+.polaroid .nome{font-size:54px}
+.acao{position:absolute;left:50%;transform:translateX(-50%);bottom:110px;text-align:center}
+.voltar{display:block;margin-top:22px;font-size:26px;text-transform:uppercase;letter-spacing:.1em;color:#3a3a3a;text-decoration:underline}
+.raios{position:absolute;left:560px;top:290px;width:140px;height:140px}
+.raios i{position:absolute;left:50%;top:50%;width:70px;height:7px;background:#3d8bff;border-radius:4px;transform-origin:0 50%}
 </style></head>
-<body><div class="tela">
-  <div class="fundo"><div class="cartas"><div class="carta"><img src="menino.svg" alt=""></div><div class="carta f"><img src="menina.svg" alt=""></div></div></div>
-  <div class="veu"></div>
-  <div class="modal cartaz">
-    <h2>Tem certeza?</h2>
-    <div class="escolha"><img src="menina.svg" alt="">Menina</div>
-    <p>Ao confirmar, essa escolha some da tela e fica trancada. Só o play, lá na frente, vai contar pra todo mundo.</p>
-    <div class="acoes">
-      <a class="botao fantasma" href="#">Voltar</a>
-      <a class="botao escuro" href="#">🔒 Confirmar e trancar</a>
+<body><script src="props.js"></script>
+<div class="tela crt">
+  <div class="pontos"><i></i><i></i><i></i></div>
+  <div class="vidro">
+    <div class="chuvisco"></div>
+    <svg class="rabisco" style="left:140px;bottom:260px;color:#e2c22a;width:130px;height:130px"><use href="#smiley"/></svg>
+    <svg class="rabisco" style="right:170px;top:260px;color:#3d8bff;width:120px;height:120px;transform:rotate(10deg)"><use href="#bolt"/></svg>
+    <svg class="rabisco" style="right:140px;bottom:230px;color:#3d8bff;width:100px;height:100px;transform:rotate(-12deg)"><use href="#star5"/></svg>
+    <svg class="rabisco" style="left:430px;top:220px;color:#3d8bff;width:100px;height:100px;transform:rotate(-30deg)"><use href="#bolt"/></svg>
+    <div class="raios"><i style="transform:rotate(-150deg)"></i><i style="transform:rotate(-120deg)"></i><i style="transform:rotate(-90deg)"></i></div>
+    <div class="topo">
+      <span class="etiqueta grande">Confirmar resultado?</span>
+      <div class="sub">Você escolheu:</div>
     </div>
+    <div class="carta"><div class="polaroid m"><div class="foto"><img src="kaio.svg" alt=""></div><span class="etiqueta nome">Menino</span></div></div>
+    <div class="acao"><a class="botao" href="#">Confirmar</a><a class="voltar" href="#">← voltar e trocar</a></div>
+    <div class="nota-estudo" style="right:60px;top:60px">Depois do Confirmar, a escolha some da tela e fica trancada. Não existe "ver de novo".</div>
   </div>
+  <div class="legenda">3. CONFIRMAÇÃO</div>
 </div></body></html>

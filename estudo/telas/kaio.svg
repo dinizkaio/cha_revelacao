@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" width="300" height="420">
+  <!-- Kaio criança: cabelo preto cacheado, olhos grandes escuros, camiseta branca com o Piu-Piu, short vermelho, tênis azul. -->
+  <defs><style>.t{stroke:#2a1a12;stroke-width:6;stroke-linejoin:round;stroke-linecap:round}</style></defs>
+  <!-- pernas -->
+  <path d="M128 330v48M172 330v48" stroke="#d9a878" stroke-width="18" stroke-linecap="round"/>
+  <path d="M128 330v48M172 330v48" fill="none" class="t" stroke="#2a1a12" stroke-width="4" opacity=".0"/>
+  <!-- tênis azuis -->
+  <path d="M100 378h44v14q6 14-6 18H98q-10-4-6-14z" fill="#3d8bff" class="t"/>
+  <path d="M94 396h56" stroke="#fff" stroke-width="6"/>
+  <path d="M156 378h44q10 10 6 18q-6 14-12 14h-38z" fill="#3d8bff" class="t"/>
+  <path d="M150 396h58" stroke="#fff" stroke-width="6"/>
+  <!-- short vermelho -->
+  <path d="M108 292h84l6 46h-38l-10-20-10 20h-38z" fill="#d8302f" class="t"/>
+  <!-- braços -->
+  <path d="M106 236q-36 30-30 86" fill="none" stroke="#2a1a12" stroke-width="22" stroke-linecap="round"/>
+  <path d="M106 236q-36 30-30 86" fill="none" stroke="#d9a878" stroke-width="12" stroke-linecap="round"/>
+  <path d="M194 236q40 20 46 70" fill="none" stroke="#2a1a12" stroke-width="22" stroke-linecap="round"/>
+  <path d="M194 236q40 20 46 70" fill="none" stroke="#d9a878" stroke-width="12" stroke-linecap="round"/>
+  <!-- camiseta branca com Piu-Piu -->
+  <path d="M104 226q46-14 92 0l10 72H94z" fill="#fff8ec" class="t"/>
+  <path d="M130 240q20 8 40 0" fill="none" stroke="#2a1a12" stroke-width="4"/>
+  <g transform="translate(150 268)"><circle r="16" fill="#ffd23f" stroke="#2a1a12" stroke-width="3"/><circle cx="-5" cy="-3" r="3" fill="#2a1a12"/><circle cx="5" cy="-3" r="3" fill="#2a1a12"/><path d="M-6 6l6 5 6-5z" fill="#ff8a2e" stroke="#2a1a12" stroke-width="2"/><path d="M-4-14l4-8 4 8" fill="#ffd23f" stroke="#2a1a12" stroke-width="2"/></g>
+  <!-- pescoço -->
+  <rect x="136" y="206" width="28" height="26" fill="#e3b58b"/>
+  <!-- cabeça -->
+  <path d="M52 128q0-96 98-96t98 96q0 60-30 86-28 24-68 24t-68-24q-30-26-30-86z" fill="#e3b58b" class="t"/>
+  <ellipse cx="54" cy="150" rx="11" ry="14" fill="#e3b58b" class="t"/>
+  <ellipse cx="246" cy="150" rx="11" ry="14" fill="#e3b58b" class="t"/>
+  <!-- cabelo cacheado preto -->
+  <g fill="#1b1b1b" stroke="#2a1a12" stroke-width="5" stroke-linejoin="round">
+    <circle cx="70" cy="110" r="26"/><circle cx="96" cy="78" r="28"/><circle cx="130" cy="58" r="30"/><circle cx="170" cy="58" r="30"/><circle cx="204" cy="78" r="28"/><circle cx="230" cy="110" r="26"/>
+    <circle cx="86" cy="140" r="20"/><circle cx="214" cy="140" r="20"/><circle cx="150" cy="44" r="26"/>
+    <path d="M62 128q4-60 88-66t88 66q-20-30-44-26-22-30-44-14-22-16-44 14-24-4-44 26z"/>
+  </g>
+  <g fill="#1b1b1b"><circle cx="70" cy="110" r="26"/><circle cx="96" cy="78" r="28"/><circle cx="130" cy="58" r="30"/><circle cx="170" cy="58" r="30"/><circle cx="204" cy="78" r="28"/><circle cx="230" cy="110" r="26"/>
+    <circle cx="86" cy="140" r="20"/><circle cx="214" cy="140" r="20"/><circle cx="150" cy="44" r="26"/>
+    <path d="M62 128q4-60 88-66t88 66q-20-30-44-26-22-30-44-14-22-16-44 14-24-4-44 26z"/></g>
+  <!-- olhos grandes castanhos -->
+  <circle cx="116" cy="160" r="30" fill="#fff" class="t"/>
+  <circle cx="184" cy="160" r="30" fill="#fff" class="t"/>
+  <circle cx="122" cy="166" r="14" fill="#4a2a14"/><circle cx="178" cy="166" r="14" fill="#4a2a14"/>
+  <circle cx="122" cy="166" r="7" fill="#1a0d06"/><circle cx="178" cy="166" r="7" fill="#1a0d06"/>
+  <circle cx="127" cy="159" r="4" fill="#fff"/><circle cx="183" cy="159" r="4" fill="#fff"/>
+  <!-- sobrancelhas -->
+  <path d="M92 122q22-12 46-2M162 120q24-10 46 2" fill="none" class="t"/>
+  <!-- nariz e sorriso aberto -->
+  <path d="M150 180q-8 12 0 20" fill="none" class="t"/>
+  <path d="M112 212q38 34 76 0z" fill="#5a1e24" class="t"/>
+  <path d="M120 214q30 10 60 0v6q-30 6-60 0z" fill="#fff"/>
+  <!-- bochechas -->
+  <circle cx="88" cy="196" r="9" fill="#e38a6c" opacity=".55"/><circle cx="212" cy="196" r="9" fill="#e38a6c" opacity=".55"/>
+</svg>

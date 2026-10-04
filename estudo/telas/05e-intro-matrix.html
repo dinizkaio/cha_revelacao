@@ -2,33 +2,33 @@
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Intro 5 · Matrix</title>
 <link rel="stylesheet" href="base.css">
 <style>
-.tela{background:#020904;color:#39ff6a;overflow:hidden}
-.chuva{position:absolute;inset:0;display:flex;justify-content:space-between;padding:0 10px;font-family:var(--f-vhs);font-size:30px;line-height:1.05;opacity:.55;text-shadow:0 0 8px #39ff6a}
+.crt .vidro{background:#020904}
+.chuva{position:absolute;inset:0;display:flex;justify-content:space-between;padding:0 10px;font-family:var(--f-vhs);font-size:30px;line-height:1.05;opacity:.55;color:var(--matrix);text-shadow:0 0 8px var(--matrix)}
 .chuva div{writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;letter-spacing:-.1em}
-.caixa{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:1240px;padding:50px 70px;border:4px solid #39ff6a;background:rgba(2,9,4,.88);box-shadow:0 0 60px rgba(57,255,106,.35);text-align:center}
+.caixa{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:1240px;padding:50px 70px;border:4px solid var(--matrix);background:rgba(2,9,4,.88);box-shadow:0 0 60px rgba(57,255,106,.35);text-align:center;color:var(--matrix)}
 .caixa h2{font-family:var(--f-vhs);font-size:112px;line-height:1;margin:0;letter-spacing:.04em}
 .caixa p{font-family:var(--f-vhs);font-size:44px;margin:16px 0 0;color:#9affb6}
 .pilulas{display:flex;justify-content:center;gap:80px;margin-top:40px}
 .pil{width:300px;height:110px;border-radius:999px;border:6px solid #fff;display:flex;overflow:hidden;box-shadow:0 0 40px rgba(255,255,255,.25)}
-.pil span{flex:1;display:grid;place-items:center;font-family:var(--f-nome);font-size:44px;color:#fff;letter-spacing:.06em}
+.pil span{flex:1;display:grid;place-items:center;font-family:var(--f-poster);font-size:36px;color:#fff}
 .pil.a span:first-child{background:var(--menino)}.pil.a span:last-child{background:#fff;color:var(--menino)}
 .pil.r span:first-child{background:var(--menina)}.pil.r span:last-child{background:#fff;color:var(--menina)}
-.cursor{display:inline-block;width:.6em;height:1em;background:#39ff6a;vertical-align:-.15em;margin-left:.1em}
+.cursor{display:inline-block;width:.6em;height:1em;background:var(--matrix);vertical-align:-.15em;margin-left:.1em}
 </style></head>
-<body><div class="tela scanlines">
-  <div class="chuva" id="chuva"></div>
-  <div class="caixa">
-    <h2>Pílula azul ou pílula rosa?<span class="cursor"></span></h2>
-    <p>Não existe colher. Existe fralda.</p>
-    <div class="pilulas">
-      <div class="pil a"><span>AZUL</span><span>menino</span></div>
-      <div class="pil r"><span>ROSA</span><span>menina</span></div>
+<body><script src="props.js"></script>
+<div class="tela crt">
+  <div class="pontos"><i></i><i></i><i></i></div>
+  <div class="vidro">
+    <div class="chuva" id="chuva"></div>
+    <div class="caixa">
+      <h2>Pílula azul ou pílula rosa?<span class="cursor"></span></h2>
+      <p>Não existe colher. Existe fralda.</p>
+      <div class="pilulas"><div class="pil a"><span>AZUL</span><span>menino</span></div><div class="pil r"><span>ROSA</span><span>menina</span></div></div>
     </div>
+    <script>
+      const c=document.getElementById('chuva');const chars='アイウエオカキクケコ0123456789NANDAKAIO1989199320261&';let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+      for(let i=0;i<44;i++){const d=document.createElement('div');let s='';const n=20+Math.floor(rnd()*30);for(let j=0;j<n;j++)s+=chars[Math.floor(rnd()*chars.length)];d.textContent=s;d.style.marginTop=(rnd()*400-100)+'px';d.style.opacity=.3+rnd()*.7;c.appendChild(d)}
+    </script>
   </div>
-  <script>
-    const c=document.getElementById('chuva');const chars='アイウエオカキクケコ0123456789NANDACAIO1989199320261&';
-    let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
-    for(let i=0;i<44;i++){const d=document.createElement('div');let s='';const n=20+Math.floor(rnd()*30);
-      for(let j=0;j<n;j++)s+=chars[Math.floor(rnd()*chars.length)];d.textContent=s;d.style.marginTop=(rnd()*400-100)+'px';d.style.opacity=.3+rnd()*.7;c.appendChild(d)}
-  </script>
+  <div class="legenda">5.5 ABERTURA · MATRIX</div>
 </div></body></html>

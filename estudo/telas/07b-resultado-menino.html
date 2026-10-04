@@ -2,39 +2,40 @@
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Resultado · menino</title>
 <link rel="stylesheet" href="base.css">
 <style>
-.tela{background:var(--menino);color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.raios{position:absolute;left:50%;top:50%;width:3000px;height:3000px;margin:-1500px 0 0 -1500px;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.14) 0 9deg,transparent 9deg 18deg)}
-.pontos{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 2px,transparent 2.4px);background-size:22px 22px}
-.conteudo{position:relative;z-index:2;display:flex;align-items:center;gap:50px}
-.texto{text-align:right}
-.pre{font-family:var(--f-nome);font-size:64px;line-height:1.25;color:var(--menino-claro);letter-spacing:.04em;text-shadow:5px 5px 0 var(--menino-2)}
-.grande{font-family:var(--f-titulo);font-size:250px;line-height:1;white-space:nowrap;color:#fff;text-shadow:14px 14px 0 var(--tinta);margin:10px 0 0}
-.pos{font:700 40px/1.3 var(--f-corpo);margin-top:34px;color:#fff;max-width:900px}
-.pos b{background:var(--tinta);color:var(--ipe);padding:4px 16px;border-radius:12px;font-family:var(--f-nome);font-weight:400;font-size:44px}
-.pers{height:700px;filter:drop-shadow(16px 16px 0 var(--tinta))}
-.conf{position:absolute;width:26px;height:40px;border-radius:4px;background:var(--ipe);border:3px solid var(--tinta)}
-.fim{position:absolute;right:60px;bottom:50px;background:var(--tinta);color:var(--papel);border:5px solid #fff;padding:10px 30px;font-family:var(--f-vhs);font-size:44px;letter-spacing:.12em}
-.placar{position:absolute;left:60px;bottom:50px;background:#fff;color:var(--tinta);border:5px solid var(--tinta);padding:12px 26px;font-family:var(--f-arcade);font-size:22px;line-height:1.6;box-shadow:8px 8px 0 var(--tinta)}
+.synth{background:linear-gradient(180deg,#07102e 0%,#143a8a 30%,#3d8bff 60%,#36e2ff 80%,#ffd23f 95%)}
+.synth .sol{background:linear-gradient(180deg,#fff2a8,#36e2ff 55%,#3d8bff)}
+.synth .grade{background:linear-gradient(90deg,rgba(255,255,255,.5) 2px,transparent 2px) 0 0/90px 100%,linear-gradient(0deg,rgba(255,255,255,.5) 2px,transparent 2px) 0 0/100% 36px}
+.synth .areia{background:linear-gradient(180deg,#8ec1ff,#1d4fa3)}
+.fogos{position:absolute;inset:0;z-index:2}
+.fogo{position:absolute;width:300px;height:300px;background:repeating-conic-gradient(from 0deg,currentColor 0 3deg,transparent 3deg 15deg);border-radius:50%;-webkit-mask:radial-gradient(circle,transparent 30%,#000 32%,#000 48%,transparent 50%);mask:radial-gradient(circle,transparent 30%,#000 32%,#000 48%,transparent 50%)}
+.pers{position:absolute;left:50%;bottom:30px;height:640px;margin-left:-240px;z-index:4;filter:drop-shadow(0 16px 20px rgba(0,0,0,.5))}
+.titulo{position:absolute;left:0;right:0;top:90px;text-align:center;z-index:5}
+.pre{font-family:var(--f-maquina);font-size:40px;color:#fff;text-transform:uppercase;letter-spacing:.14em;text-shadow:2px 2px 0 #143a8a}
+.grande{font-family:var(--f-poster);font-size:230px;line-height:1;color:#fff;margin-top:6px;-webkit-text-stroke:6px #143a8a;paint-order:stroke fill;text-shadow:0 0 30px var(--ciano),14px 14px 0 #143a8a;white-space:nowrap}
+.bilhete{position:absolute;right:100px;bottom:120px;width:460px;transform:rotate(3deg);font-size:28px;z-index:5}
+.fim{position:absolute;left:100px;bottom:70px;font-family:var(--f-vhs);font-size:64px;color:#fff;letter-spacing:.14em;text-shadow:3px 0 #0ff,-3px 0 #f0f;z-index:5}
+.sparkle{color:#fff;z-index:3}
+.dino{z-index:3;fill:#143a8a;filter:drop-shadow(0 4px 4px rgba(0,0,0,.3))}
 </style></head>
-<body><div class="tela">
-  <div class="raios"></div><div class="pontos"></div>
-  <div class="conf" style="left:200px;top:120px;transform:rotate(20deg)"></div>
-  <div class="conf" style="left:420px;top:900px;transform:rotate(-30deg);background:#fff"></div>
-  <div class="conf" style="left:1500px;top:90px;transform:rotate(60deg);background:#fff"></div>
-  <div class="conf" style="left:1750px;top:600px;transform:rotate(-15deg)"></div>
-  <div class="conf" style="left:1100px;top:60px;transform:rotate(45deg);background:var(--laranja)"></div>
-  <div class="conf" style="left:980px;top:980px;transform:rotate(10deg);background:var(--laranja)"></div>
-  <div class="ipe-flor" style="left:90px;top:520px;transform:rotate(15deg) scale(1.6)"></div>
-  <div class="ipe-flor" style="left:1800px;top:300px;transform:rotate(-25deg) scale(1.3)"></div>
-  <div class="ipe-flor" style="left:640px;top:140px;transform:rotate(40deg)"></div>
-  <div class="conteudo">
-    <div class="texto">
-      <div class="pre">Três em linha. Tá revelado, é…</div>
-      <h1 class="grande">MENINO!</h1>
-      <p class="pos">Nanda &amp; Caio, pais na adolescência, <b>GAME OVER</b> pra noite de sono.</p>
+<body><script src="props.js"></script>
+<div class="tela crt">
+  <div class="pontos"><i></i><i></i><i></i></div>
+  <div class="vidro">
+    <div class="synth"><div class="estrelas"></div><div class="sol"></div><div class="montanhas"></div><div class="mar"></div><div class="areia"></div><div class="grade"></div></div>
+    <div class="fogos">
+      <div class="fogo" style="left:120px;top:80px;color:#ffd23f"></div>
+      <div class="fogo" style="right:160px;top:40px;color:#fff;width:380px;height:380px"></div>
+      <div class="fogo" style="left:380px;top:360px;color:#ff7ac8;width:220px;height:220px"></div>
+      <div class="fogo" style="right:420px;top:300px;color:#36e2ff;width:240px;height:240px"></div>
     </div>
-    <img class="pers" src="menino.svg" alt="">
+    <svg class="rabisco sparkle" style="left:300px;top:560px;width:80px;height:80px"><use href="#sparkle"/></svg>
+    <svg class="rabisco sparkle" style="right:300px;top:620px;width:60px;height:60px"><use href="#sparkle"/></svg>
+    <svg class="rabisco sparkle" style="left:620px;top:720px;width:50px;height:50px"><use href="#sparkle"/></svg>
+    <svg class="prop dino" style="left:120px;bottom:260px;width:260px;height:182px"><use href="#trex"/></svg>
+    <div class="titulo"><div class="pre">Três em linha. Tá revelado:</div><div class="grande">É MENINO!</div></div>
+    <img class="pers" src="kaio.svg" alt="">
+    <div class="bilhete">Nanda &amp; Kaio<br>pais na adolescência<br>(30 anos depois)<br>outubro de 2026</div>
+    <div class="fim">◼ STOP · FIM</div>
   </div>
-  <div class="placar">MENINO WINS<br>FLAWLESS VICTORY</div>
-  <div class="fim">◼ STOP · FIM</div>
+  <div class="legenda">7. RESULTADO · MENINO</div>
 </div></body></html>

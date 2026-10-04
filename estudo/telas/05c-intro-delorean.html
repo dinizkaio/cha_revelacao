@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Intro 3 · De volta</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.crt .vidro{background:radial-gradient(ellipse at 50% 70%,#1a0a2e,#000 70%)}
+.chao{position:absolute;left:-30%;right:-30%;bottom:0;height:40%;background:linear-gradient(90deg,rgba(54,226,255,.35) 2px,transparent 2px) 0 0/100px 100%,linear-gradient(0deg,rgba(54,226,255,.35) 2px,transparent 2px) 0 0/100% 40px;transform:perspective(500px) rotateX(60deg);transform-origin:50% 100%}
+.carro{left:50%;bottom:170px;width:900px;height:346px;margin-left:-450px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.7))}
+.fogo{position:absolute;bottom:300px;height:22px;background:linear-gradient(90deg,transparent,#ff7a2e 40%,#ffd23f);filter:blur(4px);border-radius:10px}
+.fogo{bottom:180px}.fogo.a{left:-200px;width:900px}.fogo.b{left:-200px;width:800px;bottom:222px;opacity:.8}
+.painel{position:absolute;left:50%;top:60px;transform:translateX(-50%);width:1240px;background:#2a2a2e;border:6px solid #55555c;border-radius:10px;padding:22px 34px;box-shadow:0 20px 40px rgba(0,0,0,.6)}
+.linha{display:grid;grid-template-columns:330px 1fr;align-items:center;gap:30px;padding:8px 0;border-bottom:2px solid #444}
+.linha:last-child{border-bottom:0}
+.linha b{font-family:var(--f-maquina);font-size:26px;color:#ddd;text-transform:uppercase;letter-spacing:.1em}
+.led{font-family:var(--f-vhs);font-size:56px;white-space:nowrap;letter-spacing:.08em;background:#111;padding:0 20px;border-radius:6px}
+.led.r{color:#ff3b3b;text-shadow:0 0 14px #ff3b3b}.led.g{color:#39ff6a;text-shadow:0 0 14px #39ff6a}.led.y{color:#ffd23f;text-shadow:0 0 14px #ffd23f}
+.frase{position:absolute;left:0;right:0;bottom:70px;text-align:center;font-family:var(--f-poster);font-size:54px;color:#fff;text-shadow:0 0 20px var(--ciano);letter-spacing:.04em}
+.mph{position:absolute;right:120px;bottom:240px;font-family:var(--f-vhs);font-size:60px;color:#ff3b3b;text-shadow:0 0 14px #ff3b3b}
+</style></head>
+<body><script src="props.js"></script>
+<div class="tela crt">
+  <div class="pontos"><i></i><i></i><i></i></div>
+  <div class="vidro">
+    <div class="chao"></div>
+    <div class="painel">
+      <div class="linha"><b>Destino</b><span class="led r">OUT 2026 · CHÁ REVELAÇÃO</span></div>
+      <div class="linha"><b>Tempo presente</b><span class="led g">1989 · GUARUJÁ · KAIO</span></div>
+      <div class="linha"><b>Última partida</b><span class="led y">1993 · SJC · NANDA</span></div>
+    </div>
+    <div class="fogo a"></div><div class="fogo b"></div>
+    <svg class="prop carro"><use href="#delorean"/></svg>
+    <div class="mph">88 MPH ▶▶</div>
+    <div class="frase">Pra onde esse bebê vai, não precisa de estradas.</div>
+  </div>
+  <div class="legenda">5.3 ABERTURA · DE VOLTA PARA O FUTURO</div>
+</div></body></html>

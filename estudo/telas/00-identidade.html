@@ -2,91 +2,78 @@
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Identidade visual</title>
 <link rel="stylesheet" href="base.css">
 <style>
-.tela{padding:56px 72px;display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto 1fr;gap:28px 48px}
-h1{grid-column:1/-1;margin:0;font-family:var(--f-nome);font-size:54px;letter-spacing:.01em}
-h1 small{display:block;font:700 22px/1.3 var(--f-corpo);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}
-h2{font:800 20px/1 var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2);margin:0 0 14px;border-bottom:3px solid var(--tinta);padding-bottom:8px}
-.col{display:flex;flex-direction:column;gap:26px}
-.paleta{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
-.cor{height:118px;border:5px solid var(--tinta);border-radius:18px;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;font:800 15px/1.15 var(--f-corpo)}
-.cor span{font-weight:500;opacity:.8;font-size:13px}
-.tipos{display:grid;gap:10px}
-.tipo{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:10px 16px;border:4px solid var(--tinta);border-radius:16px;background:#fff8e6}
-.tipo b{font:800 14px/1.2 var(--f-corpo);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
-.texturas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.tex{height:110px;border:5px solid var(--tinta);border-radius:18px;position:relative;overflow:hidden;background:var(--papel)}
-.tex em{position:absolute;left:10px;bottom:8px;font:800 14px var(--f-corpo);font-style:normal;background:var(--tinta);color:var(--papel);padding:2px 8px;border-radius:999px}
-.azulejo{background:
-  linear-gradient(45deg,transparent 46%,var(--mar) 46% 54%,transparent 54%),
-  linear-gradient(-45deg,transparent 46%,var(--mar) 46% 54%,transparent 54%),#eef6f5;background-size:40px 40px}
-.pers{display:flex;align-items:flex-end;justify-content:space-around;gap:20px;border:5px solid var(--tinta);border-radius:24px;background:#fff8e6;padding:18px 20px 10px;height:430px;position:relative}
-.pers img{height:360px}
-.pers figure{margin:0;text-align:center}
-.pers figcaption{font:800 20px var(--f-corpo);margin-top:4px}
-.pers figcaption small{display:block;font-weight:500;font-size:15px;color:var(--tinta-2)}
-.icones{display:flex;gap:14px;align-items:center}
-.icone{width:92px;height:92px;border:5px solid var(--tinta);border-radius:20px;background:#fff8e6;display:grid;place-items:center}
-.tazo{width:64px;height:64px;border-radius:50%;background:repeating-conic-gradient(var(--ipe) 0 20deg,var(--laranja) 20deg 40deg);border:4px solid var(--tinta);position:relative}
-.tazo::after{content:"★";position:absolute;inset:0;display:grid;place-items:center;color:#fff5d6;font-size:30px;background:radial-gradient(circle,var(--laranja) 0 44%,transparent 46%)}
-.fita{width:70px;height:44px;background:#1a1a1a;border:4px solid var(--tinta);border-radius:6px;position:relative}
-.fita::before,.fita::after{content:"";position:absolute;top:10px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid #777}
-.fita::before{left:8px}.fita::after{right:8px}
-.chinelo{width:30px;height:62px;background:var(--ipe);border:4px solid var(--tinta);border-radius:40% 40% 46% 46%;position:relative}
-.chinelo::after{content:"";position:absolute;left:11px;top:8px;width:4px;height:26px;background:var(--mar);transform:rotate(18deg);box-shadow:-10px 8px 0 -0px transparent}
+.tela{background:#141216;color:#f2efe4;padding:50px 70px;display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto 1fr;gap:26px 44px;font-family:var(--f-corpo)}
+h1{grid-column:1/-1;margin:0;font-family:var(--f-poster);font-size:48px;color:#fff;text-shadow:5px 5px 0 var(--magenta)}
+h1 small{display:block;font:700 18px/1.3 var(--f-maquina);letter-spacing:.16em;text-transform:uppercase;color:#bbb;text-shadow:none;margin-bottom:8px}
+h2{font:800 17px/1 var(--f-maquina);letter-spacing:.16em;text-transform:uppercase;color:var(--amarelo);margin:0 0 12px;border-bottom:2px solid #444;padding-bottom:8px}
+.col{display:flex;flex-direction:column;gap:22px}
+.paleta{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.cor{height:96px;border-radius:12px;padding:8px;display:flex;flex-direction:column;justify-content:flex-end;font:800 14px/1.15 var(--f-corpo);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.cor span{font-weight:500;opacity:.9;font-size:12px}
+.tipos{display:grid;gap:8px}
+.tipo{display:grid;grid-template-columns:170px 1fr;align-items:center;gap:14px;padding:8px 14px;border:2px solid #3a3a40;border-radius:12px;background:#1d1a22}
+.tipo b{font:700 13px/1.25 var(--f-maquina);letter-spacing:.06em;text-transform:uppercase;color:#bbb}
+.pers{display:flex;align-items:flex-end;justify-content:space-around;gap:20px;border-radius:18px;background:#cfcdc5;padding:16px 20px 8px;height:400px;position:relative;overflow:hidden}
+.pers img{height:330px}
+.pers figure{margin:0;text-align:center;color:var(--tinta)}
+.pers figcaption{font:700 17px var(--f-maquina);margin-top:2px;text-transform:uppercase}
+.pers figcaption small{display:block;font:600 13px var(--f-corpo);text-transform:none;color:#444}
+.props{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.props div{aspect-ratio:1;border-radius:10px;background:#1d1a22;border:2px solid #3a3a40;display:grid;place-items:center}
+.props svg{position:static;width:70%;height:70%;fill:#eee}
+.texturas{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tex{height:84px;border-radius:12px;position:relative;overflow:hidden;border:2px solid #3a3a40}
+.tex em{position:absolute;left:8px;bottom:6px;font:700 12px var(--f-maquina);font-style:normal;background:#111;color:#eee;padding:2px 8px;border-radius:999px;text-transform:uppercase}
+.tex.chuvisco{position:relative}.tex.lousa{position:relative}
+.tex.synth{position:relative;inset:auto}
 </style></head>
-<body><div class="tela grao">
-  <h1><small>Chá revelação · Nanda &amp; Caio · estudo visual</small>Identidade: "Sessão da Tarde num quintal de terra"</h1>
+<body><script src="props.js"></script>
+<div class="tela">
+  <h1><small>Chá revelação · Nanda &amp; Kaio · estudo visual, versão 2</small>"Pôster de locadora, visto numa TV de tubo"</h1>
   <div class="col">
-    <section>
-      <h2>Paleta</h2>
+    <section><h2>Paleta</h2>
       <div class="paleta">
-        <div class="cor" style="background:var(--papel)">Papel<span>#f7e9c9 · fundo</span></div>
-        <div class="cor" style="background:var(--ipe)">Ipê amarelo<span>#ffc233 · destaque</span></div>
-        <div class="cor" style="background:var(--laranja);color:#fff">Laranja<span>#f0632b · Sessão da Tarde</span></div>
-        <div class="cor" style="background:var(--mar);color:#fff">Mar do Guarujá<span>#1f9aa6</span></div>
-        <div class="cor" style="background:var(--amora);color:#fff">Amora<span>#6b2d5c</span></div>
-        <div class="cor" style="background:var(--tinta);color:var(--papel)">Tinta<span>#2b1d14 · traço</span></div>
-        <div class="cor" style="background:var(--noite);color:#fff">Noite<span>#0c1024 · intro</span></div>
-      </div>
-      <div class="paleta" style="margin-top:12px;grid-template-columns:repeat(2,1fr)">
-        <div class="cor" style="background:var(--menino);color:#fff;height:70px;flex-direction:row;align-items:center;gap:14px">Menino <span style="color:#dbe8ff">#2f6fd1 · "azul piscina de plástico"</span></div>
-        <div class="cor" style="background:var(--menina);color:#fff;height:70px;flex-direction:row;align-items:center;gap:14px">Menina <span style="color:#ffe3ee">#ec4b8b · "rosa galocha"</span></div>
-      </div>
-    </section>
-    <section>
-      <h2>Tipografia</h2>
+        <div class="cor" style="background:#0b0820">Noite<span>#0b0820</span></div>
+        <div class="cor" style="background:#4a1d7a">Roxo<span>#4a1d7a</span></div>
+        <div class="cor" style="background:#ff3d9a">Magenta neon<span>#ff3d9a</span></div>
+        <div class="cor" style="background:#ff7a2e">Laranja pôr do sol<span>#ff7a2e</span></div>
+        <div class="cor" style="background:#ffd23f;color:#2a1a12;text-shadow:none">Amarelo<span>#ffd23f</span></div>
+        <div class="cor" style="background:#39ff6a;color:#062;text-shadow:none">Verde Matrix<span>#39ff6a</span></div>
+        <div class="cor" style="background:#cfcdc5;color:#222;text-shadow:none">Chuvisco da TV<span>#cfcdc5</span></div>
+        <div class="cor" style="background:#1c2823">Lousa<span>#1c2823</span></div>
+        <div class="cor" style="background:#f3d66b;color:#2a1a12;text-shadow:none">Fita crepe<span>#f3d66b</span></div>
+        <div class="cor" style="background:#f6efdd;color:#2a1a12;text-shadow:none">Papel<span>#f6efdd</span></div>
+        <div class="cor" style="background:#3d8bff">Menino<span>#3d8bff</span></div>
+        <div class="cor" style="background:#ff4fa3">Menina<span>#ff4fa3</span></div>
+      </div></section>
+    <section><h2>Tipografia</h2>
       <div class="tipos">
-        <div class="tipo"><b>Título · Bowlby One SC<br>(momento Jurassic Park)</b><span class="titulo" style="font-size:52px">CHÁ REVELAÇÃO</span></div>
-        <div class="tipo"><b>Nomes e botões · Luckiest Guy<br>(letra de desenho)</b><span class="nome" style="font-size:54px">Nanda &amp; Caio · COMEÇAR</span></div>
-        <div class="tipo"><b>Texto · Nunito<br>(lê de longe, no projetor)</b><span style="font-size:26px;font-weight:600">Vire um Tazo. Três iguais em linha: tá revelado.</span></div>
-        <div class="tipo"><b>Placar · Press Start 2P<br>(fliperama)</b><span class="arcade" style="font-size:22px">VEZ DE: NANDA &nbsp; ROUND 1</span></div>
-        <div class="tipo"><b>Videocassete · VT323</b><span class="vhs" style="font-size:40px;background:#000;color:#fff;padding:0 14px">PLAY ▶ &nbsp; SP 0:00:03</span></div>
-      </div>
-    </section>
+        <div class="tipo"><b>Pôster · Bungee<br>(título, KAIO)</b><span style="font-family:var(--f-poster);font-size:40px;color:#fff;text-shadow:4px 4px 0 var(--magenta)">CHÁ REVELAÇÃO</span></div>
+        <div class="tipo"><b>Derretida · Shrikhand<br>(NANDA)</b><span style="font-family:var(--f-drip);font-size:52px;color:var(--rosa);-webkit-text-stroke:2px #2a0d2e;paint-order:stroke fill">Nanda</span></div>
+        <div class="tipo"><b>Máquina de escrever · Special Elite<br>(etiquetas, textos)</b><span class="etiqueta" style="font-size:26px">Qual é o resultado?</span></div>
+        <div class="tipo"><b>Giz · Permanent Marker<br>(lousa do jogo)</b><span class="giz" style="font-size:36px">vez da Nanda · quase!</span></div>
+        <div class="tipo"><b>Videocassete · VT323<br>Fliperama · Press Start 2P</b><span><span class="vhs" style="font-family:var(--f-vhs);font-size:34px;color:#fff;text-shadow:2px 0 #0ff,-2px 0 #f0f">▶ PLAY SP 0:00:03</span> &nbsp; <span style="font-family:var(--f-arcade);font-size:16px;color:var(--amarelo)">ROUND 1</span></span></div>
+      </div></section>
   </div>
   <div class="col">
-    <section>
-      <h2>Personagens (desenhados pra este site, no espírito do Irmão do Jorel)</h2>
+    <section><h2>Personagens: Kaio e Nanda crianças (a partir das fotos)</h2>
       <div class="pers">
-        <figure><img src="menino.svg" alt=""><figcaption>Menino<small>camiseta laranja, chinelo de dedo, Tazo na mão</small></figcaption></figure>
-        <figure><img src="menina.svg" alt=""><figcaption>Menina<small>franja de lado, listras, galocha rosa, sardas</small></figcaption></figure>
-      </div>
-    </section>
-    <section>
-      <h2>Texturas e ícones</h2>
+        <figure><img src="kaio.svg" alt=""><figcaption>Kaio<small>cacheado, olhos grandes, camiseta do Piu-Piu, tênis azul</small></figcaption></figure>
+        <figure><img src="nanda.svg" alt=""><figcaption>Nanda<small>cabelo claro ondulado, olhos claros, florzinha, jardineira rosa</small></figcaption></figure>
+      </div></section>
+    <section><h2>Objetos dos anos 90 (tudo em SVG, desenhado aqui)</h2>
+      <div class="props">
+        <div><svg><use href="#trex"/></svg></div><div><svg><use href="#vader"/></svg></div><div><svg><use href="#etbike"/></svg></div><div><svg><use href="#delorean"/></svg></div>
+        <div><svg><use href="#gameboy"/></svg></div><div><svg><use href="#cassette"/></svg></div><div><svg><use href="#vhs"/></svg></div><div><svg><use href="#oldtv"/></svg></div>
+        <div><svg><use href="#pizza"/></svg></div><div><svg><use href="#slinky"/></svg></div><div><svg><use href="#cat"/></svg></div><div><svg><use href="#palm"/></svg></div>
+        <div><svg style="color:#ff3d9a"><use href="#heart"/></svg></div><div><svg style="color:#3d8bff"><use href="#star5"/></svg></div><div><svg style="color:#ffd23f"><use href="#smiley"/></svg></div><div><svg><use href="#jpbadge"/></svg></div>
+      </div></section>
+    <section><h2>Texturas</h2>
       <div class="texturas">
-        <div class="tex grao"><em>grão de papel</em></div>
-        <div class="tex meiotom"><em>meio-tom (gibi)</em></div>
-        <div class="tex scanlines" style="background:#222"><em>scanlines (VHS)</em></div>
-        <div class="tex azulejo"><em>azulejo de quintal</em></div>
-      </div>
-      <div class="icones" style="margin-top:12px">
-        <div class="icone"><div class="tazo"></div></div>
-        <div class="icone"><div class="fita"></div></div>
-        <div class="icone"><div class="chinelo"></div></div>
-        <div class="icone"><div class="ipe-flor" style="position:static;width:60px;height:60px"></div></div>
-        <div style="font:600 18px/1.35 var(--f-corpo);color:var(--tinta-2);max-width:380px">Tazo (peça do jogo), fita VHS (abertura), chinelo (Guarujá), flor de ipê (confete do quintal).</div>
-      </div>
-    </section>
+        <div class="tex chuvisco"><em>chuvisco</em></div>
+        <div class="tex lousa"><em>lousa</em></div>
+        <div class="tex synth"><div class="sol" style="top:20%;width:120px;height:120px;margin-left:-60px"></div><div class="grade"></div><em>pôr do sol</em></div>
+        <div class="tex" style="background:#111"><div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.18) 0 2px,transparent 2px 5px)"></div><em>scanlines</em></div>
+      </div></section>
   </div>
 </div></body></html>
