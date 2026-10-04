@@ -84,7 +84,10 @@
     fanfarra() { [523, 659, 784, 1046].forEach((f, i) => nota(f, i * .14, .5, 'triangle', .22)); nota(1318, .6, 1.2, 'triangle', .2); },
     fogo() { ruido(.5, 'highpass', 900, .25); nota(200 + Math.random() * 200, 0, .25, 'sine', .15); },
     clique() { nota(600, 0, .06, 'square', .05); },
-    tracking() { ruido(.32, 'bandpass', 2400, .22); ruido(.18, 'lowpass', 300, .25); }
+    tracking() { ruido(.32, 'bandpass', 2400, .22); ruido(.18, 'lowpass', 300, .25); },
+    carimbo() { ruido(.08, 'lowpass', 500, .5); nota(80, 0, .18, 'square', .22); },
+    rachar() { ruido(.14, 'highpass', 1800, .35); nota(140, 0, .09, 'square', .14); nota(220, .05, .06, 'square', .1); },
+    tec() { nota(1500, 0, .025, 'square', .07); }
   };
   const btnSom = $('#btn-som');
   function pintarSom() {
@@ -236,6 +239,13 @@
     som.clique(); irPara('confirmar');
   });
   $('#btn-confirmar-2').addEventListener('click', () => {
+    const tela = $('#tela-confirmar');
+    if (!tela.classList.contains('carimbado') && !reduzMovimento) {
+      tela.classList.add('carimbado'); som.carimbo();
+      setTimeout(() => { $('#btn-confirmar-2').click(); tela.classList.remove('carimbado'); }, 900);
+      return;
+    }
+    tela.classList.remove('carimbado');
     guardar(escolha);
     // some da interface
     escolha = null;
@@ -245,12 +255,29 @@
     som.videocassete(); irPara('play');
   });
 
+  // chapéu seletor resmunga (nada que entregue o resultado)
+  (() => {
+    const balao = $('.balao-chapeu'), chapeu = $('.chapeu-grupo .chapeu'); if (!balao) return;
+    const padrao = balao.textContent;
+    const falas = ['Vejo coragem… e muita fralda.', 'Um nome difícil, pelo visto…', 'Hmm… opinião forte, esse aqui.', 'Vai dar trabalho. Do bom.', 'Não me apresse!', 'Já sei… não, esqueci.'];
+    let k = Math.floor(Math.random() * falas.length);
+    function dizer(t) { balao.textContent = t; balao.classList.add('nova'); chapeu.classList.remove('fala'); void chapeu.offsetWidth; chapeu.classList.add('fala'); setTimeout(() => balao.classList.remove('nova'), 250); }
+    $$('#tela-seletor .polaroid').forEach(p => {
+      p.addEventListener('pointerenter', () => dizer(falas[k++ % falas.length]));
+      p.addEventListener('pointerleave', () => { balao.textContent = padrao; });
+    });
+  })();
+
   // ---------- 4. play ----------
   $('#btn-play').addEventListener('click', comecarAbertura);
   function comecarAbertura() {
     if (!lerSegredo()) { irPara('seletor'); return; }
+    const tela = $('#tela-play');
+    if (tela.classList.contains('inserindo')) return;
     som.videocassete();
-    irPara('abertura');
+    if (reduzMovimento) { irPara('abertura'); return; }
+    tela.classList.add('inserindo');
+    setTimeout(() => { tela.classList.remove('inserindo'); irPara('abertura'); }, 1000);
   }
   // segurar o título por 5 s pra recomeçar
   const segurar = $('#segurar-reset'); let timerSegurar = null;
@@ -277,6 +304,8 @@
       osd.textContent = '0:00:00';
       timersAbertura.push(setInterval(tic, 1000));
     }
+    if (nome === 'jurassic') timersAbertura.push(setTimeout(() => som.rachar(), 3500));
+    if (nome === 'carta') timersAbertura.push(setTimeout(() => som.rachar(), 4400));
     if (nome === 'matrix') {
       montarChuva();
       const alvo = 'Pílula azul ou pílula rosa?', el = $('#matrix-texto'); el.textContent = '';
@@ -558,17 +587,58 @@
     $('#tt3').textContent = menino ? 'El Nombre del Niño' : 'El Nombre de la Niña';
     const itens = NOMES[menino ? 'm' : 'f'].map(n => n + '?');
     itens.push('…'); itens.push('ainda não decidiu');
-    const fita = $('#fita-nomes'); fita.innerHTML = '';
+    const fita = $('#fita-nomes'); fita.innerHTML = ''; fita.className = 'fita-nomes'; fita.style.transform = '';
     [...itens, ...itens].forEach(t => { const d = document.createElement('div'); d.textContent = t; if (!/\?$/.test(t)) d.classList.add('duvida'); fita.appendChild(d); });
-    $('#sorteio-nota').textContent = menino
-      ? 'Kaio: "Bernardo, fechado." Nanda: "calma, deixa eu pensar."'
-      : 'Kaio: "Aurora, fechado." Nanda: "calma, deixa eu pensar."';
+    roleta.preparar(itens, menino);
     clearTimeout(timerTrailer);
-    timerTrailer = setTimeout(() => { $('#trailer').hidden = false; telaFim.classList.add('trailer-ativo'); som.videocassete(); trilha.tocar('trailer'); }, 4500);
+    timerTrailer = setTimeout(mostrarTrailer, 4500);
   };
-  aoSair.fim = () => clearTimeout(timerTrailer);
+  function mostrarTrailer() {
+    clearTimeout(timerTrailer);
+    if (!$('#trailer').hidden) return;
+    $('#trailer').hidden = false; $('#tela-fim').classList.add('trailer-ativo'); som.videocassete(); trilha.tocar('trailer');
+    roleta.rodar();
+  }
+  // a roleta gira, freia num nome ("tec… tec…"), pensa, e gira de novo; só para de vez no "ainda não decidiu"
+  const roleta = (() => {
+    const fita = $('#fita-nomes'), caixa = $('.roleta'), nota = $('#sorteio-nota');
+    let timers = [], itens = [], quem = '';
+    const limpar = () => { timers.forEach(clearTimeout); timers = []; };
+    const depois = (ms, f) => timers.push(setTimeout(f, ms));
+    function posAtual() { const m = new DOMMatrixReadOnly(getComputedStyle(fita).transform); return m.m42; }
+    function frear(k, cb) { // para no item k (segunda cópia), com tiques de desaceleração
+      const y = posAtual(); fita.classList.remove('girando'); fita.style.transform = `translateY(${y}px)`; void fita.offsetWidth;
+      fita.classList.add('freando'); fita.style.transform = `translateY(${-120 * (k + itens.length)}px)`;
+      [60, 160, 290, 450, 650, 900, 1200].forEach(t => depois(t, () => som.tec()));
+      depois(1400, () => { fita.classList.remove('freando'); caixa.classList.add('parou'); cb && cb(); });
+    }
+    function girar(k) { // volta pro mesmo item na primeira cópia e solta a animação a partir dele
+      caixa.classList.remove('parou'); fita.classList.remove('freando');
+      fita.style.transform = ''; fita.style.animationDelay = (-(k / itens.length) * 1.2) + 's'; fita.classList.add('girando');
+    }
+    function dizer(t) { nota.textContent = t; nota.classList.remove('pisca'); void nota.offsetWidth; nota.classList.add('pisca'); }
+    return {
+      preparar(lista, menino) { limpar(); itens = lista; quem = menino ? 'Bernardo' : 'Aurora'; caixa.classList.remove('parou'); nota.textContent = 'girando…'; },
+      rodar() {
+        limpar(); if (reduzMovimento) { fita.style.transform = `translateY(${-120 * (itens.length - 1)}px)`; nota.textContent = 'Nanda: "calma, deixa eu pensar."'; return; }
+        const ultimo = itens.length - 1, segundo = Math.min(1, ultimo - 2);
+        girar(0); nota.textContent = 'girando…';
+        depois(2600, () => frear(0, () => { dizer(`Kaio: "${quem}, fechado."`);
+          depois(1500, () => { girar(0); dizer('Nanda: "espera… deixa eu ver de novo."');
+            depois(1800, () => frear(segundo, () => { dizer('Kaio: "fechado então?"  Nanda: "hmm…"');
+              depois(1600, () => { girar(segundo); dizer('girando…');
+                depois(2000, () => frear(ultimo, () => dizer('Nanda: "calma, deixa eu pensar."')));
+              });
+            }));
+          });
+        }));
+      },
+      parar() { limpar(); fita.classList.remove('girando', 'freando'); }
+    };
+  })();
+  aoSair.fim = () => { clearTimeout(timerTrailer); roleta.parar(); };
   $('#tela-fim').addEventListener('click', () => {
-    if ($('#trailer').hidden) { clearTimeout(timerTrailer); $('#trailer').hidden = false; $('#tela-fim').classList.add('trailer-ativo'); trilha.tocar('trailer'); }
+    if ($('#trailer').hidden) mostrarTrailer();
     else irPara('resultado');
   });
 

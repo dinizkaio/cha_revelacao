@@ -144,8 +144,12 @@ Todas as sete etapas abaixo entraram no site, nesta ordem, em commits
 separados: luz e profundidade; poses e piscar; confete e pó de giz;
 transições de VHS (mais flash do trovão, cortina Matrix e pomo fugindo
 da capa); parallax com mouse e balanço lento; tipografia 3D com cromado
-no trailer e tremulação no neon. Os detalhes de cena da seção 3 que ainda
-não entraram ficam como próxima rodada, se quiserem.
+no trailer e tremulação no neon. Da seção 3 entraram também: a fita VHS entrando no aparelho ao
+apertar play; o Chapéu Seletor resmungando ao passar o mouse nas
+polaroids; o carimbo CONFIDENCIAL na confirmação; o ovo tremendo e
+rachando antes de o bebê dinossauro sair; a coruja soltando a carta e o
+lacre pulando fora; e a roleta do trailer parando de mentira em dois
+nomes antes do "ainda não decidiu".
 
 Ordem original:
 
