@@ -106,7 +106,7 @@
     seletor: 'assets/som/02-seletor.mp3?v=eb929f4b64',
     confirmar: 'assets/som/03-confirmar.mp3?v=697a7d6159',
     play: 'assets/som/04-play.mp3?v=61e23149b0',
-    vhs: 'assets/som/05-fita.mp3',
+    vhs: 'assets/som/05-fita.mp3?v=37c527c630',
     crawl: 'assets/som/06-letreiro.mp3',
     delorean: 'assets/som/07-sequencia.mp3',
     jurassic: 'assets/som/07-sequencia.mp3',
@@ -243,7 +243,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 4500], ['crawl', 112000], ['delorean', 9000], ['jurassic', 7500], ['matrix', 7500], ['aventura', 8500]];
+  const CENAS = [['vhs', 8000], ['crawl', 112000], ['delorean', 9000], ['jurassic', 7500], ['matrix', 7500], ['aventura', 8500]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
