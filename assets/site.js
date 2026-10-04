@@ -112,7 +112,7 @@
     jurassic: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     matrix: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     aventura: 'assets/som/07-sequencia.mp3?v=bc40be505d',
-    jogo: 'assets/som/08-jogo.mp3',
+    jogo: 'assets/som/08-jogo.mp3?v=fb7f0564f2',
     resultado: 'assets/som/09-resultado.mp3',
     fim: 'assets/som/10-fim.mp3',
     trailer: 'assets/som/11-trailer.mp3'
@@ -125,7 +125,8 @@
     capa: { fim: 170.0, cruzar: 1.5 },
     seletor: { fim: 175.0, cruzar: 1.5, inicio: 45 },
     confirmar: { fim: 58.5, cruzar: 1.5, inicio: 1 },
-    play: { fim: 57.0, cruzar: 1.5, inicio: 2.5 }
+    play: { fim: 57.0, cruzar: 1.5, inicio: 2.5 },
+    jogo: { fim: 162.0, cruzar: 1.5 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
