@@ -40,7 +40,10 @@ o segredo continua guardado.
 - **Abertura:** um clique ou espaço passa para a próxima cena; Esc vai
   direto para o jogo.
 - **Fim:** o botão "STOP · FIM" na tela do resultado para os fogos e o som e
-  mostra a tela de encerramento. Um clique nela volta para o resultado.
+  mostra a tela de encerramento. Depois de uns segundos (ou com um clique)
+  entra o trailer da próxima aventura, "A Galáxia dos Nomes", com a roleta
+  de nomes que não para de girar. Os nomes candidatos estão na lista `NOMES`
+  em `assets/site.js`. Outro clique volta para o resultado.
 - Em celular, o site pede para virar na horizontal, como uma TV. Tudo é
   desenhado em 1920×1080 e escalado para caber na tela.
 

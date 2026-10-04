@@ -421,7 +421,28 @@
   };
   aoSair.resultado = () => clearInterval(timerFogos);
   $('#btn-fim').addEventListener('click', e => { e.stopPropagation(); clearInterval(timerFogos); irPara('fim'); });
-  $('#tela-fim').addEventListener('click', () => irPara('resultado'));
+  let timerTrailer = null;
+  const NOMES = { f: ['Aurora', 'Flora', 'Lara', 'Alice'], m: ['Bernardo', 'Valentim'] };
+  aoEntrar.fim = () => {
+    const menino = jogo.vencedor === 'm';
+    const telaFim = $('#tela-fim');
+    telaFim.classList.remove('trailer-ativo'); $('#trailer').hidden = true;
+    $('#tt3').textContent = menino ? 'El Nombre del Niño' : 'El Nombre de la Niña';
+    const itens = NOMES[menino ? 'm' : 'f'].map(n => n + '?');
+    itens.push('…'); itens.push('ainda não decidiu');
+    const fita = $('#fita-nomes'); fita.innerHTML = '';
+    [...itens, ...itens].forEach(t => { const d = document.createElement('div'); d.textContent = t; if (!/\?$/.test(t)) d.classList.add('duvida'); fita.appendChild(d); });
+    $('#sorteio-nota').textContent = menino
+      ? 'Kaio: "Bernardo, fechado." Nanda: "calma, deixa eu pensar."'
+      : 'Kaio: "Aurora, fechado." Nanda: "calma, deixa eu pensar."';
+    clearTimeout(timerTrailer);
+    timerTrailer = setTimeout(() => { $('#trailer').hidden = false; telaFim.classList.add('trailer-ativo'); som.videocassete(); }, 4500);
+  };
+  aoSair.fim = () => clearTimeout(timerTrailer);
+  $('#tela-fim').addEventListener('click', () => {
+    if ($('#trailer').hidden) { clearTimeout(timerTrailer); $('#trailer').hidden = false; $('#tela-fim').classList.add('trailer-ativo'); }
+    else irPara('resultado');
+  });
 
   // ---------- teclado ----------
   addEventListener('keydown', e => {
