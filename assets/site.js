@@ -104,7 +104,7 @@
   const TRILHA = {
     capa: 'assets/som/01-capa.mp3?v=b293531d2b',
     seletor: 'assets/som/02-seletor.mp3?v=eb929f4b64',
-    confirmar: 'assets/som/03-confirmar.mp3',
+    confirmar: 'assets/som/03-confirmar.mp3?v=697a7d6159',
     play: 'assets/som/04-play.mp3',
     vhs: 'assets/som/05-fita.mp3',
     crawl: 'assets/som/06-letreiro.mp3',
@@ -123,7 +123,8 @@
   // `inicio` (opcional) é onde a volta recomeça, para pular uma narração que só deve tocar uma vez.
   const LOOP = {
     capa: { fim: 170.0, cruzar: 1.5 },
-    seletor: { fim: 175.0, cruzar: 1.5, inicio: 45 }
+    seletor: { fim: 175.0, cruzar: 1.5, inicio: 45 },
+    confirmar: { fim: 58.5, cruzar: 1.5, inicio: 1 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
