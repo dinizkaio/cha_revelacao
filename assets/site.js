@@ -108,10 +108,10 @@
     play: 'assets/som/04-play.mp3?v=61e23149b0',
     vhs: 'assets/som/05-fita.mp3?v=37c527c630',
     crawl: 'assets/som/06-letreiro.mp3?v=71b926360e',
-    delorean: 'assets/som/07-sequencia.mp3',
-    jurassic: 'assets/som/07-sequencia.mp3',
-    matrix: 'assets/som/07-sequencia.mp3',
-    aventura: 'assets/som/07-sequencia.mp3',
+    delorean: 'assets/som/07-sequencia.mp3?v=bc40be505d',
+    jurassic: 'assets/som/07-sequencia.mp3?v=bc40be505d',
+    matrix: 'assets/som/07-sequencia.mp3?v=bc40be505d',
+    aventura: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     jogo: 'assets/som/08-jogo.mp3',
     resultado: 'assets/som/09-resultado.mp3',
     fim: 'assets/som/10-fim.mp3',
@@ -243,7 +243,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 9000], ['jurassic', 7500], ['matrix', 7500], ['aventura', 8500]];
+  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 14000], ['jurassic', 13000], ['matrix', 14000], ['aventura', 20000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;

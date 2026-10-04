@@ -245,7 +245,7 @@ img{-webkit-user-drag:none}
 /* 5.6 uma nova aventura */
 .cena-aventura .synth{background:linear-gradient(180deg,#2a0f4a 0%,#7a2a7a 30%,#ff5a6e 55%,#ff9a3c 72%,#ffd23f 85%)}
 .cena-aventura .synth .sol{top:30%;-webkit-mask:none;mask:none}
-.cena.ativa.cena-aventura .sol{animation:nascer 8s ease-out forwards}
+.cena.ativa.cena-aventura .sol{animation:nascer 16s ease-out forwards}
 @keyframes nascer{from{transform:translateY(120px)}to{transform:none}}
 .cena-aventura .synth .areia{height:24%;background:linear-gradient(180deg,#5a2a6a,#2a1040)}
 .cena-aventura .palma{top:60px;width:360px;height:680px}
