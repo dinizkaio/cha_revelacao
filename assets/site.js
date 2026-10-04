@@ -103,7 +103,7 @@
   // Momentos que apontam para o mesmo arquivo continuam a mesma música, sem recomeçar.
   const TRILHA = {
     capa: 'assets/som/01-capa.mp3?v=b293531d2b',
-    seletor: 'assets/som/02-seletor.mp3',
+    seletor: 'assets/som/02-seletor.mp3?v=eb929f4b64',
     confirmar: 'assets/som/03-confirmar.mp3',
     play: 'assets/som/04-play.mp3',
     vhs: 'assets/som/05-fita.mp3',
@@ -120,8 +120,10 @@
   // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
   // Com entrada, o tocador para em `fim` e emenda com o começo num crossfade de `cruzar` segundos
   // (serve para faixas que terminam em silêncio ou com fade).
+  // `inicio` (opcional) é onde a volta recomeça, para pular uma narração que só deve tocar uma vez.
   const LOOP = {
-    capa: { fim: 170.0, cruzar: 1.5 }
+    capa: { fim: 170.0, cruzar: 1.5 },
+    seletor: { fim: 175.0, cruzar: 1.5, inicio: 0 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
@@ -146,6 +148,7 @@
         if (!tocando || tocando.a !== a) return;
         if (a.currentTime >= cfg.fim - cfg.cruzar) {
           const b = novoAudio(a.currentSrc || a.src);
+          if (cfg.inicio) b.currentTime = cfg.inicio;
           const velho = a;
           clearInterval(tocando.vigia);
           tocando.a = b;
