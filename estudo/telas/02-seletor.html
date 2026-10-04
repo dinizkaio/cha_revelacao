@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Seletor</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.tela{background:var(--tinta);color:var(--papel);display:flex;flex-direction:column;align-items:center;padding:60px 80px 50px}
+.tela.meiotom{background-image:radial-gradient(rgba(255,255,255,.07) 1.4px,transparent 1.6px)}
+.topo{display:flex;flex-direction:column;align-items:center;gap:18px}
+.etiqueta{background:var(--ipe);color:var(--tinta)}
+h1{margin:10px 0 0;font-family:var(--f-nome);font-size:88px;color:#fff;letter-spacing:.02em}
+.sub{margin:4px 0 0;font-size:28px;color:#d9c7a6;max-width:980px;text-align:center}
+.cartas{display:flex;gap:60px;margin-top:40px}
+.carta{width:560px;height:520px;border-radius:40px;border:8px solid rgba(255,255,255,.18);background:#3a2a1e;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 26px;position:relative;overflow:hidden}
+.carta img{height:380px;margin-bottom:8px}
+.carta .nome{font-size:70px;color:#fff;letter-spacing:.04em}
+.carta.m{background:var(--menino)}
+.carta.f{background:var(--menina)}
+.carta.sel{border-color:var(--ipe);box-shadow:0 0 0 10px rgba(255,194,51,.35),0 24px 60px rgba(0,0,0,.5);transform:scale(1.04)}
+.carta .check{position:absolute;top:22px;right:22px;width:76px;height:76px;border-radius:50%;background:var(--ipe);border:6px solid var(--tinta);display:grid;place-items:center;font:900 40px var(--f-corpo);color:var(--tinta)}
+.carta .pos{position:absolute;top:28px;left:28px;font:800 20px var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.acoes{margin-top:44px;display:flex;align-items:center;gap:40px}
+.aviso{margin-top:22px;font-size:22px;color:#b9a687;text-align:center;max-width:900px}
+.aviso b{color:var(--ipe)}
+</style></head>
+<body><div class="tela meiotom">
+  <div class="topo">
+    <span class="etiqueta">🔒 Área restrita · só quem sabe o segredo</span>
+    <h1>Quem vem aí?</h1>
+    <p class="sub">Escolha, confirme e entregue o computador. A partir daí, ninguém mais vê esta tela — nem os pais.</p>
+  </div>
+  <div class="cartas">
+    <div class="carta m"><span class="pos">Opção 1</span><img src="menino.svg" alt=""><p class="nome">Menino</p></div>
+    <div class="carta f sel"><span class="pos">Opção 2</span><span class="check">✓</span><img src="menina.svg" alt=""><p class="nome">Menina</p></div>
+  </div>
+  <div class="acoes">
+    <a class="botao" href="#">Confirmar</a>
+  </div>
+  <p class="aviso">Depois de confirmar, <b>a escolha some da tela e fica trancada</b> até alguém apertar o play.</p>
+  <div class="nota-estudo" style="right:60px;top:60px">Tela da "guardiã do segredo" (sua concunhada). Fundo escuro de propósito: parece um bastidor, não um palco.</div>
+</div></body></html>

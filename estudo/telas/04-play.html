@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Play</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.tela{background:var(--papel);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.marca{position:absolute;top:44px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:18px}
+.marca .titulo{font-size:44px}
+.marca .nome{font-size:40px;color:var(--menino)}
+.marca .nome em{font-style:normal;color:var(--menina)}
+.fita{position:relative;width:520px;height:300px;background:#1d1d1d;border:8px solid var(--tinta);border-radius:16px;box-shadow:16px 16px 0 var(--tinta);display:grid;place-items:center}
+.fita::before{content:"";position:absolute;left:60px;right:60px;top:70px;height:120px;background:#0b0b0b;border-radius:14px;border:4px solid #333}
+.fita .r{position:absolute;top:92px;width:80px;height:80px;border-radius:50%;background:#fff;border:10px solid #777;box-shadow:inset 0 0 0 8px #222}
+.fita .r1{left:86px}.fita .r2{right:86px}
+.fita .et{position:absolute;left:40px;right:40px;bottom:18px;height:58px;background:#fff;border:3px solid var(--tinta);font:28px/52px var(--f-vhs);color:var(--tinta);letter-spacing:.06em}
+h1{font-family:var(--f-nome);font-size:100px;margin:54px 0 0;letter-spacing:.02em}
+p{font-size:32px;margin:10px auto 0;color:var(--tinta-2);max-width:1000px}
+.play{margin-top:46px;width:260px;height:260px;border-radius:50%;background:var(--ipe);border:10px solid var(--tinta);box-shadow:14px 14px 0 var(--tinta);display:grid;place-items:center;position:relative}
+.play::after{content:"";width:0;height:0;border-left:110px solid var(--tinta);border-top:66px solid transparent;border-bottom:66px solid transparent;margin-left:26px}
+.dica{position:absolute;bottom:44px;left:0;right:0;font-size:22px;color:var(--tinta-2);font-weight:600}
+.pers{position:absolute;bottom:0;height:400px}
+.pers.m{left:80px}.pers.f{right:80px}
+.cadeado{position:absolute;top:46px;right:60px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:4px solid var(--tinta);border-radius:999px;padding:8px 20px;font:800 22px var(--f-corpo)}
+</style></head>
+<body><div class="tela grao">
+  <div class="marca"><span class="titulo">Chá Revelação</span><span class="nome"><em>Nanda</em> &amp; Caio</span></div>
+  <span class="cadeado">🔒 Segredo trancado</span>
+  <div class="fita"><span class="r r1"></span><span class="r r2"></span><span class="et">NANDA &amp; CAIO · CHÁ REVELAÇÃO · 2026</span></div>
+  <h1>Fita na máquina.</h1>
+  <p>Pode ligar o projetor: esta tela não entrega nada. Quando todo mundo estiver olhando, aperte o play.</p>
+  <div class="play"></div>
+  <p class="dica">PLAY · ou a tecla ESPAÇO · · · (pra recomeçar do zero, segure o título por 5 segundos)</p>
+  <img class="pers m" src="menino.svg" alt="">
+  <img class="pers f" src="menina.svg" alt="">
+</div></body></html>

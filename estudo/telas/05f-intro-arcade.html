@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Intro 6 · Fliperama</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.tela{background:#120a2e;color:#fff;overflow:hidden}
+.grade{position:absolute;left:-400px;right:-400px;bottom:0;height:520px;background:
+  linear-gradient(90deg,rgba(236,75,139,.6) 3px,transparent 3px) 0 0/140px 100%,
+  linear-gradient(0deg,rgba(47,111,209,.7) 3px,transparent 3px) 0 0/100% 70px;transform:perspective(600px) rotateX(62deg);transform-origin:50% 100%}
+.ceu{position:absolute;inset:0 0 40% 0;background:linear-gradient(180deg,#120a2e,#3a1a6a)}
+.p{position:absolute;top:70px;width:700px;font-family:var(--f-arcade)}
+.p .n{font-size:40px;line-height:1.2}
+.p .barra{margin-top:18px;height:40px;border:5px solid #fff;background:#330;position:relative}
+.p .barra i{position:absolute;inset:0;background:#39ff6a}
+.p.a{left:90px}.p.a .n{color:var(--menino-claro)}
+.p.b{right:90px;text-align:right}.p.b .n{color:var(--menina-claro)}
+.vs{position:absolute;left:50%;top:60px;transform:translateX(-50%);font-family:var(--f-nome);font-size:110px;color:var(--ipe);text-shadow:6px 6px 0 #c8102e}
+.pers{position:absolute;bottom:40px;height:620px;z-index:2}
+.pers.m{left:200px}.pers.f{right:200px;transform:scaleX(-1)}
+.c{position:absolute;left:0;right:0;top:390px;text-align:center;font-family:var(--f-arcade)}
+.c .r{font-size:34px;color:#fff;letter-spacing:.1em}
+.c .f{font-size:150px;color:var(--ipe);line-height:1.1;text-shadow:8px 8px 0 #c8102e,0 0 30px rgba(255,194,51,.6);margin-top:24px}
+.c .f small{display:block;font-size:60px;color:#fff;text-shadow:5px 5px 0 var(--menino-2);margin-bottom:14px}
+.coin{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--f-arcade);font-size:30px;color:#ffe8a3;letter-spacing:.1em}
+</style></head>
+<body><div class="tela scanlines">
+  <div class="ceu"></div>
+  <div class="grade"></div>
+  <div class="p a"><div class="n">PLAYER 1<br>CAIO · GUARUJÁ</div><div class="barra"><i></i></div></div>
+  <div class="vs">VS</div>
+  <div class="p b"><div class="n">PLAYER 2<br>NANDA · SJC</div><div class="barra"><i></i></div></div>
+  <img class="pers m" src="menino.svg" alt="">
+  <img class="pers f" src="menina.svg" alt="">
+  <div class="c"><div class="r">CHÁ REVELAÇÃO · ROUND 1</div><div class="f"><small>READY?</small>JOGA!</div></div>
+  <div class="coin">INSERT COIN · · · (OU UMA FICHA DO FLIPERAMA DO SHOPPING)</div>
+</div></body></html>

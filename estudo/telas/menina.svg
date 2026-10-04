@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 440" width="320" height="440">
+  <!-- Menina: cabeça grande, cabelo preto curto e bagunçado com franja de lado (aceno emo), sardas, camiseta listrada rosa e preta, saia roxa (amora), galochas magenta. -->
+  <defs>
+    <style>
+      .t{stroke:#3a2615;stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
+    </style>
+  </defs>
+  <!-- pernas -->
+  <path class="t" d="M138 352 L132 392 M182 352 L188 392" fill="none" stroke="#3a2615"/>
+  <!-- galochas magenta -->
+  <path d="M116 378 h32 v30 q4 12 -4 14 h-28 q-10 -4 -6 -14z" fill="#d63384" class="t"/>
+  <path d="M172 378 h32 v30 q6 12 -2 14 h-30 q-8 -4 -6 -14z" fill="#d63384" class="t"/>
+  <!-- saia roxa -->
+  <path d="M104 318 h112 l14 46 h-140z" fill="#6b2d5c" class="t"/>
+  <path d="M128 330 v30 M160 330 v30 M192 330 v30" fill="none" stroke="#3a2615" stroke-width="4" opacity=".5"/>
+  <!-- braços -->
+  <path class="t" d="M110 262 q-40 40 -36 90" fill="none" stroke="#3a2615"/>
+  <path class="t" d="M210 262 q46 6 56 -40" fill="none" stroke="#3a2615"/>
+  <path class="t" d="M110 262 q-40 40 -36 90" fill="none" stroke="#f6d3b4" stroke-width="12"/>
+  <path class="t" d="M210 262 q46 6 56 -40" fill="none" stroke="#f6d3b4" stroke-width="12"/>
+  <circle cx="76" cy="354" r="14" fill="#f6d3b4" class="t"/>
+  <!-- mão acenando -->
+  <g transform="translate(268 216)">
+    <circle r="16" fill="#f6d3b4" class="t"/>
+    <path d="M-8 -14 v-14 M0 -16 v-18 M8 -14 v-14 M14 -8 v-10" fill="none" class="t" stroke-width="6" stroke="#f6d3b4"/>
+    <path d="M-8 -14 v-14 M0 -16 v-18 M8 -14 v-14 M14 -8 v-10" fill="none" stroke="#3a2615" stroke-width="3"/>
+  </g>
+  <!-- camiseta listrada -->
+  <path d="M106 250 q54 -16 108 0 l6 76 h-120z" fill="#ec4b8b" class="t"/>
+  <clipPath id="cam"><path d="M106 250 q54 -16 108 0 l6 76 h-120z"/></clipPath>
+  <g clip-path="url(#cam)" fill="#2b1d14">
+    <rect x="90" y="262" width="150" height="12"/>
+    <rect x="90" y="288" width="150" height="12"/>
+    <rect x="90" y="314" width="150" height="12"/>
+  </g>
+  <!-- pescoço -->
+  <rect x="146" y="226" width="28" height="30" fill="#f6d3b4"/>
+  <!-- cabeça (triângulo invertido suave) -->
+  <path d="M58 130 q0 -100 102 -100 q102 0 102 100 q0 76 -40 108 q-28 24 -62 24 q-34 0 -62 -24 q-40 -32 -40 -108z" fill="#f6d3b4" class="t"/>
+  <!-- orelha -->
+  <ellipse cx="60" cy="160" rx="12" ry="16" fill="#f6d3b4" class="t"/>
+  <!-- cabelo preto bagunçado, franja de lado -->
+  <path d="M52 152 q-10 -92 60 -118 q66 -24 118 10 q40 30 34 102 q-14 -20 -30 -10 q-34 -44 -72 -18 q-30 -30 -60 -2 q-20 14 -24 40 q-10 -20 -26 -4z" fill="#1f1a1a" class="t"/>
+  <path d="M100 110 q60 -30 110 20 q-4 40 -30 58 q-6 -34 -34 -46 q-26 -8 -46 -32z" fill="#1f1a1a"/>
+  <!-- mechas -->
+  <path d="M236 96 q18 -10 34 2 M212 76 q18 -14 40 -6" fill="none" stroke="#1f1a1a" stroke-width="10" stroke-linecap="round"/>
+  <!-- presilha rosa -->
+  <path d="M232 112 l20 -8 l-6 16z" fill="#ec4b8b" stroke="#3a2615" stroke-width="4" stroke-linejoin="round"/>
+  <!-- olhos -->
+  <circle cx="200" cy="176" r="32" fill="#fff" class="t"/>
+  <circle cx="126" cy="176" r="30" fill="#fff" class="t"/>
+  <circle cx="134" cy="182" r="11" fill="#3a2615"/>
+  <circle cx="192" cy="182" r="11" fill="#3a2615"/>
+  <circle cx="138" cy="177" r="4" fill="#fff"/>
+  <circle cx="196" cy="177" r="4" fill="#fff"/>
+  <!-- cílios -->
+  <path d="M90 158 l-14 -10 M234 150 l16 -10" fill="none" class="t" stroke-width="5"/>
+  <!-- franja cobrindo parte do olho esquerdo -->
+  <path d="M80 126 q42 -6 70 30 q-26 4 -46 -4 q-18 -8 -24 -26z" fill="#1f1a1a" class="t"/>
+  <!-- sardas -->
+  <g fill="#c98b63">
+    <circle cx="92" cy="206" r="3"/><circle cx="104" cy="214" r="3"/><circle cx="98" cy="224" r="3"/>
+    <circle cx="228" cy="206" r="3"/><circle cx="216" cy="214" r="3"/><circle cx="222" cy="224" r="3"/>
+  </g>
+  <!-- nariz + boca -->
+  <path d="M160 194 q-10 16 -2 26 q-12 6 -20 2" fill="none" class="t"/>
+  <path d="M130 238 q30 20 62 -2" fill="none" class="t"/>
+</svg>

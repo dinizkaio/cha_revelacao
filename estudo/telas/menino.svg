@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 440" width="320" height="440">
+  <!-- Menino: estilo "cabeça grande, corpo pequeno", traço grosso marrom. Camiseta laranja (Dragon Ball), bermuda azul, chinelo de dedo (Guarujá). -->
+  <defs>
+    <style>
+      .t{stroke:#3a2615;stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
+    </style>
+  </defs>
+  <!-- pernas -->
+  <path class="t" d="M135 350 L128 400 M185 350 L192 400" fill="none" stroke="#3a2615"/>
+  <!-- chinelos -->
+  <g>
+    <path d="M96 404 q32 -14 64 0 q6 10 -2 18 q-30 8 -62 0 q-8 -8 0 -18z" fill="#ffc233" class="t"/>
+    <path d="M128 404 l-14 -10 M128 404 l16 -10" fill="none" class="t" stroke="#1f9aa6"/>
+    <path d="M160 404 q32 -14 64 0 q6 10 -2 18 q-30 8 -62 0 q-8 -8 0 -18z" fill="#ffc233" class="t"/>
+    <path d="M192 404 l-14 -10 M192 404 l16 -10" fill="none" class="t" stroke="#1f9aa6"/>
+  </g>
+  <!-- bermuda -->
+  <path d="M112 318 h96 v34 q-24 8 -48 0 q-24 8 -48 0z" fill="#2f6fd1" class="t"/>
+  <!-- braços -->
+  <path class="t" d="M112 262 q-34 36 -22 84" fill="none" stroke="#3a2615"/>
+  <path class="t" d="M208 262 q40 24 44 72" fill="none" stroke="#3a2615"/>
+  <path class="t" d="M112 262 q-34 36 -22 84" fill="none" stroke="#f3c7a0" stroke-width="12"/>
+  <path class="t" d="M208 262 q40 24 44 72" fill="none" stroke="#f3c7a0" stroke-width="12"/>
+  <!-- mãos -->
+  <circle cx="90" cy="348" r="14" fill="#f3c7a0" class="t"/>
+  <circle cx="252" cy="336" r="14" fill="#f3c7a0" class="t"/>
+  <!-- tazo na mão -->
+  <g transform="translate(262 318)">
+    <circle r="26" fill="#ffc233" class="t"/>
+    <circle r="16" fill="#f0632b" stroke="#3a2615" stroke-width="4"/>
+    <path d="M0 -9 l3 6 l6 1 l-5 4 l1 6 l-5 -3 l-5 3 l1 -6 l-5 -4 l6 -1z" fill="#fff5d6"/>
+  </g>
+  <!-- camiseta -->
+  <path d="M108 250 q52 -16 104 0 l8 76 h-120z" fill="#f0632b" class="t"/>
+  <path d="M136 268 q24 10 48 0" fill="none" stroke="#3a2615" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="160" cy="300" r="13" fill="#ffc233" stroke="#3a2615" stroke-width="4"/>
+  <!-- pescoço -->
+  <rect x="146" y="226" width="28" height="30" fill="#f3c7a0"/>
+  <!-- cabeça -->
+  <path d="M60 140 q0 -110 100 -110 q100 0 100 110 q0 70 -36 100 q-30 22 -64 22 q-34 0 -64 -22 q-36 -30 -36 -100z" fill="#f3c7a0" class="t"/>
+  <!-- orelhas -->
+  <ellipse cx="62" cy="168" rx="12" ry="16" fill="#f3c7a0" class="t"/>
+  <ellipse cx="258" cy="168" rx="12" ry="16" fill="#f3c7a0" class="t"/>
+  <!-- cabelo ondulado castanho -->
+  <path d="M56 150 q-6 -80 50 -112 q54 -32 108 -6 q46 24 50 112 q-16 -24 -34 -14 q-10 -26 -36 -14 q-14 -24 -40 -8 q-20 -22 -44 -4 q-18 -18 -36 2 q-10 24 -18 44z" fill="#6b4423" class="t"/>
+  <!-- olhos enormes -->
+  <circle cx="122" cy="178" r="34" fill="#fff" class="t"/>
+  <circle cx="198" cy="178" r="34" fill="#fff" class="t"/>
+  <circle cx="130" cy="184" r="12" fill="#3a2615"/>
+  <circle cx="190" cy="184" r="12" fill="#3a2615"/>
+  <circle cx="134" cy="179" r="4" fill="#fff"/>
+  <circle cx="194" cy="179" r="4" fill="#fff"/>
+  <!-- sobrancelhas -->
+  <path d="M94 136 q28 -14 52 0" fill="none" class="t"/>
+  <path d="M174 136 q24 -14 52 0" fill="none" class="t"/>
+  <!-- nariz + boca interligados -->
+  <path d="M160 194 q-10 16 -2 26 q-14 6 -22 2" fill="none" class="t"/>
+  <path d="M126 236 q34 24 70 -4" fill="none" class="t"/>
+  <!-- bochechas -->
+  <circle cx="92" cy="214" r="9" fill="#f29a7e" opacity=".8"/>
+  <circle cx="228" cy="214" r="9" fill="#f29a7e" opacity=".8"/>
+</svg>

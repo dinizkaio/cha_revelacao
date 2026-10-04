@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Identidade visual</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.tela{padding:56px 72px;display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto 1fr;gap:28px 48px}
+h1{grid-column:1/-1;margin:0;font-family:var(--f-nome);font-size:54px;letter-spacing:.01em}
+h1 small{display:block;font:700 22px/1.3 var(--f-corpo);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}
+h2{font:800 20px/1 var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2);margin:0 0 14px;border-bottom:3px solid var(--tinta);padding-bottom:8px}
+.col{display:flex;flex-direction:column;gap:26px}
+.paleta{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.cor{height:118px;border:5px solid var(--tinta);border-radius:18px;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;font:800 15px/1.15 var(--f-corpo)}
+.cor span{font-weight:500;opacity:.8;font-size:13px}
+.tipos{display:grid;gap:10px}
+.tipo{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:10px 16px;border:4px solid var(--tinta);border-radius:16px;background:#fff8e6}
+.tipo b{font:800 14px/1.2 var(--f-corpo);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.texturas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tex{height:110px;border:5px solid var(--tinta);border-radius:18px;position:relative;overflow:hidden;background:var(--papel)}
+.tex em{position:absolute;left:10px;bottom:8px;font:800 14px var(--f-corpo);font-style:normal;background:var(--tinta);color:var(--papel);padding:2px 8px;border-radius:999px}
+.azulejo{background:
+  linear-gradient(45deg,transparent 46%,var(--mar) 46% 54%,transparent 54%),
+  linear-gradient(-45deg,transparent 46%,var(--mar) 46% 54%,transparent 54%),#eef6f5;background-size:40px 40px}
+.pers{display:flex;align-items:flex-end;justify-content:space-around;gap:20px;border:5px solid var(--tinta);border-radius:24px;background:#fff8e6;padding:18px 20px 10px;height:430px;position:relative}
+.pers img{height:360px}
+.pers figure{margin:0;text-align:center}
+.pers figcaption{font:800 20px var(--f-corpo);margin-top:4px}
+.pers figcaption small{display:block;font-weight:500;font-size:15px;color:var(--tinta-2)}
+.icones{display:flex;gap:14px;align-items:center}
+.icone{width:92px;height:92px;border:5px solid var(--tinta);border-radius:20px;background:#fff8e6;display:grid;place-items:center}
+.tazo{width:64px;height:64px;border-radius:50%;background:repeating-conic-gradient(var(--ipe) 0 20deg,var(--laranja) 20deg 40deg);border:4px solid var(--tinta);position:relative}
+.tazo::after{content:"★";position:absolute;inset:0;display:grid;place-items:center;color:#fff5d6;font-size:30px;background:radial-gradient(circle,var(--laranja) 0 44%,transparent 46%)}
+.fita{width:70px;height:44px;background:#1a1a1a;border:4px solid var(--tinta);border-radius:6px;position:relative}
+.fita::before,.fita::after{content:"";position:absolute;top:10px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid #777}
+.fita::before{left:8px}.fita::after{right:8px}
+.chinelo{width:30px;height:62px;background:var(--ipe);border:4px solid var(--tinta);border-radius:40% 40% 46% 46%;position:relative}
+.chinelo::after{content:"";position:absolute;left:11px;top:8px;width:4px;height:26px;background:var(--mar);transform:rotate(18deg);box-shadow:-10px 8px 0 -0px transparent}
+</style></head>
+<body><div class="tela grao">
+  <h1><small>Chá revelação · Nanda &amp; Caio · estudo visual</small>Identidade: "Sessão da Tarde num quintal de terra"</h1>
+  <div class="col">
+    <section>
+      <h2>Paleta</h2>
+      <div class="paleta">
+        <div class="cor" style="background:var(--papel)">Papel<span>#f7e9c9 · fundo</span></div>
+        <div class="cor" style="background:var(--ipe)">Ipê amarelo<span>#ffc233 · destaque</span></div>
+        <div class="cor" style="background:var(--laranja);color:#fff">Laranja<span>#f0632b · Sessão da Tarde</span></div>
+        <div class="cor" style="background:var(--mar);color:#fff">Mar do Guarujá<span>#1f9aa6</span></div>
+        <div class="cor" style="background:var(--amora);color:#fff">Amora<span>#6b2d5c</span></div>
+        <div class="cor" style="background:var(--tinta);color:var(--papel)">Tinta<span>#2b1d14 · traço</span></div>
+        <div class="cor" style="background:var(--noite);color:#fff">Noite<span>#0c1024 · intro</span></div>
+      </div>
+      <div class="paleta" style="margin-top:12px;grid-template-columns:repeat(2,1fr)">
+        <div class="cor" style="background:var(--menino);color:#fff;height:70px;flex-direction:row;align-items:center;gap:14px">Menino <span style="color:#dbe8ff">#2f6fd1 · "azul piscina de plástico"</span></div>
+        <div class="cor" style="background:var(--menina);color:#fff;height:70px;flex-direction:row;align-items:center;gap:14px">Menina <span style="color:#ffe3ee">#ec4b8b · "rosa galocha"</span></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tipografia</h2>
+      <div class="tipos">
+        <div class="tipo"><b>Título · Bowlby One SC<br>(momento Jurassic Park)</b><span class="titulo" style="font-size:52px">CHÁ REVELAÇÃO</span></div>
+        <div class="tipo"><b>Nomes e botões · Luckiest Guy<br>(letra de desenho)</b><span class="nome" style="font-size:54px">Nanda &amp; Caio · COMEÇAR</span></div>
+        <div class="tipo"><b>Texto · Nunito<br>(lê de longe, no projetor)</b><span style="font-size:26px;font-weight:600">Vire um Tazo. Três iguais em linha: tá revelado.</span></div>
+        <div class="tipo"><b>Placar · Press Start 2P<br>(fliperama)</b><span class="arcade" style="font-size:22px">VEZ DE: NANDA &nbsp; ROUND 1</span></div>
+        <div class="tipo"><b>Videocassete · VT323</b><span class="vhs" style="font-size:40px;background:#000;color:#fff;padding:0 14px">PLAY ▶ &nbsp; SP 0:00:03</span></div>
+      </div>
+    </section>
+  </div>
+  <div class="col">
+    <section>
+      <h2>Personagens (desenhados pra este site, no espírito do Irmão do Jorel)</h2>
+      <div class="pers">
+        <figure><img src="menino.svg" alt=""><figcaption>Menino<small>camiseta laranja, chinelo de dedo, Tazo na mão</small></figcaption></figure>
+        <figure><img src="menina.svg" alt=""><figcaption>Menina<small>franja de lado, listras, galocha rosa, sardas</small></figcaption></figure>
+      </div>
+    </section>
+    <section>
+      <h2>Texturas e ícones</h2>
+      <div class="texturas">
+        <div class="tex grao"><em>grão de papel</em></div>
+        <div class="tex meiotom"><em>meio-tom (gibi)</em></div>
+        <div class="tex scanlines" style="background:#222"><em>scanlines (VHS)</em></div>
+        <div class="tex azulejo"><em>azulejo de quintal</em></div>
+      </div>
+      <div class="icones" style="margin-top:12px">
+        <div class="icone"><div class="tazo"></div></div>
+        <div class="icone"><div class="fita"></div></div>
+        <div class="icone"><div class="chinelo"></div></div>
+        <div class="icone"><div class="ipe-flor" style="position:static;width:60px;height:60px"></div></div>
+        <div style="font:600 18px/1.35 var(--f-corpo);color:var(--tinta-2);max-width:380px">Tazo (peça do jogo), fita VHS (abertura), chinelo (Guarujá), flor de ipê (confete do quintal).</div>
+      </div>
+    </section>
+  </div>
+</div></body></html>
