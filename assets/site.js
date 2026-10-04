@@ -196,6 +196,7 @@
   const paraSegurar = () => clearTimeout(timerSegurar);
   segurar.addEventListener('pointerdown', comecaSegurar);
   ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => segurar.addEventListener(ev, paraSegurar));
+  $('#btn-reset').addEventListener('click', () => { $('#dialogo-reset').hidden = false; });
   $('#reset-nao').addEventListener('click', () => { $('#dialogo-reset').hidden = true; });
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 

@@ -29,6 +29,7 @@ img{-webkit-user-drag:none}
 .crt .som{position:absolute;right:28px;bottom:6px;z-index:9;background:none;border:2px solid #555;border-radius:8px;color:#bbb;font:24px var(--f-vhs);letter-spacing:.08em;padding:2px 14px}
 .crt .som:hover{color:#fff;border-color:#999}
 .crt .som[aria-pressed="false"]{color:#ff5f56;border-color:#ff5f56}
+.crt .som.reset{right:150px}
 .crt .vidro{position:absolute;inset:40px 46px 56px;border-radius:40px;overflow:hidden;background:var(--crt)}
 .crt .vidro::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:8;border-radius:40px;
   background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.55) 100%),repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 2px,transparent 2px 5px);

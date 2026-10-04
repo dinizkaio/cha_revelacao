@@ -30,9 +30,10 @@ o segredo continua guardado.
 - **Ensaiar sem gastar o segredo:** abra o site com `?ensaio` no fim do
   endereço. Roda tudo igual, com a palavra ENSAIO no canto, e a escolha fica
   só naquela aba.
-- **Recomeçar do zero** (se alguém confirmou errado): abra com `?reiniciar`
-  no fim do endereço, ou segure o título "Tá tudo pronto!" por 5 segundos e
-  confirme.
+- **Recomeçar do zero** (para testar, ou se alguém confirmou errado): o
+  botão RECOMEÇAR na moldura da TV, que pede confirmação. Também funciona
+  abrir com `?reiniciar` no fim do endereço, ou segurar o título "Tá tudo
+  pronto!" por 5 segundos.
 - **Som:** o botão SOM fica na moldura da TV, em todas as telas (ou a tecla
   M). Silencia a trilha e os efeitos de uma vez; a preferência fica guardada.
   A trilha sonora vai em `assets/som/` (veja o `LEIA-ME.md` de lá).
