@@ -86,7 +86,7 @@
   };
   const btnSom = $('#btn-som');
   function pintarSom() {
-    btnSom.textContent = somLigado ? '🔊 SOM' : '🔇 MUDO';
+    btnSom.textContent = somLigado ? '🔊 SOM' : '🔇 MUDO · aperte pra ligar';
     btnSom.setAttribute('aria-pressed', String(somLigado));
   }
   function alternarSom() {
@@ -147,7 +147,13 @@
       const cfg = LOOP[nome];
       a.loop = !cfg;
       a.volume = volumeInicial;
-      a.play().then(() => { if (msFade) fade(a, volumeInicial, 1, msFade); else a.volume = 1; }).catch(() => {});
+      a.play().then(() => { if (msFade) fade(a, volumeInicial, 1, msFade); else a.volume = 1; }).catch(() => {
+        // o navegador só libera som depois de um gesto: tenta de novo no primeiro clique ou tecla
+        a.volume = 1;
+        const tentar = () => { if (tocando && tocando.a === a && a.paused) a.play().catch(() => {}); };
+        addEventListener('pointerdown', tentar, { once: true, capture: true });
+        addEventListener('keydown', tentar, { once: true, capture: true });
+      });
       if (!cfg) return null;
       // vigia o ponto de corte e emenda com uma segunda instância do mesmo arquivo
       return setInterval(() => {
