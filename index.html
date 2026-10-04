@@ -11,9 +11,9 @@
   <link rel="preload" href="assets/fontes/Bungee-400.woff2?v=126eec706b" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fontes/Special_Elite-400.woff2?v=770493d84c" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fontes/fontes.css?v=650d52fe2c">
-  <link rel="stylesheet" href="assets/site.css?v=2e1be9fd13">
-  <script src="assets/props.js?v=f6cd4e7a3a" defer></script>
-  <script src="assets/site.js?v=2eba6cc8db" defer></script>
+  <link rel="stylesheet" href="assets/site.css?v=cdc19d118d">
+  <script src="assets/props.js?v=794248ecef" defer></script>
+  <script src="assets/site.js?v=b360f864cf" defer></script>
 </head>
 <body>
 <div class="aviso-retrato"><p>Vira o celular na horizontal, como uma TV. 📺</p></div>
@@ -46,6 +46,7 @@
         <svg class="prop gameboy"><use href="#gameboy"/></svg>
         <svg class="prop cassete"><use href="#cassette"/></svg>
         <svg class="prop pomo"><use href="#pomo"/></svg>
+        <svg class="prop alien"><use href="#alien"/></svg>
         <div class="placa-9"><span>PLATAFORMA</span><b>9¾</b></div>
       </div>
       <div class="titulos">
@@ -102,6 +103,7 @@
       <svg class="prop slinky"><use href="#slinky"/></svg>
       <svg class="prop gameboy2"><use href="#gameboy"/></svg>
       <svg class="prop tv"><use href="#oldtv"/></svg>
+      <svg class="prop vaqueiro"><use href="#chapeuvaqueiro"/></svg>
       <svg class="prop dino"><use href="#trex"/></svg>
       <svg class="prop cassete2"><use href="#cassette"/></svg>
       <div class="topo">
@@ -134,7 +136,7 @@
         <div class="crawl-janela"><div class="crawl" id="crawl">
           <h2><small>Episódio I</small>OS PAIS NA ADOLESCÊNCIA</h2>
           <p>Era o fim dos anos 80. Num quintal de terra no GUARUJÁ, entre um ipê amarelo, uma amoreira e um pé de jenipapo, nasceu um menino de chinelo. Ele sobreviveu ao banana boat, ao parque itinerante e a todos os filmes do Steven Seagal que passaram na Sessão da Tarde.</p>
-          <p>Em 1993, em SÃO JOSÉ DOS CAMPOS, numa família que não cabe na foto, nasceu uma menina que ia assistir Duro de Matar com o pai, passar chapinha na franja loira e cantar emo no chuveiro.</p>
+          <p>Em 1993, em SÃO JOSÉ DOS CAMPOS, numa família que não cabe na foto, nasceu uma menina que ia assistir Duro de Matar com o pai, passar chapinha no cabelo e cantar emo no chuveiro.</p>
           <p>Os dois cresceram de uniforme de escola pública, com os pais trabalhando e as avós por perto. Ele ouvia Engenheiros do Hawaii. Ela ouvia MOPTOP. Ele passou a ouvir Moptop sem parar. Nunca mais parou.</p>
           <p>Antes de se verem, eles se falaram pelo ORKUT, do jeito mais vergonhoso que a humanidade já inventou. Eram jovens e bestas. Depois se encontraram no baile da igreja. E naquele baile ele já sabia: era com ela que ele ia ter filhos.</p>
           <p>Voltaram a se cruzar na escola da EMBRAER, onde fizeram o ensino médio. Ele tinha lá os seus problemas e nunca tinha superado direito a própria formatura. Mas, depois que a Fernanda se formou, nunca mais pisou lá. Coincidência?</p>
@@ -223,6 +225,7 @@
           </g>
         </svg>
         <svg class="prop gato"><use href="#cat"/></svg>
+        <svg class="prop bebedino"><use href="#bebedino"/></svg>
       </div>
       <div class="pular">clique ou espaço: próxima cena · esc: direto pro jogo</div>
     </section>
@@ -244,6 +247,8 @@
         <div class="celulas" id="celulas"></div>
       </div>
       <img class="pers k" src="assets/kaio.svg?v=3945b25e9f" alt=""><img class="pers n" src="assets/nanda.svg?v=e637a904f1" alt="">
+      <svg class="prop bebedino"><use href="#bebedino"/></svg>
+      <div class="aliens" id="aliens" hidden><div class="balao-aliens">Ooooooh!</div><svg><use href="#alien"/></svg><svg><use href="#alien"/></svg><svg><use href="#alien"/></svg></div>
       <div class="rodape-jogo">Clique numa casa. O giz decide se sai X ou O. Quatro iguais em linha, coluna ou diagonal revelam o bebê.</div>
     </section>
 
@@ -256,6 +261,8 @@
       <svg class="rabisco sparkle" style="left:620px;top:720px;width:50px;height:50px"><use href="#sparkle"/></svg>
       <div class="titulo"><div class="pre">Quatro em linha. Tá revelado:</div><div class="grande" id="grande">É MENINA!</div></div>
       <img class="pers" id="pers-resultado" src="assets/nanda.svg?v=e637a904f1" alt="">
+      <svg class="prop bebedino"><use href="#bebedino"/></svg>
+      <div class="infinito">AO INFINITO<br>E ALÉM!</div>
       <div class="polaroids">
         <div class="polaroid-foto a"><img src="assets/img/kaio-crianca.jpg?v=9eb587d80c" alt="Kaio criança"><span>o pai</span></div>
         <div class="polaroid-foto b"><img src="assets/img/nanda-crianca.jpg?v=a128d3359a" alt="Nanda criança"><span>a mãe</span></div>
@@ -268,7 +275,9 @@
     <section id="tela-fim" class="tela" data-tela="fim">
       <div class="ruido-fim"></div>
       <div class="osd-fim">◼ STOP</div>
-      <div class="centro-fim"><div class="fim-grande">FIM</div><div class="fim-sub">Nanda, Kaio e quem vem aí agradecem a presença.</div><div class="fim-mini">obrigado por rebobinar</div></div>
+      <div class="centro-fim"><div class="fim-grande">FIM</div><div class="fim-sub">Nanda, Kaio e quem vem aí agradecem a presença.</div><div class="fim-mini">obrigado por rebobinar ★ você tem um amigo em nós</div></div>
+      <svg class="prop vaqueiro"><use href="#chapeuvaqueiro"/></svg>
+      <div class="soneca"><svg class="prop bebedino"><use href="#bebedino"/></svg><span>z z z</span></div>
       <div class="polaroids"><div class="polaroid-foto a"><img src="assets/img/kaio-crianca.jpg?v=9eb587d80c" alt="Kaio criança"><span>o pai</span></div><div class="polaroid-foto b"><img src="assets/img/nanda-crianca.jpg?v=a128d3359a" alt="Nanda criança"><span>a mãe</span></div></div>
       <div class="trailer" id="trailer" hidden>
         <div class="estrelas2"></div>
@@ -285,6 +294,8 @@
           <div class="roleta"><div class="fita-nomes" id="fita-nomes"></div></div>
           <div class="sorteio-nota" id="sorteio-nota">Kaio escolheu em dois minutos. Nanda: "calma, deixa eu pensar".</div>
         </div>
+        <svg class="prop garra"><use href="#garra"/></svg>
+        <div class="aliens trailer-aliens"><div class="balao-aliens">A garraaaa… ela escolhe<br>quem vai e quem fica.</div><svg><use href="#alien"/></svg><svg><use href="#alien"/></svg><svg><use href="#alien"/></svg></div>
         <div class="bilhete elenco">Elenco: Kaio, o homem que já decidiu.<br>Nanda, a mulher que vai decidir<br>no último capítulo.</div>
         <div class="trailer-rodape">Estreia prevista: na maternidade, cinco minutos antes de assinar a certidão.<br>Classificação: livre. Exceto para palpite de parente.</div>
       </div>

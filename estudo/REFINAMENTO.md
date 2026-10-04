@@ -6,8 +6,8 @@ e até onde a arte consegue ir dentro da regra "tudo feito aqui, em código".
 
 ## 1. O que já entrou nesta rodada
 
-- **Letreiro:** a Nanda é loira; o texto agora diz "passar chapinha na
-  franja loira", em vez de pintar de preto.
+- **Letreiro:** a Nanda é loira; o texto agora diz "passar chapinha no
+  cabelo", em vez de pintar de preto.
 - **Personagem da Nanda:** cabelo loiro, na tela do seletor, no jogo, no
   resultado e na cena da praia.
 - **DeLorean:** redesenhado. A frente baixa com o farol fica à direita, as
@@ -19,7 +19,15 @@ e até onde a arte consegue ir dentro da regra "tudo feito aqui, em código".
   carta de Hogwarts chega com a coruja, reservando a vaga do filho ou filha
   para 2037 ("P.S.: não, isso não decide o nome").
 - **Jurassic babies:** o selo do Parque dos Bebês agora tem um bebê
-  dinossauro saindo do ovo, de chupeta, no lugar do T-Rex adulto.
+  dinossauro saindo do ovo, de chupeta, no lugar do T-Rex adulto. Ele é
+  personagem recorrente: aparece na praia da abertura, torcendo ao lado da
+  lousa no jogo, comemorando no resultado e dormindo no FIM.
+- **Toy Story:** alien de três olhos espiando na capa; o Rex (T-Rex verde)
+  e o chapéu do Woody em cima da TV na tela do play (a pizza e o Slinky já
+  estavam lá); os três aliens surgem do chão com "Ooooooh!" no "quase!" do
+  jogo; selo "Ao infinito e além!" no resultado; chapéu do Woody e "você tem
+  um amigo em nós" no FIM; a garra descendo e os aliens ("a garraaaa… ela
+  escolhe quem vai e quem fica") no trailer da Galáxia dos Nomes.
 
 Os tempos da sequência musical ficaram: DeLorean 12 s, Parque 11 s,
 Matrix 11 s, carta 11 s, praia 16 s. Soma 61 s, o mesmo da música.
@@ -144,14 +152,10 @@ acabamento.
 Cada um desses é um bloco de trabalho pequeno, testável no `?ensaio`.
 Posso seguir nessa ordem ou na que você preferir.
 
-## 5. Decisões que dependem de vocês
+## 5. Decisões já tomadas
 
-- "Star energia infinita": é Buzz Lightyear, "ao infinito e além"? Onde
-  prefere: no resultado ou no trailer?
-- Harry Potter: a dose atual (capa, seletor, carta) está boa, ou quer mais
-  (um feitiço no resultado, "Expecto Patronum" com o patrono em forma de
-  bebê)?
-- Jurassic babies: só no selo, ou o bebê dinossauro vira um personagem
-  recorrente (aparece torcendo no jogo, por exemplo)?
-- Os textos novos: a carta de Hogwarts e as falas do Chapéu Seletor. Pode
-  reescrever à vontade.
+- Toy Story entrou como referência (ver seção 1).
+- Harry Potter fica na dose atual: capa, seletor e carta.
+- O bebê dinossauro é personagem recorrente.
+- Os textos novos (carta de Hogwarts, Chapéu Seletor, aliens) podem ser
+  reescritos à vontade.

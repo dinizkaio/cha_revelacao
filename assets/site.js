@@ -402,7 +402,7 @@
     jogo.vencedor = lerSegredo() || (ENSAIO ? (Math.random() < .5 ? 'm' : 'f') : 'm');
     jogo.tab = Array(16).fill(''); jogo.jogada = 0; jogo.vez = 'Nanda'; jogo.acabou = false;
     memo.clear();
-    quaseEl.hidden = true; $('#tela-jogo .topo').classList.remove('sumir');
+    quaseEl.hidden = true; $('#aliens').hidden = true; $('#tela-jogo .topo').classList.remove('sumir');
     montarTabuleiro(); pintarVez();
   };
   function simboloDe(lado) { // lado interno W/L → X/O conforme quem vence
@@ -445,9 +445,9 @@
       quaseEl.textContent = simb === 'X' ? 'quase! falta um X…' : 'quase! falta um O…';
       quaseEl.classList.toggle('azul', simb === 'X');
       if (quaseEl.hidden) som.quase();
-      quaseEl.hidden = false; $('#tela-jogo .topo').classList.add('sumir');
+      quaseEl.hidden = false; $('#aliens').hidden = false; $('#tela-jogo .topo').classList.add('sumir');
     } else {
-      quaseEl.hidden = true; $('#tela-jogo .topo').classList.remove('sumir');
+      quaseEl.hidden = true; $('#aliens').hidden = true; $('#tela-jogo .topo').classList.remove('sumir');
     }
   }
 
