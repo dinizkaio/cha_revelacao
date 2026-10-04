@@ -642,7 +642,7 @@
   // ---------- 9. final: Mapa do Maroto, sem som ----------
   let timersFinal = [];
   aoEntrar.final = () => {
-    const tela = $('#tela-final'); tela.classList.remove('nox', 'apagar');
+    const tela = $('#tela-final'); tela.classList.remove('nox', 'apagar'); tela.classList.toggle('menino', jogo.vencedor === 'm');
     const peg = $('#pegadas'); peg.innerHTML = '';
     const passo = (x, y, rot, atraso, bebe) => {
       const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

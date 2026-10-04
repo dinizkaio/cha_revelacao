@@ -535,11 +535,14 @@ img{-webkit-user-drag:none}
 .juramento{position:absolute;left:0;right:0;top:100px;text-align:center;font-size:44px;line-height:1.2;padding:0 160px;opacity:0;animation:aparecer 1s 1.8s forwards}
 .pegadas{position:absolute;inset:0}
 .pegada{position:absolute;width:26px;height:40px;fill:#4a3418;opacity:0;animation:pisar 1.4s forwards}
-.pegada.bebe{width:14px;height:22px;fill:#7a2a4a}
+.pegada.bebe{width:14px;height:22px;fill:#e0218a;animation-name:pisar-bebe}
+@keyframes pisar-bebe{0%{opacity:0}25%{opacity:1}100%{opacity:.95}}
+#tela-final.menino .pegada.bebe{fill:#1f6fe0}
 @keyframes pisar{0%{opacity:0}25%{opacity:.95}100%{opacity:.45}}
 .tag-pegada{position:absolute;background:#f6ecd0;border:2px solid #4a3418;padding:2px 12px;font-size:26px;white-space:nowrap;transform:translate(-50%,-50%) rotate(-3deg);opacity:0;animation:aparecer .6s forwards;box-shadow:3px 3px 0 rgba(74,52,24,.3)}
 .tag-pegada::after{content:"";position:absolute;left:50%;bottom:-10px;margin-left:-6px;border:6px solid transparent;border-top-color:#4a3418;border-bottom:0}
-.tag-pegada.bebe{background:#ffe3ef;border-color:#7a2a4a;color:#7a2a4a}
+.tag-pegada.bebe{background:#ffe3ef;border-color:#e0218a;color:#c0106e}
+#tela-final.menino .tag-pegada.bebe{background:#dcebff;border-color:#1f6fe0;color:#1552b0}
 .malfeito{position:absolute;left:0;right:0;bottom:70px;text-align:center;font-size:120px;line-height:1;color:#2a1a0a;opacity:0;animation:aparecer 1.4s 8.5s forwards;text-shadow:0 0 1px #2a1a0a}
 .nox-texto{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-giz);font-size:160px;color:#e9d9b0;opacity:0;transition:opacity 1.2s}
 #tela-final.nox .mapa{opacity:0}
