@@ -1,0 +1,57 @@
+/* Fontes do site, servidas daqui mesmo (Google Fonts, licença OFL). */
+@font-face {
+  font-family: 'Bungee';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Bungee-400.woff2") format('woff2');
+  
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("Nunito-700.woff2") format('woff2');
+  
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("Nunito-800.woff2") format('woff2');
+  
+}
+@font-face {
+  font-family: 'Permanent Marker';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Permanent_Marker-400.woff2") format('woff2');
+  
+}
+@font-face {
+  font-family: 'Shrikhand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Shrikhand-400.woff2") format('woff2');
+  
+}
+@font-face {
+  font-family: 'Special Elite';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Special_Elite-400.woff2") format('woff2');
+  
+}
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("VT323-400.woff2") format('woff2');
+  
+}

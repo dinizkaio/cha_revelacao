@@ -227,3 +227,19 @@ sem build, sem nada de fora, tudo feito aqui.
 - `referencias/`: a proposta de referência.
 - `render.js`: gera as imagens (`node render.js`).
 - `v1/`: a primeira versão do estudo, descartada.
+
+## 12. Decisões tomadas depois da aprovação
+
+- **Jogo:** 4×4 e vence **quatro em linha** (linha, coluna ou diagonal
+  completa). O site segura a revelação o mais tarde possível: regra das
+  "linhas vivas" no começo e busca exata nos últimos 10 cliques. Em
+  simulação, a vitória sai no último clique em cerca de metade das partidas
+  e nos três últimos em mais de 85%. O outro lado nunca fecha quatro.
+- **Tagline:** "Seremos pais na adolescência (depois dos 30)".
+- **Letreiro:** reescrito com a história de vocês (Moptop, Orkut, o baile
+  da igreja, a escola da Embraer, as repúblicas, as formações, os concursos,
+  a casa, as viagens, o gato que não veio). Está no `index.html`.
+- **Fotos de infância:** entram só na tela do resultado, como duas polaroids
+  ("o pai" e "a mãe") coladas com fita.
+- **Som:** efeitos sintetizados, ligados por padrão, com botão na tela de play.
+- **Guardiã:** escolhe no mesmo aparelho que projeta.

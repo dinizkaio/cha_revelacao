@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chá Revelação · Nanda e Kaio</title>
+  <meta name="description" content="O chá revelação da Nanda e do Kaio: uma fita VHS, uma abertura dos anos 90 e um jogo da velha na lousa.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1c1c1f">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fontes/Bungee-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fontes/Special_Elite-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fontes/fontes.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/props.js" defer></script>
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+<div class="aviso-retrato"><p>Vira o celular na horizontal, como uma TV. 📺</p></div>
+<div id="ensaio" class="ensaio" hidden>ENSAIO</div>
+
+<div id="palco" class="crt">
+  <div class="pontos"><i></i><i></i><i></i></div>
+  <div class="vidro">
+
+    <!-- 1. CAPA -->
+    <section id="tela-capa" class="tela ativa" data-tela="capa">
+      <div class="synth">
+        <div class="estrelas"></div>
+        <svg class="prop lua"><use href="#moon"/></svg>
+        <svg class="prop et"><use href="#etbike"/></svg>
+        <svg class="prop vader"><use href="#vader"/></svg>
+        <svg class="prop jp"><use href="#jpbadge"/></svg>
+        <div class="jp-texto">PARQUE DOS BEBÊS</div>
+        <div class="sol"></div>
+        <div class="montanhas"></div>
+        <div class="cidade"></div>
+        <div class="mar"></div>
+        <div class="areia"></div>
+        <div class="grade"></div>
+        <svg class="prop palma a"><use href="#palm"/></svg>
+        <svg class="prop palma b"><use href="#palm"/></svg>
+        <svg class="prop trex"><use href="#trex"/></svg>
+        <div class="rastro"></div>
+        <svg class="prop delorean"><use href="#delorean"/></svg>
+        <svg class="prop gameboy"><use href="#gameboy"/></svg>
+        <svg class="prop cassete"><use href="#cassette"/></svg>
+      </div>
+      <div class="titulos">
+        <div class="t1">CHÁ REVELAÇÃO</div>
+        <div class="t2"><span class="nanda">Nanda</span><span class="e">e</span><span class="kaio">KAIO</span></div>
+      </div>
+      <div class="matrix">MATRIX</div>
+      <div class="ep">EPISÓDIO I</div>
+      <div class="bilhete tag">Seremos pais<br>na adolescência<br>(depois dos 30) ☺</div>
+      <div class="acao"><button class="botao neon" type="button" data-ir="seletor">▶ COMEÇAR</button></div>
+    </section>
+
+    <!-- 2. SELETOR -->
+    <section id="tela-seletor" class="tela chuvisco" data-tela="seletor">
+      <svg class="rabisco" style="left:110px;top:430px;color:#ff3d9a;width:120px;height:120px;transform:rotate(-15deg)"><use href="#heart"/></svg>
+      <svg class="rabisco" style="right:150px;top:150px;color:#e2c22a;width:110px;height:110px"><use href="#smiley"/></svg>
+      <svg class="rabisco" style="right:120px;top:520px;color:#3d8bff;width:100px;height:100px;transform:rotate(20deg)"><use href="#star5"/></svg>
+      <svg class="rabisco" style="right:260px;bottom:110px;color:#ff3d9a;width:90px;height:90px;transform:rotate(-20deg)"><use href="#star5"/></svg>
+      <svg class="rabisco" style="left:230px;top:140px;color:#3d8bff;width:80px;height:80px;transform:rotate(12deg)"><use href="#sparkle"/></svg>
+      <svg class="prop cassete-canto"><use href="#cassette"/></svg>
+      <div class="topo">
+        <span class="etiqueta grande">Qual é o resultado?</span>
+        <div class="sub">Escolha o gênero do bebê:</div>
+      </div>
+      <div class="cartas" role="radiogroup" aria-label="Gênero do bebê">
+        <button type="button" class="polaroid m a" data-escolha="m" role="radio" aria-checked="false"><span class="foto"><img src="assets/kaio.svg" alt=""></span><span class="etiqueta nome">Menino</span><span class="radio"></span></button>
+        <button type="button" class="polaroid f b" data-escolha="f" role="radio" aria-checked="false"><span class="foto"><img src="assets/nanda.svg" alt=""></span><span class="etiqueta nome">Menina</span><span class="radio"></span></button>
+      </div>
+      <div class="acao"><button id="btn-confirmar-1" class="botao inativo" type="button" disabled>Confirmar</button></div>
+      <div class="aviso">🔒 Só quem guarda o segredo vê esta tela.<br>O botão fica cinza até escolher.</div>
+    </section>
+
+    <!-- 3. CONFIRMAÇÃO -->
+    <section id="tela-confirmar" class="tela chuvisco" data-tela="confirmar">
+      <svg class="rabisco" style="left:140px;bottom:260px;color:#e2c22a;width:130px;height:130px"><use href="#smiley"/></svg>
+      <svg class="rabisco" style="right:170px;top:260px;color:#3d8bff;width:120px;height:120px;transform:rotate(10deg)"><use href="#bolt"/></svg>
+      <svg class="rabisco" style="right:140px;bottom:230px;color:#3d8bff;width:100px;height:100px;transform:rotate(-12deg)"><use href="#star5"/></svg>
+      <svg class="rabisco" style="left:430px;top:220px;color:#3d8bff;width:100px;height:100px;transform:rotate(-30deg)"><use href="#bolt"/></svg>
+      <div class="topo">
+        <span class="etiqueta grande">Confirmar resultado?</span>
+        <div class="sub">Você escolheu:</div>
+      </div>
+      <div class="carta"><div id="polaroid-escolha" class="polaroid m"><span class="foto"><img id="img-escolha" src="assets/kaio.svg" alt=""></span><span id="nome-escolha" class="etiqueta nome">Menino</span></div></div>
+      <div class="acao"><button id="btn-confirmar-2" class="botao" type="button">Confirmar</button><button class="voltar" type="button" data-ir="seletor">← voltar e trocar</button></div>
+    </section>
+
+    <!-- 4. PLAY -->
+    <section id="tela-play" class="tela chuvisco" data-tela="play">
+      <svg class="rabisco" style="left:380px;top:520px;color:#ff3d9a;width:80px;height:80px"><use href="#sparkle"/></svg>
+      <svg class="rabisco" style="right:380px;top:300px;color:#e2c22a;width:100px;height:100px;transform:rotate(15deg)"><use href="#star5"/></svg>
+      <svg class="rabisco" style="left:460px;top:240px;color:#3d8bff;width:90px;height:90px;transform:rotate(-10deg)"><use href="#heart"/></svg>
+      <svg class="prop pizza"><use href="#pizza"/></svg>
+      <svg class="prop slinky"><use href="#slinky"/></svg>
+      <svg class="prop gameboy2"><use href="#gameboy"/></svg>
+      <svg class="prop tv"><use href="#oldtv"/></svg>
+      <svg class="prop dino"><use href="#trex"/></svg>
+      <svg class="prop cassete2"><use href="#cassette"/></svg>
+      <div class="topo">
+        <span class="etiqueta grande segurar" id="segurar-reset" title="Segure por 5 segundos para recomeçar do zero">Tá tudo pronto!</span>
+        <div class="sub">Agora é só apertar o play<br>e começar essa aventura!</div>
+      </div>
+      <svg class="prop fita"><use href="#vhs"/></svg>
+      <button id="btn-play" class="play" type="button" aria-label="Play"></button>
+      <i class="raio" style="transform:rotate(-30deg) translateX(100px)"></i><i class="raio" style="transform:rotate(-150deg) translateX(100px)"></i>
+      <i class="raio" style="transform:rotate(-70deg) translateX(100px)"></i><i class="raio" style="transform:rotate(-110deg) translateX(100px)"></i>
+      <span class="etiqueta etq-play">Play</span>
+      <div class="seg">🔒 Segredo trancado. Esta tela é igual pros dois resultados: pode ligar o projetor.<br>Play no botão ou na tecla espaço.</div>
+      <button id="btn-som" class="som" type="button" aria-pressed="true">🔊 som ligado</button>
+    </section>
+
+    <!-- 5. ABERTURA -->
+    <section id="tela-abertura" class="tela" data-tela="abertura">
+      <div class="cena cena-vhs" data-cena="vhs">
+        <div class="ruido"></div>
+        <div class="faixa f1"></div><div class="faixa f2"></div>
+        <div class="cores"></div>
+        <div class="osd osd-play">▶ PLAY</div>
+        <div class="osd osd-sp">SP &nbsp;<span id="osd-tempo">0:00:00</span></div>
+        <div class="osd osd-tracking">TRACKING ▮▮▮▮▮▯▯</div>
+        <div class="centro"><div class="l1">GUARUJÁ · SJC HOME VIDEO</div><div class="l2">NANDA &amp; KAIO</div><div class="l3">CHÁ REVELAÇÃO · GRAVADO EM 2026 · FAVOR REBOBINAR</div></div>
+      </div>
+
+      <div class="cena cena-crawl" data-cena="crawl">
+        <div class="estrelas2"></div>
+        <div class="ep2">Há muito tempo, numa década muito, muito distante…</div>
+        <div class="crawl-janela"><div class="crawl" id="crawl">
+          <h2><small>Episódio I</small>OS PAIS NA ADOLESCÊNCIA</h2>
+          <p>Era o fim dos anos 80. Num quintal de terra no GUARUJÁ, entre um ipê amarelo, uma amoreira e um pé de jenipapo, nasceu um menino de chinelo. Ele sobreviveu ao banana boat, ao parque itinerante e a todos os filmes do Steven Seagal que passaram na Sessão da Tarde.</p>
+          <p>Em 1993, em SÃO JOSÉ DOS CAMPOS, numa família que não cabe na foto, nasceu uma menina que ia assistir Duro de Matar com o pai, pintar a franja de preto e cantar emo no chuveiro.</p>
+          <p>Os dois cresceram de uniforme de escola pública, com os pais trabalhando e as avós por perto. Ele ouvia Engenheiros do Hawaii. Ela ouvia MOPTOP. Ele passou a ouvir Moptop sem parar. Nunca mais parou.</p>
+          <p>Antes de se verem, eles se falaram pelo ORKUT, do jeito mais vergonhoso que a humanidade já inventou. Eram jovens e bestas. Depois se encontraram no baile da igreja. E naquele baile ele já sabia: era com ela que ele ia ter filhos.</p>
+          <p>Voltaram a se cruzar na escola da EMBRAER, onde fizeram o ensino médio. Ele tinha lá os seus problemas e nunca tinha superado direito a própria formatura. Mas, depois que a Fernanda se formou, nunca mais pisou lá. Coincidência?</p>
+          <p>Casaram jovens, com uma desculpa boba, igual à do começo do namoro. Esses dois sempre precisaram de uma desculpa pra ficar juntos. Até o dia em que perceberam que só podiam querer.</p>
+          <p>Passaram por repúblicas, dividiram casa com meio mundo e finalmente moraram só os dois. Ela se formou em psicologia e fez pós. Ele foi e voltou de graduações: ciências sociais, metade de matemática, psicanálise. Hoje os dois são concursados, graças ao universo, e estão comprando a própria casa.</p>
+          <p>No meio disso tudo, viajaram: Paris, Santiago, Belo Horizonte, Caraguá. Quase adotaram um gato. Não adotaram.</p>
+          <p>Agora, em 2026, esses dois adolescentes de trinta e poucos anos descobrem, junto com vocês, quem vem aí…</p>
+          <p class="fim-crawl">É A VEZ DA CRIANÇA.</p>
+        </div></div>
+        <div class="fade"></div>
+      </div>
+
+      <div class="cena cena-delorean" data-cena="delorean">
+        <div class="chao"></div>
+        <div class="painel">
+          <div class="linha"><b>Destino</b><span class="led r">OUT 2026 · CHÁ REVELAÇÃO</span></div>
+          <div class="linha"><b>Tempo presente</b><span class="led g">1989 · GUARUJÁ · KAIO</span></div>
+          <div class="linha"><b>Última partida</b><span class="led y">1993 · SJC · NANDA</span></div>
+        </div>
+        <div class="carro-grupo">
+          <div class="fogo a"></div><div class="fogo b"></div>
+          <svg class="prop carro"><use href="#delorean"/></svg>
+        </div>
+        <div class="mph">88 MPH ▶▶</div>
+        <div class="frase">Pra onde esse bebê vai, não precisa de estradas.</div>
+      </div>
+
+      <div class="cena cena-jurassic" data-cena="jurassic">
+        <div class="folhas"></div>
+        <div class="relampago"></div>
+        <svg class="rabisco raio-jp"><use href="#bolt"/></svg>
+        <div class="jp-centro">
+          <svg class="prop badge"><use href="#jpbadge"/></svg>
+          <div class="t1">CHÁ REVELAÇÃO</div>
+          <div class="t2">NANDA &amp; KAIO</div>
+        </div>
+        <div class="rodape-jp">Ilha do Guarujá · Vale do Paraíba · 65 milhões de anos depois dos anos 90</div>
+      </div>
+
+      <div class="cena cena-matrix" data-cena="matrix">
+        <div class="chuva" id="chuva"></div>
+        <div class="caixa">
+          <h2><span id="matrix-texto"></span><span class="cursor"></span></h2>
+          <p>Não existe colher. Existe fralda.</p>
+          <div class="pilulas"><div class="pil a"><span>AZUL</span><span>menino</span></div><div class="pil r"><span>ROSA</span><span>menina</span></div></div>
+        </div>
+      </div>
+
+      <div class="cena cena-aventura" data-cena="aventura">
+        <div class="synth">
+          <div class="estrelas"></div><div class="sol"></div><div class="montanhas"></div><div class="mar"></div><div class="areia"></div>
+          <svg class="prop palma a"><use href="#palm"/></svg><svg class="prop palma b"><use href="#palm"/></svg>
+        </div>
+        <div class="titulos"><div class="t1">CHÁ REVELAÇÃO</div><div class="t2"><span class="nanda">Nanda</span><span class="e">e</span><span class="kaio">KAIO</span></div></div>
+        <div class="bilhete">Uma nova aventura<br>está prestes a começar…</div>
+        <div class="grafite">ANOS 90 ☺</div>
+        <svg class="criancas" viewBox="0 0 800 340" aria-hidden="true">
+          <g stroke="#2a1a12" stroke-width="6" stroke-linejoin="round">
+            <path d="M250 330l10-110q60-30 120 0l10 110z" fill="#fff8ec"/>
+            <circle cx="320" cy="150" r="76" fill="#e3b58b"/>
+            <g fill="#1b1b1b"><circle cx="262" cy="130" r="30"/><circle cx="284" cy="96" r="32"/><circle cx="320" cy="80" r="34"/><circle cx="356" cy="96" r="32"/><circle cx="378" cy="130" r="30"/><circle cx="320" cy="140" r="60"/></g>
+            <path d="M246 330q-18-60 20-90M394 330q18-60-20-90" fill="none" stroke-width="22" stroke="#2a1a12"/>
+            <path d="M246 330q-18-60 20-90M394 330q18-60-20-90" fill="none" stroke-width="12" stroke="#d9a878"/>
+            <path d="M440 330l12-100q50-30 100 0l12 100z" fill="#ff5fa8"/>
+            <path d="M470 236l4-30M526 236l-4-30" stroke="#ff5fa8" stroke-width="12"/>
+            <circle cx="500" cy="150" r="70" fill="#f6dcc5"/>
+            <g fill="#a9713f"><circle cx="446" cy="150" r="30"/><circle cx="466" cy="104" r="32"/><circle cx="500" cy="86" r="34"/><circle cx="534" cy="104" r="32"/><circle cx="554" cy="150" r="30"/><circle cx="448" cy="196" r="26"/><circle cx="552" cy="196" r="26"/><circle cx="500" cy="150" r="56"/></g>
+            <g transform="translate(548 118)"><g fill="#d1203a" stroke-width="2"><circle cy="-10" r="7"/><circle cx="9" cy="-3" r="7"/><circle cx="6" cy="8" r="7"/><circle cx="-6" cy="8" r="7"/><circle cx="-9" cy="-3" r="7"/></g><circle r="5" fill="#ffd23f" stroke-width="2"/></g>
+            <path d="M436 330q-14-50 16-80M564 330q14-50-16-80" fill="none" stroke-width="22" stroke="#2a1a12"/>
+            <path d="M436 330q-14-50 16-80M564 330q14-50-16-80" fill="none" stroke-width="12" stroke="#f1cfb4"/>
+          </g>
+        </svg>
+        <svg class="prop gato"><use href="#cat"/></svg>
+      </div>
+      <div class="pular">clique ou aperte espaço pra pular a abertura</div>
+    </section>
+
+    <!-- 6. JOGO -->
+    <section id="tela-jogo" class="tela" data-tela="jogo">
+      <div class="lousa"></div>
+      <svg class="rabisco" style="left:520px;top:130px;color:#ff6fb8;width:70px;height:70px;transform:rotate(-20deg)"><use href="#heart"/></svg>
+      <svg class="rabisco" style="right:520px;top:170px;color:#5aa0ff;width:80px;height:80px;transform:rotate(15deg)"><use href="#star5"/></svg>
+      <svg class="rabisco" style="left:470px;bottom:120px;color:#ffd23f;width:70px;height:70px"><use href="#star5"/></svg>
+      <svg class="rabisco" style="right:470px;bottom:160px;color:#ff6fb8;width:80px;height:80px;transform:rotate(25deg)"><use href="#heart"/></svg>
+      <svg class="rabisco" style="right:560px;bottom:300px;color:#5aa0ff;width:70px;height:70px"><use href="#bolt"/></svg>
+      <div class="topo"><span class="etiqueta grande">Vamos jogar?</span><div class="sub" id="jogo-sub">Quatro em linha para descobrir<br>nosso maior presente!</div></div>
+      <div class="legenda-xo"><b class="x">X</b> = menino<br><b class="o">O</b> = menina</div>
+      <div class="vez" id="vez">vez da Nanda<small id="jogada">jogada 1 de 16</small></div>
+      <div class="quase" id="quase" hidden>quase! falta um…</div>
+      <div class="tab">
+        <svg class="linhas" viewBox="0 0 620 620" aria-hidden="true"><g fill="none" stroke="#f2efe4" stroke-width="8" stroke-linecap="round" filter="url(#giz)"><path d="M155 20v580M310 20v580M465 20v580M20 155h580M20 310h580M20 465h580"/></g></svg>
+        <div class="celulas" id="celulas"></div>
+      </div>
+      <img class="pers k" src="assets/kaio.svg" alt=""><img class="pers n" src="assets/nanda.svg" alt="">
+      <div class="rodape-jogo">Clique numa casa. O giz decide se sai X ou O. Quatro iguais em linha, coluna ou diagonal revelam o bebê.</div>
+    </section>
+
+    <!-- 7. RESULTADO -->
+    <section id="tela-resultado" class="tela" data-tela="resultado">
+      <div class="synth"><div class="estrelas"></div><div class="sol"></div><div class="montanhas"></div><div class="mar"></div><div class="areia"></div><div class="grade"></div></div>
+      <div class="fogos" id="fogos"></div>
+      <svg class="rabisco sparkle" style="left:300px;top:560px;width:80px;height:80px"><use href="#sparkle"/></svg>
+      <svg class="rabisco sparkle" style="right:300px;top:620px;width:60px;height:60px"><use href="#sparkle"/></svg>
+      <svg class="rabisco sparkle" style="left:620px;top:720px;width:50px;height:50px"><use href="#sparkle"/></svg>
+      <div class="titulo"><div class="pre">Quatro em linha. Tá revelado:</div><div class="grande" id="grande">É MENINA!</div></div>
+      <img class="pers" id="pers-resultado" src="assets/nanda.svg" alt="">
+      <div class="polaroids">
+        <div class="polaroid-foto a"><img src="assets/img/kaio-crianca.jpg" alt="Kaio criança"><span>o pai</span></div>
+        <div class="polaroid-foto b"><img src="assets/img/nanda-crianca.jpg" alt="Nanda criança"><span>a mãe</span></div>
+      </div>
+      <div class="bilhete">Nanda &amp; Kaio<br>pais na adolescência<br>(depois dos 30)<br>2026</div>
+      <div class="fim">◼ STOP · FIM</div>
+    </section>
+
+  </div>
+  <div class="legenda" id="legenda">CHÁ REVELAÇÃO · NANDA E KAIO</div>
+</div>
+
+<div id="dialogo-reset" class="dialogo" hidden>
+  <div class="caixa-dialogo">
+    <h2>Recomeçar do zero?</h2>
+    <p>Apaga a escolha guardada e volta pra capa. Só faça isso se alguém confirmou errado.</p>
+    <div><button id="reset-nao" class="botao fantasma" type="button">Não</button><button id="reset-sim" class="botao" type="button">Sim, recomeçar</button></div>
+  </div>
+</div>
+</body>
+</html>

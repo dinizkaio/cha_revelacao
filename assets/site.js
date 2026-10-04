@@ -1,0 +1,383 @@
+/* Chá Revelação · Nanda e Kaio
+   Uma página só. Telas: capa → seletor → confirmar → play → abertura → jogo → resultado.
+   O segredo fica no navegador (localStorage), ofuscado, e some da interface depois de confirmado.
+   ?ensaio   roda tudo sem gravar o segredo de verdade (fica só nesta aba).
+   ?reiniciar apaga o segredo e volta pra capa. Segurar o título "Tá tudo pronto!" por 5 s faz o mesmo, com confirmação. */
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  // ---------- estado e segredo ----------
+  const params = new URLSearchParams(location.search);
+  const ENSAIO = params.has('ensaio');
+  const CHAVE = 'chaRevelacao.nandaEKaio';
+  const CHAVE_SOM = 'chaRevelacao.som';
+  const deposito = ENSAIO ? sessionStorage : localStorage;
+
+  function guardar(escolha) {
+    // ofuscado: um ruído aleatório na frente, tudo em base64. Não aparece em lugar nenhum da interface.
+    const ruido = Math.random().toString(36).slice(2, 10);
+    const texto = btoa(ruido + '|' + (escolha === 'm' ? 'azul' : 'rosa') + '|' + Date.now());
+    try { deposito.setItem(CHAVE, texto); } catch (e) {}
+  }
+  function lerSegredo() {
+    try {
+      const t = deposito.getItem(CHAVE);
+      if (!t) return null;
+      const partes = atob(t).split('|');
+      return partes[1] === 'azul' ? 'm' : partes[1] === 'rosa' ? 'f' : null;
+    } catch (e) { return null; }
+  }
+  function apagarSegredo() {
+    try { localStorage.removeItem(CHAVE); sessionStorage.removeItem(CHAVE); } catch (e) {}
+  }
+
+  if (params.has('reiniciar')) {
+    apagarSegredo();
+    history.replaceState(null, '', location.pathname + (ENSAIO ? '?ensaio' : ''));
+  }
+  if (ENSAIO) $('#ensaio').hidden = false;
+
+  // ---------- o palco escala pra caber na tela ----------
+  const palco = $('#palco');
+  function ajustar() {
+    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    palco.style.transform = `translate(-50%,-50%) scale(${s})`;
+  }
+  addEventListener('resize', ajustar);
+  ajustar();
+
+  // ---------- som (sintetizado, sem arquivo) ----------
+  let somLigado = true;
+  try { somLigado = localStorage.getItem(CHAVE_SOM) !== '0'; } catch (e) {}
+  let ac = null;
+  function audio() {
+    if (!somLigado) return null;
+    if (!ac) { try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { return null; } }
+    if (ac.state === 'suspended') ac.resume();
+    return ac;
+  }
+  function ruido(dur, tipo, freq, ganho) {
+    const c = audio(); if (!c) return;
+    const n = c.sampleRate * dur, buf = c.createBuffer(1, n, c.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / n);
+    const src = c.createBufferSource(); src.buffer = buf;
+    const f = c.createBiquadFilter(); f.type = tipo; f.frequency.value = freq; f.Q.value = 1.2;
+    const g = c.createGain(); g.gain.value = ganho;
+    src.connect(f).connect(g).connect(c.destination); src.start();
+  }
+  function nota(freq, t0, dur, tipo = 'triangle', ganho = .18) {
+    const c = audio(); if (!c) return;
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = tipo; o.frequency.value = freq;
+    g.gain.setValueAtTime(0, c.currentTime + t0);
+    g.gain.linearRampToValueAtTime(ganho, c.currentTime + t0 + .02);
+    g.gain.exponentialRampToValueAtTime(.001, c.currentTime + t0 + dur);
+    o.connect(g).connect(c.destination); o.start(c.currentTime + t0); o.stop(c.currentTime + t0 + dur + .05);
+  }
+  const som = {
+    videocassete() { ruido(.35, 'lowpass', 400, .5); nota(70, 0, .3, 'sine', .3); },
+    giz() { ruido(.22, 'bandpass', 1800, .35); },
+    quase() { nota(880, 0, .12, 'square', .08); nota(1174, .13, .18, 'square', .08); },
+    fanfarra() { [523, 659, 784, 1046].forEach((f, i) => nota(f, i * .14, .5, 'triangle', .22)); nota(1318, .6, 1.2, 'triangle', .2); },
+    fogo() { ruido(.5, 'highpass', 900, .25); nota(200 + Math.random() * 200, 0, .25, 'sine', .15); },
+    clique() { nota(600, 0, .06, 'square', .05); }
+  };
+  const btnSom = $('#btn-som');
+  function pintarSom() {
+    btnSom.textContent = somLigado ? '🔊 som ligado' : '🔇 som desligado';
+    btnSom.setAttribute('aria-pressed', String(somLigado));
+  }
+  btnSom.addEventListener('click', () => {
+    somLigado = !somLigado;
+    try { localStorage.setItem(CHAVE_SOM, somLigado ? '1' : '0'); } catch (e) {}
+    pintarSom(); if (somLigado) som.clique();
+  });
+  pintarSom();
+
+  // ---------- navegação entre telas ----------
+  const telas = $$('.tela');
+  let telaAtual = 'capa';
+  const aoEntrar = {};
+  const aoSair = {};
+  function irPara(nome) {
+    if (aoSair[telaAtual]) aoSair[telaAtual]();
+    telas.forEach(t => t.classList.toggle('ativa', t.dataset.tela === nome));
+    telaAtual = nome;
+    if (aoEntrar[nome]) aoEntrar[nome]();
+  }
+  $$('[data-ir]').forEach(b => b.addEventListener('click', () => { som.clique(); irPara(b.dataset.ir); }));
+
+  // ---------- 2 e 3. seletor e confirmação ----------
+  let escolha = null;
+  const cartas = $$('#tela-seletor .polaroid');
+  const btnConfirmar1 = $('#btn-confirmar-1');
+  cartas.forEach(c => c.addEventListener('click', () => {
+    escolha = c.dataset.escolha;
+    cartas.forEach(x => x.setAttribute('aria-checked', String(x === c)));
+    btnConfirmar1.disabled = false; btnConfirmar1.classList.remove('inativo');
+    som.clique();
+  }));
+  btnConfirmar1.addEventListener('click', () => {
+    if (!escolha) return;
+    const p = $('#polaroid-escolha');
+    p.classList.toggle('m', escolha === 'm'); p.classList.toggle('f', escolha === 'f');
+    $('#img-escolha').src = escolha === 'm' ? 'assets/kaio.svg' : 'assets/nanda.svg';
+    $('#nome-escolha').textContent = escolha === 'm' ? 'Menino' : 'Menina';
+    som.clique(); irPara('confirmar');
+  });
+  $('#btn-confirmar-2').addEventListener('click', () => {
+    guardar(escolha);
+    // some da interface
+    escolha = null;
+    cartas.forEach(x => x.setAttribute('aria-checked', 'false'));
+    btnConfirmar1.disabled = true; btnConfirmar1.classList.add('inativo');
+    $('#img-escolha').src = 'assets/kaio.svg'; $('#nome-escolha').textContent = '…';
+    som.videocassete(); irPara('play');
+  });
+
+  // ---------- 4. play ----------
+  $('#btn-play').addEventListener('click', comecarAbertura);
+  function comecarAbertura() {
+    if (!lerSegredo()) { irPara('seletor'); return; }
+    som.videocassete();
+    irPara('abertura');
+  }
+  // segurar o título por 5 s pra recomeçar
+  const segurar = $('#segurar-reset'); let timerSegurar = null;
+  const comecaSegurar = () => { clearTimeout(timerSegurar); timerSegurar = setTimeout(() => { $('#dialogo-reset').hidden = false; }, 5000); };
+  const paraSegurar = () => clearTimeout(timerSegurar);
+  segurar.addEventListener('pointerdown', comecaSegurar);
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => segurar.addEventListener(ev, paraSegurar));
+  $('#reset-nao').addEventListener('click', () => { $('#dialogo-reset').hidden = true; });
+  $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
+
+  // ---------- 5. abertura ----------
+  const CENAS = [['vhs', 4500], ['crawl', 112000], ['delorean', 9000], ['jurassic', 7500], ['matrix', 7500], ['aventura', 8500]];
+  let timersAbertura = [];
+  let cenaAtual = null;
+  function mostrarCena(nome) {
+    $$('#tela-abertura .cena').forEach(c => c.classList.toggle('ativa', c.dataset.cena === nome));
+    cenaAtual = nome;
+    if (nome === 'vhs') {
+      let seg = 0; const osd = $('#osd-tempo');
+      const tic = () => { seg++; osd.textContent = '0:00:' + String(seg).padStart(2, '0'); };
+      osd.textContent = '0:00:00';
+      timersAbertura.push(setInterval(tic, 1000));
+    }
+    if (nome === 'matrix') {
+      montarChuva();
+      const alvo = 'Pílula azul ou pílula rosa?', el = $('#matrix-texto'); el.textContent = '';
+      let i = 0;
+      const t = setInterval(() => { el.textContent = alvo.slice(0, ++i); if (i >= alvo.length) clearInterval(t); }, 70);
+      timersAbertura.push(t);
+    }
+    if (nome === 'jurassic') timersAbertura.push(setTimeout(() => ruido(.9, 'lowpass', 250, .6), 1500));
+    if (nome === 'delorean') ruido(1.2, 'lowpass', 600, .35);
+  }
+  function limparAbertura() {
+    timersAbertura.forEach(t => { clearTimeout(t); clearInterval(t); });
+    timersAbertura = [];
+    $$('#tela-abertura .cena').forEach(c => c.classList.remove('ativa'));
+  }
+  aoEntrar.abertura = () => {
+    limparAbertura();
+    let acumulado = 0;
+    CENAS.forEach(([nome, dur], i) => {
+      timersAbertura.push(setTimeout(() => mostrarCena(nome), acumulado));
+      acumulado += dur;
+    });
+    timersAbertura.push(setTimeout(() => irPara('jogo'), acumulado));
+  };
+  aoSair.abertura = limparAbertura;
+  $('#tela-abertura').addEventListener('click', () => irPara('jogo'));
+  let chuvaPronta = false;
+  function montarChuva() {
+    if (chuvaPronta) return; chuvaPronta = true;
+    const c = $('#chuva'); const chars = 'アイウエオカキクケコ0123456789NANDAKAIO1989199320261&';
+    for (let i = 0; i < 44; i++) {
+      const d = document.createElement('div'); let s = ''; const n = 24 + Math.floor(Math.random() * 30);
+      for (let j = 0; j < n; j++) s += chars[Math.floor(Math.random() * chars.length)];
+      d.textContent = s; d.style.animationDuration = (4 + Math.random() * 6) + 's'; d.style.animationDelay = (-Math.random() * 6) + 's'; d.style.opacity = .3 + Math.random() * .7;
+      c.appendChild(d);
+    }
+  }
+
+  // ---------- 6. jogo ----------
+  // Tabuleiro 4×4; vence quem fizer 4 em linha, coluna ou diagonal. X = menino, O = menina.
+  // O símbolo de cada casa é decidido na hora do clique: o lado que não vai ganhar nunca fecha quatro,
+  // e o lado que vai ganhar só fecha o mais tarde possível (regra das "linhas vivas" + busca exata no fim).
+  const N = 4;
+  const LINHAS = [];
+  for (let r = 0; r < N; r++) LINHAS.push([0, 1, 2, 3].map(c => r * N + c));
+  for (let c = 0; c < N; c++) LINHAS.push([0, 1, 2, 3].map(r => r * N + c));
+  LINHAS.push([0, 5, 10, 15]); LINHAS.push([3, 6, 9, 12]);
+  const LINHAS_DA_CASA = Array.from({ length: 16 }, (_, i) => LINHAS.filter(l => l.includes(i)));
+
+  function completa(b, i, s) { return LINHAS_DA_CASA[i].some(l => l.every(j => (j === i ? s : b[j]) === s)); }
+  function temViva(b) { return LINHAS.some(l => l.every(j => b[j] !== 'L')); }
+  function regraMatar(b, i) {
+    const vivas = LINHAS.filter(l => l.every(j => b[j] !== 'L'));
+    if (completa(b, i, 'L')) return 'W';
+    if (!vivas.some(l => !l.includes(i))) return 'W';
+    return 'L';
+  }
+  // busca exata: valor esperado do clique em que o vencedor fecha, com ordem de cliques aleatória
+  const memo = new Map();
+  function valor(b) {
+    const chave = b.join('');
+    if (memo.has(chave)) return memo.get(chave);
+    const vazias = []; b.forEach((v, i) => { if (!v) vazias.push(i); });
+    const t = 16 - vazias.length;
+    let total = 0;
+    for (const i of vazias) {
+      let melhor = -1;
+      for (const s of ['W', 'L']) {
+        let v;
+        if (s === 'L') {
+          if (completa(b, i, 'L')) continue;
+          const nb = b.slice(); nb[i] = 'L';
+          if (!temViva(nb)) continue;
+          v = valor(nb);
+        } else if (completa(b, i, 'W')) v = t + 1;
+        else { const nb = b.slice(); nb[i] = 'W'; v = valor(nb); }
+        if (v > melhor) melhor = v;
+      }
+      total += melhor;
+    }
+    const r = vazias.length ? total / vazias.length : 16;
+    memo.set(chave, r); return r;
+  }
+  function melhorSimbolo(b, i) {
+    const t = 16 - b.filter(v => !v).length;
+    let melhor = -1, escolhido = 'W';
+    for (const s of ['W', 'L']) {
+      let v;
+      if (s === 'L') {
+        if (completa(b, i, 'L')) continue;
+        const nb = b.slice(); nb[i] = 'L';
+        if (!temViva(nb)) continue;
+        v = valor(nb);
+      } else if (completa(b, i, 'W')) v = t + 1;
+      else { const nb = b.slice(); nb[i] = 'W'; v = valor(nb); }
+      if (v > melhor) { melhor = v; escolhido = s; }
+    }
+    return escolhido;
+  }
+  function decidir(b, i) {
+    const vazias = b.filter(v => !v).length;
+    return vazias <= 10 ? melhorSimbolo(b, i) : regraMatar(b, i);
+  }
+
+  const jogo = { tab: [], vencedor: null, jogada: 0, vez: 'Nanda', acabou: false };
+  const celulasEl = $('#celulas');
+  const vezEl = $('#vez'), jogadaEl = $('#jogada'), quaseEl = $('#quase');
+  function marcaSvg(simbolo) {
+    return simbolo === 'X'
+      ? '<svg viewBox="0 0 100 100"><path class="tr" d="M18 18l64 64"/><path class="tr tr2" d="M82 18L18 82"/></svg>'
+      : '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="33"/></svg>';
+  }
+  function montarTabuleiro() {
+    celulasEl.innerHTML = '';
+    for (let i = 0; i < 16; i++) {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'cel'; b.dataset.i = i; b.setAttribute('aria-label', 'casa ' + (i + 1));
+      b.addEventListener('click', () => jogar(i));
+      celulasEl.appendChild(b);
+    }
+  }
+  function pintarVez() {
+    vezEl.firstChild.textContent = (jogo.vez === 'Nanda' ? 'vez da Nanda' : 'vez do Kaio');
+    jogadaEl.textContent = 'jogada ' + Math.min(jogo.jogada + 1, 16) + ' de 16';
+  }
+  aoEntrar.jogo = () => {
+    jogo.vencedor = lerSegredo() || (ENSAIO ? (Math.random() < .5 ? 'm' : 'f') : 'm');
+    jogo.tab = Array(16).fill(''); jogo.jogada = 0; jogo.vez = 'Nanda'; jogo.acabou = false;
+    memo.clear();
+    quaseEl.hidden = true; $('#tela-jogo .topo').classList.remove('sumir');
+    montarTabuleiro(); pintarVez();
+  };
+  function simboloDe(lado) { // lado interno W/L → X/O conforme quem vence
+    const vencedorX = jogo.vencedor === 'm';
+    return (lado === 'W') === vencedorX ? 'X' : 'O';
+  }
+  function jogar(i) {
+    if (jogo.acabou || jogo.tab[i]) return;
+    const lado = decidir(jogo.tab, i);
+    jogo.tab[i] = lado;
+    const simbolo = simboloDe(lado);
+    const cel = celulasEl.children[i];
+    cel.classList.add('cheia', simbolo === 'X' ? 'm' : 'f');
+    cel.innerHTML = marcaSvg(simbolo);
+    som.giz();
+    jogo.jogada++; jogo.vez = jogo.vez === 'Nanda' ? 'Kaio' : 'Nanda'; pintarVez();
+
+    // venceu?
+    const linhaVencedora = LINHAS.find(l => l.every(j => jogo.tab[j] === 'W'));
+    if (linhaVencedora) {
+      jogo.acabou = true;
+      linhaVencedora.forEach(j => celulasEl.children[j].classList.add('venceu'));
+      quaseEl.hidden = true;
+      vezEl.firstChild.textContent = 'quatro em linha!';
+      jogadaEl.textContent = 'tá revelado';
+      setTimeout(() => som.fanfarra(), 300);
+      setTimeout(() => irPara('resultado'), 2600);
+      return;
+    }
+    // quase: alguma linha com três iguais e uma casa vazia
+    const quase = LINHAS.find(l => {
+      const vazias = l.filter(j => !jogo.tab[j]);
+      if (vazias.length !== 1) return false;
+      const cheias = l.filter(j => jogo.tab[j]);
+      return cheias.every(j => jogo.tab[j] === jogo.tab[cheias[0]]);
+    });
+    if (quase) {
+      const ladoQuase = jogo.tab[quase.find(j => jogo.tab[j])];
+      const simb = simboloDe(ladoQuase);
+      quaseEl.textContent = simb === 'X' ? 'quase! falta um X…' : 'quase! falta um O…';
+      quaseEl.classList.toggle('azul', simb === 'X');
+      if (quaseEl.hidden) som.quase();
+      quaseEl.hidden = false; $('#tela-jogo .topo').classList.add('sumir');
+    } else {
+      quaseEl.hidden = true; $('#tela-jogo .topo').classList.remove('sumir');
+    }
+  }
+
+  // ---------- 7. resultado ----------
+  let timerFogos = null;
+  aoEntrar.resultado = () => {
+    const menino = jogo.vencedor === 'm';
+    const tela = $('#tela-resultado');
+    tela.classList.toggle('menino', menino);
+    $('#grande').textContent = menino ? 'É MENINO!' : 'É MENINA!';
+    $('#pers-resultado').src = menino ? 'assets/kaio.svg' : 'assets/nanda.svg';
+    const fogos = $('#fogos'); fogos.innerHTML = '';
+    const cores = menino ? ['#ffd23f', '#fff', '#36e2ff', '#ff7ac8'] : ['#ffd23f', '#fff', '#36e2ff', '#ff7ac8'];
+    for (let k = 0; k < 12; k++) {
+      const f = document.createElement('div'); f.className = 'fogo-r';
+      const tam = 180 + Math.random() * 260;
+      f.style.width = f.style.height = tam + 'px';
+      f.style.left = (Math.random() * 1700) + 'px'; f.style.top = (Math.random() * 600) + 'px';
+      f.style.color = cores[k % cores.length]; f.style.animationDelay = (Math.random() * 2.4) + 's';
+      fogos.appendChild(f);
+    }
+    som.fogo();
+    timerFogos = setInterval(() => som.fogo(), 1300);
+  };
+  aoSair.resultado = () => clearInterval(timerFogos);
+
+  // ---------- teclado ----------
+  addEventListener('keydown', e => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      if (telaAtual === 'play') { e.preventDefault(); comecarAbertura(); }
+      else if (telaAtual === 'abertura') { e.preventDefault(); irPara('jogo'); }
+      else if (telaAtual === 'capa') { e.preventDefault(); irPara('seletor'); }
+    }
+    if (e.key === 'Escape' && !$('#dialogo-reset').hidden) $('#dialogo-reset').hidden = true;
+  });
+
+  // ---------- começo ----------
+  if (lerSegredo()) irPara('play'); else irPara('capa');
+  $('#legenda').textContent = 'CHÁ REVELAÇÃO · NANDA E KAIO' + (ENSAIO ? ' · ENSAIO' : '');
+})();
