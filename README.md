@@ -54,6 +54,10 @@ O site é servido direto da branch principal pelo GitHub Pages:
 3. Em um ou dois minutos o site fica em
    `https://dinizkaio.github.io/cha_revelacao/`.
 
+Antes de publicar uma mudança, rode `python3 tools/carimbar.py`: ele
+escreve a versão de cada arquivo (CSS, JS, imagens) no `index.html`, para o
+navegador de quem já abriu o site baixar o novo em vez de usar o cache.
+
 O arquivo `.nojekyll` evita que o GitHub processe a pasta. Para um domínio
 próprio, é só criar o arquivo `CNAME` com o domínio e apontar o DNS, como no
 getsessionflow.app.
