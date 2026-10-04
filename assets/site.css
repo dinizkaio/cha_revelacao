@@ -26,6 +26,9 @@ img{-webkit-user-drag:none}
 .crt .pontos{position:absolute;top:14px;left:28px;display:flex;gap:9px;z-index:9}
 .crt .pontos i{width:14px;height:14px;border-radius:50%;background:#ff5f56}.crt .pontos i:nth-child(2){background:#ffbd2e}.crt .pontos i:nth-child(3){background:#27c93f}
 .crt .legenda{position:absolute;left:28px;bottom:12px;z-index:9;font:26px var(--f-vhs);color:#8a8a8f;letter-spacing:.06em}
+.crt .som{position:absolute;right:28px;bottom:6px;z-index:9;background:none;border:2px solid #555;border-radius:8px;color:#bbb;font:24px var(--f-vhs);letter-spacing:.08em;padding:2px 14px}
+.crt .som:hover{color:#fff;border-color:#999}
+.crt .som[aria-pressed="false"]{color:#ff5f56;border-color:#ff5f56}
 .crt .vidro{position:absolute;inset:40px 46px 56px;border-radius:40px;overflow:hidden;background:var(--crt)}
 .crt .vidro::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:8;border-radius:40px;
   background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.55) 100%),repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 2px,transparent 2px 5px);
@@ -144,7 +147,6 @@ img{-webkit-user-drag:none}
 #tela-play .raio{position:absolute;left:50%;top:465px;width:60px;height:8px;background:var(--rosa);border-radius:4px;transform-origin:0 50%;box-shadow:0 0 10px var(--magenta)}
 #tela-play .etq-play{position:absolute;left:50%;top:690px;transform:translateX(-50%) rotate(-1.5deg);font-size:54px}
 #tela-play .seg{position:absolute;left:50%;transform:translateX(-50%);bottom:40px;width:900px;font-size:20px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#3a3a3a;text-align:center}
-#tela-play .som{position:absolute;right:60px;top:60px;background:#fff;border:3px solid #3a3a3a;border-radius:999px;padding:8px 18px;font-size:20px;text-transform:uppercase;letter-spacing:.06em}
 #tela-play .prop{filter:drop-shadow(0 8px 8px rgba(0,0,0,.35))}
 #tela-play .pizza{left:120px;top:150px;width:170px;height:170px;transform:rotate(-25deg)}
 #tela-play .slinky{left:60px;top:560px;width:260px;height:170px}
@@ -312,7 +314,17 @@ img{-webkit-user-drag:none}
 #tela-resultado.menino .grande{-webkit-text-stroke:6px #143a8a;text-shadow:0 0 30px var(--ciano),14px 14px 0 #143a8a}
 @keyframes neon-texto{from{filter:brightness(1)}to{filter:brightness(1.25)}}
 #tela-resultado .bilhete{right:100px;bottom:120px;width:460px;transform:rotate(3deg);font-size:28px;z-index:5}
-#tela-resultado .fim{position:absolute;right:120px;top:40px;font-family:var(--f-vhs);font-size:56px;color:#fff;letter-spacing:.14em;text-shadow:3px 0 #0ff,-3px 0 #f0f;z-index:5}
+#tela-resultado .fim{position:absolute;right:120px;top:40px;background:rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.6);border-radius:10px;padding:4px 22px;font-family:var(--f-vhs);font-size:56px;color:#fff;letter-spacing:.14em;text-shadow:3px 0 #0ff,-3px 0 #f0f;z-index:6}
+#tela-resultado .fim:hover{background:rgba(0,0,0,.6);border-color:#fff}
+/* ---------- 8. fim ---------- */
+#tela-fim{background:#050505;cursor:pointer}
+.ruido-fim{position:absolute;inset:0;opacity:.22;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:chuviscar .2s steps(3) infinite}
+.osd-fim{position:absolute;left:70px;top:40px;font-family:var(--f-vhs);font-size:84px;color:#fff;letter-spacing:.06em;text-shadow:3px 0 #0ff,-3px 0 #f0f}
+.centro-fim{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;color:#fff}
+.fim-grande{font-family:var(--f-vhs);font-size:300px;line-height:1;letter-spacing:.1em;text-shadow:5px 0 #0ff,-5px 0 #f0f}
+.fim-sub{font-family:var(--f-maquina);font-size:34px;text-transform:uppercase;letter-spacing:.1em;color:#ddd;margin-top:10px}
+.fim-mini{font-family:var(--f-vhs);font-size:30px;color:#777;letter-spacing:.14em;margin-top:30px}
+#tela-fim .polaroids{left:auto;right:90px}
 #tela-resultado .sparkle{color:#fff;z-index:3;animation:blink 1.3s steps(2) infinite}
 .polaroids{position:absolute;left:90px;bottom:60px;z-index:5;display:flex;gap:10px;align-items:flex-end}
 .polaroid-foto{background:#fff;padding:12px 12px 40px;box-shadow:0 14px 30px rgba(0,0,0,.45);position:relative;width:250px}

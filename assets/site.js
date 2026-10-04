@@ -86,14 +86,57 @@
   };
   const btnSom = $('#btn-som');
   function pintarSom() {
-    btnSom.textContent = somLigado ? '🔊 som ligado' : '🔇 som desligado';
+    btnSom.textContent = somLigado ? '🔊 SOM' : '🔇 MUDO';
     btnSom.setAttribute('aria-pressed', String(somLigado));
   }
-  btnSom.addEventListener('click', () => {
+  function alternarSom() {
     somLigado = !somLigado;
     try { localStorage.setItem(CHAVE_SOM, somLigado ? '1' : '0'); } catch (e) {}
+    if (!somLigado && ac) ac.suspend();
+    trilha.silenciar(!somLigado);
     pintarSom(); if (somLigado) som.clique();
-  });
+  }
+  btnSom.addEventListener('click', alternarSom);
+
+  // ---------- trilha sonora (arquivos em assets/som; se o arquivo não existir, nada toca) ----------
+  // Uma faixa por momento. Troque os nomes aqui quando os arquivos chegarem.
+  const TRILHA = {
+    capa: 'assets/som/capa.mp3',
+    bastidor: 'assets/som/bastidor.mp3',      // seletor, confirmação e play
+    vhs: 'assets/som/abertura-vhs.mp3',
+    crawl: 'assets/som/abertura-letreiro.mp3',
+    delorean: 'assets/som/abertura-delorean.mp3',
+    jurassic: 'assets/som/abertura-parque.mp3',
+    matrix: 'assets/som/abertura-matrix.mp3',
+    aventura: 'assets/som/abertura-aventura.mp3',
+    jogo: 'assets/som/jogo.mp3',
+    resultado: 'assets/som/resultado.mp3',
+    fim: 'assets/som/fim.mp3'
+  };
+  const trilha = (() => {
+    let atual = null, nomeAtual = null;
+    const cache = {};
+    function obter(nome) {
+      if (!TRILHA[nome]) return null;
+      if (!cache[nome]) { const a = new Audio(TRILHA[nome]); a.loop = true; a.preload = 'auto'; a.addEventListener('error', () => { cache[nome] = false; }); cache[nome] = a; }
+      return cache[nome] || null;
+    }
+    function fade(a, de, para, ms, depois) {
+      const passos = 20, dt = ms / passos; let i = 0;
+      const t = setInterval(() => { i++; a.volume = Math.max(0, Math.min(1, de + (para - de) * i / passos)); if (i >= passos) { clearInterval(t); depois && depois(); } }, dt);
+    }
+    return {
+      tocar(nome) {
+        if (nome === nomeAtual) return;
+        const prox = obter(nome);
+        if (atual) { const antigo = atual; fade(antigo, antigo.volume, 0, 600, () => antigo.pause()); }
+        atual = prox; nomeAtual = nome;
+        if (prox) { prox.currentTime = 0; prox.volume = 0; prox.muted = !somLigado; prox.play().then(() => fade(prox, 0, 1, 800)).catch(() => {}); }
+      },
+      parar() { if (atual) { const a = atual; fade(a, a.volume, 0, 500, () => a.pause()); } atual = null; nomeAtual = null; },
+      silenciar(sim) { Object.values(cache).forEach(a => { if (a) a.muted = sim; }); }
+    };
+  })();
   pintarSom();
 
   // ---------- navegação entre telas ----------
@@ -105,6 +148,9 @@
     if (aoSair[telaAtual]) aoSair[telaAtual]();
     telas.forEach(t => t.classList.toggle('ativa', t.dataset.tela === nome));
     telaAtual = nome;
+    if (nome === 'capa') trilha.tocar('capa');
+    else if (nome === 'seletor' || nome === 'confirmar' || nome === 'play') trilha.tocar('bastidor');
+    else if (nome === 'jogo' || nome === 'resultado' || nome === 'fim') trilha.tocar(nome);
     if (aoEntrar[nome]) aoEntrar[nome]();
   }
   $$('[data-ir]').forEach(b => b.addEventListener('click', () => { som.clique(); irPara(b.dataset.ir); }));
@@ -157,9 +203,11 @@
   const CENAS = [['vhs', 4500], ['crawl', 112000], ['delorean', 9000], ['jurassic', 7500], ['matrix', 7500], ['aventura', 8500]];
   let timersAbertura = [];
   let cenaAtual = null;
+  let timerProximaCena = null;
   function mostrarCena(nome) {
     $$('#tela-abertura .cena').forEach(c => c.classList.toggle('ativa', c.dataset.cena === nome));
     cenaAtual = nome;
+    trilha.tocar(nome);
     if (nome === 'vhs') {
       let seg = 0; const osd = $('#osd-tempo');
       const tic = () => { seg++; osd.textContent = '0:00:' + String(seg).padStart(2, '0'); };
@@ -181,17 +229,20 @@
     timersAbertura = [];
     $$('#tela-abertura .cena').forEach(c => c.classList.remove('ativa'));
   }
-  aoEntrar.abertura = () => {
-    limparAbertura();
-    let acumulado = 0;
-    CENAS.forEach(([nome, dur], i) => {
-      timersAbertura.push(setTimeout(() => mostrarCena(nome), acumulado));
-      acumulado += dur;
-    });
-    timersAbertura.push(setTimeout(() => irPara('jogo'), acumulado));
-  };
-  aoSair.abertura = limparAbertura;
-  $('#tela-abertura').addEventListener('click', () => irPara('jogo'));
+  let indiceCena = 0;
+  function irCena(i) {
+    clearTimeout(timerProximaCena);
+    timersAbertura.forEach(t => { clearTimeout(t); clearInterval(t); }); timersAbertura = [];
+    if (i >= CENAS.length) { irPara('jogo'); return; }
+    indiceCena = i;
+    const [nome, dur] = CENAS[i];
+    mostrarCena(nome);
+    timerProximaCena = setTimeout(() => irCena(i + 1), dur);
+  }
+  function proximaCena() { irCena(indiceCena + 1); }
+  aoEntrar.abertura = () => { limparAbertura(); irCena(0); };
+  aoSair.abertura = () => { clearTimeout(timerProximaCena); limparAbertura(); };
+  $('#tela-abertura').addEventListener('click', proximaCena);
   let chuvaPronta = false;
   function montarChuva() {
     if (chuvaPronta) return; chuvaPronta = true;
@@ -366,15 +417,21 @@
     timerFogos = setInterval(() => som.fogo(), 1300);
   };
   aoSair.resultado = () => clearInterval(timerFogos);
+  $('#btn-fim').addEventListener('click', e => { e.stopPropagation(); clearInterval(timerFogos); irPara('fim'); });
+  $('#tela-fim').addEventListener('click', () => irPara('resultado'));
 
   // ---------- teclado ----------
   addEventListener('keydown', e => {
     if (e.key === ' ' || e.key === 'Enter') {
       if (telaAtual === 'play') { e.preventDefault(); comecarAbertura(); }
-      else if (telaAtual === 'abertura') { e.preventDefault(); irPara('jogo'); }
+      else if (telaAtual === 'abertura') { e.preventDefault(); proximaCena(); }
       else if (telaAtual === 'capa') { e.preventDefault(); irPara('seletor'); }
     }
-    if (e.key === 'Escape' && !$('#dialogo-reset').hidden) $('#dialogo-reset').hidden = true;
+    if (e.key === 'Escape') {
+      if (!$('#dialogo-reset').hidden) $('#dialogo-reset').hidden = true;
+      else if (telaAtual === 'abertura') irPara('jogo');
+    }
+    if (e.key === 'm' || e.key === 'M') alternarSom();
   });
 
   // ---------- começo ----------

@@ -111,7 +111,6 @@
       <i class="raio" style="transform:rotate(-70deg) translateX(100px)"></i><i class="raio" style="transform:rotate(-110deg) translateX(100px)"></i>
       <span class="etiqueta etq-play">Play</span>
       <div class="seg">🔒 Segredo trancado. Esta tela é igual pros dois resultados: pode ligar o projetor.<br>Play no botão ou na tecla espaço.</div>
-      <button id="btn-som" class="som" type="button" aria-pressed="true">🔊 som ligado</button>
     </section>
 
     <!-- 5. ABERTURA -->
@@ -157,7 +156,7 @@
           <svg class="prop carro"><use href="#delorean"/></svg>
         </div>
         <div class="mph">88 MPH ▶▶</div>
-        <div class="frase">Pra onde esse bebê vai, não precisa de estradas.</div>
+        <div class="frase">Estradas? Pra onde esse bebê vai, a gente não precisa de estradas.</div>
       </div>
 
       <div class="cena cena-jurassic" data-cena="jurassic">
@@ -207,7 +206,7 @@
         </svg>
         <svg class="prop gato"><use href="#cat"/></svg>
       </div>
-      <div class="pular">clique ou aperte espaço pra pular a abertura</div>
+      <div class="pular">clique ou espaço: próxima cena · esc: direto pro jogo</div>
     </section>
 
     <!-- 6. JOGO -->
@@ -244,11 +243,20 @@
         <div class="polaroid-foto b"><img src="assets/img/nanda-crianca.jpg" alt="Nanda criança"><span>a mãe</span></div>
       </div>
       <div class="bilhete">Nanda &amp; Kaio<br>pais na adolescência<br>(depois dos 30)<br>2026</div>
-      <div class="fim">◼ STOP · FIM</div>
+      <button id="btn-fim" class="fim" type="button">◼ STOP · FIM</button>
+    </section>
+
+    <!-- 8. FIM -->
+    <section id="tela-fim" class="tela" data-tela="fim">
+      <div class="ruido-fim"></div>
+      <div class="osd-fim">◼ STOP</div>
+      <div class="centro-fim"><div class="fim-grande">FIM</div><div class="fim-sub">Nanda, Kaio e quem vem aí agradecem a presença.</div><div class="fim-mini">obrigado por rebobinar</div></div>
+      <div class="polaroids"><div class="polaroid-foto a"><img src="assets/img/kaio-crianca.jpg" alt="Kaio criança"><span>o pai</span></div><div class="polaroid-foto b"><img src="assets/img/nanda-crianca.jpg" alt="Nanda criança"><span>a mãe</span></div></div>
     </section>
 
   </div>
   <div class="legenda" id="legenda">CHÁ REVELAÇÃO · NANDA E KAIO</div>
+  <button id="btn-som" class="som" type="button" aria-pressed="true" title="Tecla M">🔊 SOM</button>
 </div>
 
 <div id="dialogo-reset" class="dialogo" hidden>

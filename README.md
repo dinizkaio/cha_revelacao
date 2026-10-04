@@ -33,8 +33,13 @@ o segredo continua guardado.
 - **Recomeçar do zero** (se alguém confirmou errado): abra com `?reiniciar`
   no fim do endereço, ou segure o título "Tá tudo pronto!" por 5 segundos e
   confirme.
-- **Som:** efeitos sintetizados (videocassete, giz, fogos). Liga e desliga
-  na tela de play; a preferência fica guardada.
+- **Som:** o botão SOM fica na moldura da TV, em todas as telas (ou a tecla
+  M). Silencia a trilha e os efeitos de uma vez; a preferência fica guardada.
+  A trilha sonora vai em `assets/som/` (veja o `LEIA-ME.md` de lá).
+- **Abertura:** um clique ou espaço passa para a próxima cena; Esc vai
+  direto para o jogo.
+- **Fim:** o botão "STOP · FIM" na tela do resultado para os fogos e o som e
+  mostra a tela de encerramento. Um clique nela volta para o resultado.
 - Em celular, o site pede para virar na horizontal, como uma TV. Tudo é
   desenhado em 1920×1080 e escalado para caber na tela.
 
