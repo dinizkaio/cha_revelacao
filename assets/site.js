@@ -86,7 +86,8 @@
   };
   const btnSom = $('#btn-som');
   function pintarSom() {
-    btnSom.textContent = somLigado ? '🔊 SOM' : '🔇 MUDO · aperte pra ligar';
+    btnSom.textContent = somLigado ? '🔊 SOM' : '🔇 MUDO';
+    btnSom.title = somLigado ? 'Desligar o som (tecla M)' : 'Ligar o som (tecla M)';
     btnSom.setAttribute('aria-pressed', String(somLigado));
   }
   function alternarSom() {
@@ -186,7 +187,7 @@
       },
       parar() { desligar(tocando, 500); tocando = null; },
       silenciar(sim) { if (tocando) tocando.a.muted = sim; },
-      estado() { return tocando ? { nome: tocando.nome, tempo: tocando.a.currentTime, volume: tocando.a.volume, pausado: tocando.a.paused } : null; },
+      estado() { return tocando ? { nome: tocando.nome, arquivo: tocando.arquivo, tempo: tocando.a.currentTime, volume: tocando.a.volume, mudo: tocando.a.muted, pausado: tocando.a.paused, pronto: tocando.a.readyState, rede: tocando.a.networkState, erro: tocando.a.error ? tocando.a.error.code + ' ' + tocando.a.error.message : null, falhou: [...falhou] } : { falhou: [...falhou] }; },
       buscar(seg) { if (tocando) tocando.a.currentTime = seg; }
     };
   })();
