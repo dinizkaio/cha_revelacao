@@ -11,6 +11,7 @@
   // ---------- estado e segredo ----------
   const params = new URLSearchParams(location.search);
   const ENSAIO = params.has('ensaio');
+  const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const CHAVE = 'chaRevelacao.nandaEKaio';
   const CHAVE_SOM = 'chaRevelacao.som';
   const deposito = ENSAIO ? sessionStorage : localStorage;
@@ -385,6 +386,19 @@
       ? '<svg viewBox="0 0 100 100"><path class="tr" d="M18 18l64 64"/><path class="tr tr2" d="M82 18L18 82"/></svg>'
       : '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="33"/></svg>';
   }
+  function poDeGiz(cel, n) {
+    if (reduzMovimento) return;
+    for (let k = 0; k < n; k++) {
+      const p = document.createElement('i'); p.className = 'po';
+      const ang = Math.random() * Math.PI * 2, dist = 30 + Math.random() * 70;
+      p.style.setProperty('--x', (Math.cos(ang) * dist).toFixed(0) + 'px');
+      p.style.setProperty('--y', (Math.sin(ang) * dist + 25).toFixed(0) + 'px');
+      p.style.setProperty('--t', (3 + Math.random() * 5).toFixed(0) + 'px');
+      p.style.setProperty('--d', (.5 + Math.random() * .5).toFixed(2) + 's');
+      cel.appendChild(p);
+      setTimeout(() => p.remove(), 1100);
+    }
+  }
   function montarTabuleiro() {
     celulasEl.innerHTML = '';
     for (let i = 0; i < 16; i++) {
@@ -424,6 +438,7 @@
     const cel = celulasEl.children[i];
     cel.classList.add('cheia', simbolo === 'X' ? 'm' : 'f');
     cel.innerHTML = marcaSvg(simbolo);
+    poDeGiz(cel, 16);
     som.giz();
     jogo.jogada++; jogo.vez = jogo.vez === 'Nanda' ? 'Kaio' : 'Nanda'; pintarVez();
 
@@ -431,7 +446,7 @@
     const linhaVencedora = LINHAS.find(l => l.every(j => jogo.tab[j] === 'W'));
     if (linhaVencedora) {
       jogo.acabou = true;
-      linhaVencedora.forEach(j => celulasEl.children[j].classList.add('venceu'));
+      linhaVencedora.forEach((j, k) => { const c = celulasEl.children[j]; c.classList.add('venceu'); setTimeout(() => poDeGiz(c, 22), 150 * k); });
       quaseEl.hidden = true; $('#aliens').hidden = true; pose('festa');
       vezEl.firstChild.textContent = 'quatro em linha!';
       jogadaEl.textContent = 'tá revelado';
@@ -459,6 +474,31 @@
   }
 
   // ---------- 7. resultado ----------
+  // confete: canvas com papelzinhos caindo com física simples
+  const confete = (() => {
+    const cv = $('#confete'), cx = cv.getContext('2d');
+    let pecas = [], raf = 0, ultimo = 0, cores = [];
+    function nova(doTopo) {
+      return { x: Math.random() * 1920, y: doTopo ? -20 : Math.random() * 1080, w: 10 + Math.random() * 10, h: 6 + Math.random() * 10,
+        vx: (Math.random() - .5) * 60, vy: 90 + Math.random() * 140, ang: Math.random() * Math.PI, va: (Math.random() - .5) * 6,
+        osc: Math.random() * Math.PI * 2, cor: cores[Math.floor(Math.random() * cores.length)] };
+    }
+    function passo(t) {
+      const dt = Math.min((t - ultimo) / 1000, .05); ultimo = t;
+      cx.clearRect(0, 0, 1920, 1080);
+      for (const p of pecas) {
+        p.osc += dt * 3; p.x += (p.vx + Math.sin(p.osc) * 40) * dt; p.y += p.vy * dt; p.ang += p.va * dt;
+        if (p.y > 1100) Object.assign(p, nova(true));
+        cx.save(); cx.translate(p.x, p.y); cx.rotate(p.ang); cx.scale(1, Math.cos(p.osc * 1.3));
+        cx.fillStyle = p.cor; cx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); cx.restore();
+      }
+      raf = requestAnimationFrame(passo);
+    }
+    return {
+      ligar(c) { if (reduzMovimento) return; cores = c; pecas = Array.from({ length: 160 }, () => nova(Math.random() < .5)); ultimo = performance.now(); cancelAnimationFrame(raf); raf = requestAnimationFrame(passo); },
+      desligar() { cancelAnimationFrame(raf); raf = 0; pecas = []; cx.clearRect(0, 0, 1920, 1080); }
+    };
+  })();
   let timerFogos = null;
   aoEntrar.resultado = () => {
     const menino = jogo.vencedor === 'm';
@@ -478,8 +518,9 @@
     }
     som.fogo();
     timerFogos = setInterval(() => som.fogo(), 1300);
+    confete.ligar(menino ? ['#36e2ff', '#3d8bff', '#ffd23f', '#fff', '#8ec1ff'] : ['#ff3d9a', '#ff7ac8', '#ffd23f', '#fff', '#ffb3dc']);
   };
-  aoSair.resultado = () => clearInterval(timerFogos);
+  aoSair.resultado = () => { clearInterval(timerFogos); confete.desligar(); };
   $('#btn-fim').addEventListener('click', e => { e.stopPropagation(); clearInterval(timerFogos); irPara('fim'); });
   let timerTrailer = null;
   const NOMES = { f: ['Aurora', 'Flora', 'Lara', 'Alice'], m: ['Bernardo', 'Valentim'] };

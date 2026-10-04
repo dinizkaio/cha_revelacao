@@ -462,6 +462,12 @@ img{-webkit-user-drag:none}
 #tela-jogo .pers{width:357px}
 #tela-resultado .pers{width:457px}
 
+/* ---------- partículas: pó de giz e confete ---------- */
+.cel{position:relative;overflow:visible}
+.po{position:absolute;left:50%;top:50%;width:var(--t,5px);height:var(--t,5px);border-radius:50%;background:currentColor;opacity:.9;pointer-events:none;filter:blur(.4px);animation:po-voar var(--d,.7s) ease-out forwards;transform:translate(-50%,-50%)}
+@keyframes po-voar{0%{transform:translate(-50%,-50%) translate(0,0) scale(1);opacity:.95}100%{transform:translate(-50%,-50%) translate(var(--x),var(--y)) scale(.3);opacity:0}}
+.confete{position:absolute;inset:0;width:1920px;height:1080px;z-index:7;pointer-events:none}
+
 @media (prefers-reduced-motion:reduce){
   .chuvisco::before,.cena-vhs .ruido,.cena-vhs .centro,.synth .grade,.cena-delorean .chao,#tela-play .play,.botao.neon,#tela-jogo .pers,#tela-resultado .pers,#tela-resultado .grande{animation:none}
 }
