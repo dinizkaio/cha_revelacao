@@ -83,7 +83,8 @@
     quase() { nota(880, 0, .12, 'square', .08); nota(1174, .13, .18, 'square', .08); },
     fanfarra() { [523, 659, 784, 1046].forEach((f, i) => nota(f, i * .14, .5, 'triangle', .22)); nota(1318, .6, 1.2, 'triangle', .2); },
     fogo() { ruido(.5, 'highpass', 900, .25); nota(200 + Math.random() * 200, 0, .25, 'sine', .15); },
-    clique() { nota(600, 0, .06, 'square', .05); }
+    clique() { nota(600, 0, .06, 'square', .05); },
+    tracking() { ruido(.32, 'bandpass', 2400, .22); ruido(.18, 'lowpass', 300, .25); }
   };
   const btnSom = $('#btn-som');
   function pintarSom() {
@@ -208,7 +209,13 @@
     if (nome !== 'abertura') trilha.tocar(nome);
     if (aoEntrar[nome]) aoEntrar[nome]();
   }
-  $$('[data-ir]').forEach(b => b.addEventListener('click', () => { som.clique(); irPara(b.dataset.ir); }));
+  $$('[data-ir]').forEach(b => b.addEventListener('click', () => {
+    som.clique();
+    const capa = $('#tela-capa');
+    if (b.closest('#tela-capa') && !reduzMovimento && !capa.classList.contains('saindo')) {
+      capa.classList.add('saindo'); setTimeout(() => { capa.classList.remove('saindo'); irPara(b.dataset.ir); }, 520);
+    } else irPara(b.dataset.ir);
+  }));
 
   // ---------- 2 e 3. seletor e confirmação ----------
   let escolha = null;
@@ -293,6 +300,10 @@
     if (i >= CENAS.length) { irPara('jogo'); return; }
     indiceCena = i;
     const [nome, dur] = CENAS[i];
+    if (i > 0) { // tracking de VHS entre cenas
+      const tela = $('#tela-abertura'); tela.classList.remove('trocando'); void tela.offsetWidth; tela.classList.add('trocando');
+      som.tracking(); timersAbertura.push(setTimeout(() => tela.classList.remove('trocando'), 600));
+    }
     mostrarCena(nome);
     timerProximaCena = setTimeout(() => irCena(i + 1), dur);
   }
