@@ -113,9 +113,9 @@
     matrix: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     aventura: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     jogo: 'assets/som/08-jogo.mp3?v=fb7f0564f2',
-    resultado: 'assets/som/09-resultado.mp3',
-    fim: 'assets/som/10-fim.mp3',
-    trailer: 'assets/som/11-trailer.mp3'
+    resultado: 'assets/som/09-resultado.mp3?v=2603673d29',
+    fim: 'assets/som/10-fim.mp3?v=9624e41a83',
+    trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb'
   };
   // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
   // Com entrada, o tocador para em `fim` e emenda com o começo num crossfade de `cruzar` segundos
@@ -126,7 +126,10 @@
     seletor: { fim: 175.0, cruzar: 1.5, inicio: 45 },
     confirmar: { fim: 58.5, cruzar: 1.5, inicio: 1 },
     play: { fim: 57.0, cruzar: 1.5, inicio: 2.5 },
-    jogo: { fim: 162.0, cruzar: 1.5 }
+    jogo: { fim: 162.0, cruzar: 1.5 },
+    resultado: { fim: 176.5, cruzar: 1.5 },
+    fim: { fim: 57.5, cruzar: 1.5 },
+    trailer: { fim: 51.5, cruzar: 1.5 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
