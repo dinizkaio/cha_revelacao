@@ -11,10 +11,10 @@
   <link rel="preload" href="assets/fontes/Bungee-400.woff2?v=126eec706b" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fontes/Special_Elite-400.woff2?v=770493d84c" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fontes/fontes.css?v=650d52fe2c">
-  <link rel="stylesheet" href="assets/site.css?v=0c937079d2">
-  <script src="assets/props.js?v=8f73171c0b" defer></script>
+  <link rel="stylesheet" href="assets/site.css?v=0def31502f">
+  <script src="assets/props.js?v=8517fa77a2" defer></script>
   <script src="assets/personagens.js?v=ac89c6cc82" defer></script>
-  <script src="assets/site.js?v=9b5fdc46c8" defer></script>
+  <script src="assets/site.js?v=897b6828f6" defer></script>
 </head>
 <body>
 <div class="aviso-retrato"><p>Vira o celular na horizontal, como uma TV. 📺</p></div>
@@ -68,6 +68,7 @@
       <svg class="rabisco" style="right:260px;bottom:110px;color:#ff3d9a;width:90px;height:90px;transform:rotate(-20deg)"><use href="#star5"/></svg>
       <svg class="rabisco" style="left:230px;top:140px;color:#3d8bff;width:80px;height:80px;transform:rotate(12deg)"><use href="#sparkle"/></svg>
       <svg class="prop cassete-canto"><use href="#cassette"/></svg>
+      <svg class="prop livros"><use href="#livros"/></svg>
       <div class="chapeu-grupo"><div class="balao-chapeu">Hmm… difícil. Muito difícil…</div><svg class="prop chapeu"><use href="#chapeu"/></svg></div>
       <div class="topo">
         <span class="etiqueta grande">Qual é o resultado?</span>
@@ -101,6 +102,7 @@
       <svg class="rabisco" style="right:380px;top:300px;color:#e2c22a;width:100px;height:100px;transform:rotate(15deg)"><use href="#star5"/></svg>
       <svg class="rabisco" style="left:460px;top:240px;color:#3d8bff;width:90px;height:90px;transform:rotate(-10deg)"><use href="#heart"/></svg>
       <svg class="prop pizza"><use href="#pizza"/></svg>
+      <svg class="prop lata"><use href="#lata"/></svg>
       <svg class="prop slinky"><use href="#slinky"/></svg>
       <svg class="prop gameboy2"><use href="#gameboy"/></svg>
       <svg class="prop tv"><use href="#oldtv"/></svg>
@@ -165,23 +167,11 @@
         <div class="frase">Estradas? Pra onde esse bebê vai, a gente não precisa de estradas.</div>
       </div>
 
-      <div class="cena cena-jurassic" data-cena="jurassic">
-        <div class="folhas"></div>
-        <div class="relampago"></div>
-        <svg class="rabisco raio-jp"><use href="#bolt"/></svg>
-        <div class="jp-centro">
-          <svg class="prop badge" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#ffd23f"/><circle cx="100" cy="100" r="82" fill="#c8102e"/><circle cx="100" cy="100" r="74" fill="none" stroke="#111" stroke-width="3"/><use class="ovo" href="#ovo" x="30" y="28" width="140" height="98" style="transform-origin:100px 126px"/><use class="bebe" href="#bebedino" x="30" y="28" width="140" height="98" style="transform-origin:100px 126px"/></svg>
-          <div class="t1">CHÁ REVELAÇÃO</div>
-          <div class="t2">NANDA &amp; KAIO</div>
-        </div>
-        <div class="rodape-jp">Ilha do Guarujá · Vale do Paraíba · 65 milhões de anos depois dos anos 90</div>
-      </div>
-
       <div class="cena cena-matrix" data-cena="matrix">
         <div class="chuva" id="chuva"></div>
         <div class="caixa">
           <h2><span id="matrix-texto"></span><span class="cursor"></span></h2>
-          <p>Não existe colher. Existe fralda.</p>
+          <p>Faça a sua escolha. A fralda vem junto.</p>
           <div class="pilulas"><div class="pil a"><span>AZUL</span><span>menino</span></div><div class="pil r"><span>ROSA</span><span>menina</span></div></div>
         </div>
       </div>
@@ -203,7 +193,7 @@
 
       <div class="cena cena-aventura" data-cena="aventura">
         <div class="synth">
-          <div class="estrelas"></div><div class="sol"></div><div class="montanhas"></div><div class="mar"></div><div class="areia"></div>
+          <div class="estrelas"></div><div class="sol"></div><div class="montanhas"></div><svg class="prop pedrarei"><use href="#pedrarei"/></svg><div class="mar"></div><div class="areia"></div>
           <svg class="prop palma a"><use href="#palm"/></svg><svg class="prop palma b"><use href="#palm"/></svg>
         </div>
         <div class="titulos"><div class="t1">CHÁ REVELAÇÃO</div><div class="t2"><span class="nanda">Nanda</span><span class="e">e</span><span class="kaio">KAIO</span></div></div>
@@ -244,6 +234,7 @@
       <div class="legenda-xo"><b class="x">X</b> = menino<br><b class="o">O</b> = menina</div>
       <div class="vez" id="vez">vez da Nanda<small id="jogada">jogada 1 de 16</small></div>
       <div class="quase" id="quase" hidden>quase! falta um…</div>
+      <svg class="prop gizmagico"><use href="#gizflutuante"/></svg>
       <div class="tab">
         <svg class="linhas" viewBox="0 0 620 620" aria-hidden="true"><g fill="none" stroke="#f2efe4" stroke-width="8" stroke-linecap="round" filter="url(#giz)"><path d="M155 20v580M310 20v580M465 20v580M20 155h580M20 310h580M20 465h580"/></g></svg>
         <div class="celulas" id="celulas"></div>
@@ -299,11 +290,24 @@
         </div>
         <svg class="prop garra"><use href="#garra"/></svg>
         <div class="aliens trailer-aliens"><div class="balao-aliens">A garraaaa… ela escolhe<br>quem vai e quem fica.</div><svg><use href="#alien"/></svg><svg><use href="#alien"/></svg><svg><use href="#alien"/></svg></div>
-        <div class="bilhete elenco">Elenco: Kaio, o homem que já decidiu.<br>Nanda, a mulher que vai decidir<br>no último capítulo.</div>
+        <div class="bilhete elenco">Elenco: Kaio, o homem que já decidiu.<br>Nanda, a mulher que vai decidir<br>no último capítulo.<br>Participação especial: o bebê,<br>que ninguém vai esquecer em casa.</div>
         <div class="trailer-rodape">Estreia prevista: na maternidade, cinco minutos antes de assinar a certidão.<br>Classificação: livre. Exceto para palpite de parente.</div>
       </div>
     </section>
 
+    <!-- 9. FINAL (easter egg, sem som) -->
+    <section id="tela-final" class="tela" data-tela="final">
+      <div class="mapa">
+        <div class="mapa-papel">
+          <div class="mapa-titulo">Mapa do Maroto · edição 2026</div>
+          <div class="juramento">Juro solenemente que não estamos fazendo nada de bom.</div>
+          <div class="pegadas" id="pegadas"></div>
+          <div class="malfeito">Malfeito feito.</div>
+        </div>
+      </div>
+      <div class="nox-texto">Nox.</div>
+      <div class="final-mini">fim de verdade · clique pra voltar ao início</div>
+    </section>
   </div>
   <div class="legenda" id="legenda">CHÁ REVELAÇÃO · NANDA E KAIO</div>
   <button id="btn-som" class="som" type="button" aria-pressed="true" title="Tecla M">🔊 SOM</button>

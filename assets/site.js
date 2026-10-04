@@ -115,7 +115,6 @@
     vhs: 'assets/som/05-fita.mp3?v=37c527c630',
     crawl: 'assets/som/06-letreiro.mp3?v=71b926360e',
     delorean: 'assets/som/07-sequencia.mp3?v=bc40be505d',
-    jurassic: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     matrix: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     carta: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     aventura: 'assets/som/07-sequencia.mp3?v=bc40be505d',
@@ -290,7 +289,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['jurassic', 11000], ['matrix', 11000], ['carta', 11000], ['aventura', 16000]];
+  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['matrix', 11000], ['carta', 22000], ['aventura', 16000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
@@ -304,7 +303,6 @@
       osd.textContent = '0:00:00';
       timersAbertura.push(setInterval(tic, 1000));
     }
-    if (nome === 'jurassic') timersAbertura.push(setTimeout(() => som.rachar(), 3500));
     if (nome === 'carta') timersAbertura.push(setTimeout(() => som.rachar(), 4400));
     if (nome === 'matrix') {
       montarChuva();
@@ -573,7 +571,6 @@
       fogos.appendChild(f);
     }
     som.fogo();
-    timerFogos = setInterval(() => som.fogo(), 1300);
     confete.ligar(menino ? ['#36e2ff', '#3d8bff', '#ffd23f', '#fff', '#8ec1ff'] : ['#ff3d9a', '#ff7ac8', '#ffd23f', '#fff', '#ffb3dc']);
   };
   aoSair.resultado = () => { clearInterval(timerFogos); confete.desligar(); };
@@ -639,8 +636,38 @@
   aoSair.fim = () => { clearTimeout(timerTrailer); roleta.parar(); };
   $('#tela-fim').addEventListener('click', () => {
     if ($('#trailer').hidden) mostrarTrailer();
-    else irPara('resultado');
+    else irPara('final');
   });
+
+  // ---------- 9. final: Mapa do Maroto, sem som ----------
+  let timersFinal = [];
+  aoEntrar.final = () => {
+    const tela = $('#tela-final'); tela.classList.remove('nox', 'apagar');
+    const peg = $('#pegadas'); peg.innerHTML = '';
+    const passo = (x, y, rot, atraso, bebe) => {
+      const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      s.setAttribute('class', 'pegada' + (bebe ? ' bebe' : '')); s.innerHTML = '<use href="#pegada"/>';
+      s.style.left = x + 'px'; s.style.top = y + 'px'; s.style.transform = `rotate(${rot}deg)`; s.style.animationDelay = atraso + 's';
+      peg.appendChild(s);
+    };
+    const tag = (texto, x, y, atraso, bebe) => {
+      const d = document.createElement('div'); d.className = 'tag-pegada' + (bebe ? ' bebe' : ''); d.textContent = texto;
+      d.style.left = x + 'px'; d.style.top = y + 'px'; d.style.animationDelay = atraso + 's'; peg.appendChild(d);
+    };
+    // Nanda vem da esquerda, Kaio da direita; os dois param no meio
+    for (let k = 0; k < 9; k++) {
+      const t = 2.2 + k * .3;
+      passo(150 + k * 62, 420 + (k % 2 ? 22 : -22) - 10 * Math.sin(k / 2), 90 + (k % 2 ? 6 : -6), t, false);
+      passo(1280 - k * 62, 420 + (k % 2 ? -22 : 22) + 10 * Math.sin(k / 2), -90 + (k % 2 ? -6 : 6), t, false);
+    }
+    tag('Nanda', 420, 350, 5.2, false); tag('Kaio', 1040, 350, 5.2, false);
+    passo(718, 446, 90, 6.2, true); passo(740, 428, 90, 6.5, true);
+    tag('?', 730, 380, 7, true);
+    const atraso = reduzMovimento ? 0 : 1;
+    timersFinal = [setTimeout(() => tela.classList.add('nox'), 12500 * atraso + 10), setTimeout(() => tela.classList.add('apagar'), 15000 * atraso + 20)];
+  };
+  aoSair.final = () => { timersFinal.forEach(clearTimeout); timersFinal = []; $('#tela-final').classList.remove('nox', 'apagar'); };
+  $('#tela-final').addEventListener('click', () => { if ($('#tela-final').classList.contains('nox')) irPara('capa'); });
 
   // ---------- teclado ----------
   addEventListener('keydown', e => {
