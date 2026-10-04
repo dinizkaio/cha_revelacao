@@ -100,26 +100,29 @@
 
   // ---------- trilha sonora (arquivos em assets/som; se o arquivo não existir, nada toca) ----------
   // Uma faixa por momento. Troque os nomes aqui quando os arquivos chegarem.
+  // Momentos que apontam para o mesmo arquivo continuam a mesma música, sem recomeçar.
   const TRILHA = {
-    capa: 'assets/som/capa.mp3',
-    bastidor: 'assets/som/bastidor.mp3',      // seletor, confirmação e play
-    vhs: 'assets/som/abertura-vhs.mp3',
-    crawl: 'assets/som/abertura-letreiro.mp3',
-    delorean: 'assets/som/abertura-delorean.mp3',
-    jurassic: 'assets/som/abertura-parque.mp3',
-    matrix: 'assets/som/abertura-matrix.mp3',
-    aventura: 'assets/som/abertura-aventura.mp3',
-    jogo: 'assets/som/jogo.mp3',
-    resultado: 'assets/som/resultado.mp3',
-    fim: 'assets/som/fim.mp3'
+    capa: 'assets/som/01-capa.mp3',
+    seletor: 'assets/som/02-seletor.mp3',
+    confirmar: 'assets/som/03-confirmar.mp3',
+    play: 'assets/som/04-play.mp3',
+    vhs: 'assets/som/05-fita.mp3',
+    crawl: 'assets/som/06-letreiro.mp3',
+    delorean: 'assets/som/07-sequencia.mp3',
+    jurassic: 'assets/som/07-sequencia.mp3',
+    matrix: 'assets/som/07-sequencia.mp3',
+    aventura: 'assets/som/07-sequencia.mp3',
+    jogo: 'assets/som/08-jogo.mp3',
+    resultado: 'assets/som/09-resultado.mp3',
+    fim: 'assets/som/10-fim.mp3'
   };
   const trilha = (() => {
-    let atual = null, nomeAtual = null;
+    let atual = null, arquivoAtual = null;
     const cache = {};
-    function obter(nome) {
-      if (!TRILHA[nome]) return null;
-      if (!cache[nome]) { const a = new Audio(TRILHA[nome]); a.loop = true; a.preload = 'auto'; a.addEventListener('error', () => { cache[nome] = false; }); cache[nome] = a; }
-      return cache[nome] || null;
+    function obter(arquivo) {
+      if (!arquivo) return null;
+      if (!(arquivo in cache)) { const a = new Audio(arquivo); a.loop = true; a.preload = 'auto'; a.addEventListener('error', () => { cache[arquivo] = false; }); cache[arquivo] = a; }
+      return cache[arquivo] || null;
     }
     function fade(a, de, para, ms, depois) {
       const passos = 20, dt = ms / passos; let i = 0;
@@ -127,13 +130,14 @@
     }
     return {
       tocar(nome) {
-        if (nome === nomeAtual) return;
-        const prox = obter(nome);
+        const arquivo = TRILHA[nome] || null;
+        if (arquivo === arquivoAtual) return;
+        const prox = obter(arquivo);
         if (atual) { const antigo = atual; fade(antigo, antigo.volume, 0, 600, () => antigo.pause()); }
-        atual = prox; nomeAtual = nome;
+        atual = prox; arquivoAtual = arquivo;
         if (prox) { prox.currentTime = 0; prox.volume = 0; prox.muted = !somLigado; prox.play().then(() => fade(prox, 0, 1, 800)).catch(() => {}); }
       },
-      parar() { if (atual) { const a = atual; fade(a, a.volume, 0, 500, () => a.pause()); } atual = null; nomeAtual = null; },
+      parar() { if (atual) { const a = atual; fade(a, a.volume, 0, 500, () => a.pause()); } atual = null; arquivoAtual = null; },
       silenciar(sim) { Object.values(cache).forEach(a => { if (a) a.muted = sim; }); }
     };
   })();
@@ -148,9 +152,7 @@
     if (aoSair[telaAtual]) aoSair[telaAtual]();
     telas.forEach(t => t.classList.toggle('ativa', t.dataset.tela === nome));
     telaAtual = nome;
-    if (nome === 'capa') trilha.tocar('capa');
-    else if (nome === 'seletor' || nome === 'confirmar' || nome === 'play') trilha.tocar('bastidor');
-    else if (nome === 'jogo' || nome === 'resultado' || nome === 'fim') trilha.tocar(nome);
+    if (nome !== 'abertura') trilha.tocar(nome);
     if (aoEntrar[nome]) aoEntrar[nome]();
   }
   $$('[data-ir]').forEach(b => b.addEventListener('click', () => { som.clique(); irPara(b.dataset.ir); }));
