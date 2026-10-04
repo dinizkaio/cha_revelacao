@@ -22,5 +22,11 @@ apontam para o mesmo arquivo continuam a música sem recomeçar (é o caso da
 sequência 07). Se um arquivo não existir, aquele momento fica sem trilha,
 sem erro. O botão SOM (ou a tecla M) silencia trilha e efeitos de uma vez.
 
+Faixas que terminam em silêncio ou com fade têm um ponto de corte na
+tabela `LOOP` (também em `site.js`): o tocador para ali e emenda com o
+começo num crossfade. A capa, por exemplo, corta em 170 s. Para medir uma
+faixa nova, o site aceita `?depurar` no endereço e expõe `trilha.estado()`
+e `trilha.buscar(segundos)` no console.
+
 Para trocar qual arquivo toca onde, edite a tabela `TRILHA` em `site.js` e
 rode `python3 tools/carimbar.py` antes de publicar.

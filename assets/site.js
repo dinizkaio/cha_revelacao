@@ -102,7 +102,7 @@
   // Uma faixa por momento. Troque os nomes aqui quando os arquivos chegarem.
   // Momentos que apontam para o mesmo arquivo continuam a mesma música, sem recomeçar.
   const TRILHA = {
-    capa: 'assets/som/01-capa.mp3',
+    capa: 'assets/som/01-capa.mp3?v=b293531d2b',
     seletor: 'assets/som/02-seletor.mp3',
     confirmar: 'assets/som/03-confirmar.mp3',
     play: 'assets/som/04-play.mp3',
@@ -117,31 +117,65 @@
     fim: 'assets/som/10-fim.mp3',
     trailer: 'assets/som/11-trailer.mp3'
   };
+  // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
+  // Com entrada, o tocador para em `fim` e emenda com o começo num crossfade de `cruzar` segundos
+  // (serve para faixas que terminam em silêncio ou com fade).
+  const LOOP = {
+    capa: { fim: 170.0, cruzar: 1.5 }
+  };
   const trilha = (() => {
-    let atual = null, arquivoAtual = null;
-    const cache = {};
-    function obter(arquivo) {
-      if (!arquivo) return null;
-      if (!(arquivo in cache)) { const a = new Audio(arquivo); a.loop = true; a.preload = 'auto'; a.addEventListener('error', () => { cache[arquivo] = false; }); cache[arquivo] = a; }
-      return cache[arquivo] || null;
+    let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
+    const falhou = new Set();
+    function novoAudio(arquivo) {
+      const a = new Audio(arquivo); a.preload = 'auto'; a.muted = !somLigado;
+      a.addEventListener('error', () => falhou.add(arquivo));
+      return a;
     }
     function fade(a, de, para, ms, depois) {
-      const passos = 20, dt = ms / passos; let i = 0;
+      const passos = 24, dt = ms / passos; let i = 0;
       const t = setInterval(() => { i++; a.volume = Math.max(0, Math.min(1, de + (para - de) * i / passos)); if (i >= passos) { clearInterval(t); depois && depois(); } }, dt);
+    }
+    function ligar(a, nome, volumeInicial, msFade) {
+      const cfg = LOOP[nome];
+      a.loop = !cfg;
+      a.volume = volumeInicial;
+      a.play().then(() => { if (msFade) fade(a, volumeInicial, 1, msFade); else a.volume = 1; }).catch(() => {});
+      if (!cfg) return null;
+      // vigia o ponto de corte e emenda com uma segunda instância do mesmo arquivo
+      return setInterval(() => {
+        if (!tocando || tocando.a !== a) return;
+        if (a.currentTime >= cfg.fim - cfg.cruzar) {
+          const b = novoAudio(a.currentSrc || a.src);
+          const velho = a;
+          clearInterval(tocando.vigia);
+          tocando.a = b;
+          tocando.vigia = ligar(b, nome, 0, cfg.cruzar * 1000);
+          fade(velho, velho.volume, 0, cfg.cruzar * 1000, () => { velho.pause(); velho.src = ''; });
+        }
+      }, 40);
+    }
+    function desligar(t, ms) {
+      if (!t) return;
+      clearInterval(t.vigia);
+      const a = t.a; fade(a, a.volume, 0, ms, () => { a.pause(); });
     }
     return {
       tocar(nome) {
         const arquivo = TRILHA[nome] || null;
-        if (arquivo === arquivoAtual) return;
-        const prox = obter(arquivo);
-        if (atual) { const antigo = atual; fade(antigo, antigo.volume, 0, 600, () => antigo.pause()); }
-        atual = prox; arquivoAtual = arquivo;
-        if (prox) { prox.currentTime = 0; prox.volume = 0; prox.muted = !somLigado; prox.play().then(() => fade(prox, 0, 1, 800)).catch(() => {}); }
+        if (tocando && tocando.arquivo === arquivo) return;
+        if (tocando) { desligar(tocando, 600); tocando = null; }
+        if (!arquivo || falhou.has(arquivo)) return;
+        const a = novoAudio(arquivo);
+        tocando = { nome, arquivo, a, vigia: null };
+        tocando.vigia = ligar(a, nome, 0, 800);
       },
-      parar() { if (atual) { const a = atual; fade(a, a.volume, 0, 500, () => a.pause()); } atual = null; arquivoAtual = null; },
-      silenciar(sim) { Object.values(cache).forEach(a => { if (a) a.muted = sim; }); }
+      parar() { desligar(tocando, 500); tocando = null; },
+      silenciar(sim) { if (tocando) tocando.a.muted = sim; },
+      estado() { return tocando ? { nome: tocando.nome, tempo: tocando.a.currentTime, volume: tocando.a.volume, pausado: tocando.a.paused } : null; },
+      buscar(seg) { if (tocando) tocando.a.currentTime = seg; }
     };
   })();
+  if (params.has('depurar')) window.trilha = trilha;
   pintarSom();
 
   // ---------- navegação entre telas ----------
