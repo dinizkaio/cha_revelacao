@@ -11,9 +11,9 @@
   <link rel="preload" href="assets/fontes/Bungee-400.woff2?v=126eec706b" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fontes/Special_Elite-400.woff2?v=770493d84c" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fontes/fontes.css?v=650d52fe2c">
-  <link rel="stylesheet" href="assets/site.css?v=d545b89bfa">
-  <script src="assets/props.js?v=ba3e67b27f" defer></script>
-  <script src="assets/site.js?v=30d34392af" defer></script>
+  <link rel="stylesheet" href="assets/site.css?v=2e1be9fd13">
+  <script src="assets/props.js?v=f6cd4e7a3a" defer></script>
+  <script src="assets/site.js?v=2eba6cc8db" defer></script>
 </head>
 <body>
 <div class="aviso-retrato"><p>Vira o celular na horizontal, como uma TV. 📺</p></div>
@@ -45,6 +45,8 @@
         <svg class="prop delorean"><use href="#delorean"/></svg>
         <svg class="prop gameboy"><use href="#gameboy"/></svg>
         <svg class="prop cassete"><use href="#cassette"/></svg>
+        <svg class="prop pomo"><use href="#pomo"/></svg>
+        <div class="placa-9"><span>PLATAFORMA</span><b>9¾</b></div>
       </div>
       <div class="titulos">
         <div class="t1">CHÁ REVELAÇÃO</div>
@@ -64,13 +66,14 @@
       <svg class="rabisco" style="right:260px;bottom:110px;color:#ff3d9a;width:90px;height:90px;transform:rotate(-20deg)"><use href="#star5"/></svg>
       <svg class="rabisco" style="left:230px;top:140px;color:#3d8bff;width:80px;height:80px;transform:rotate(12deg)"><use href="#sparkle"/></svg>
       <svg class="prop cassete-canto"><use href="#cassette"/></svg>
+      <div class="chapeu-grupo"><div class="balao-chapeu">Hmm… difícil. Muito difícil…</div><svg class="prop chapeu"><use href="#chapeu"/></svg></div>
       <div class="topo">
         <span class="etiqueta grande">Qual é o resultado?</span>
         <div class="sub">Escolha o gênero do bebê:</div>
       </div>
       <div class="cartas" role="radiogroup" aria-label="Gênero do bebê">
         <button type="button" class="polaroid m a" data-escolha="m" role="radio" aria-checked="false"><span class="foto"><img src="assets/kaio.svg?v=3945b25e9f" alt=""></span><span class="etiqueta nome">Menino</span><span class="radio"></span></button>
-        <button type="button" class="polaroid f b" data-escolha="f" role="radio" aria-checked="false"><span class="foto"><img src="assets/nanda.svg?v=b2601d0f10" alt=""></span><span class="etiqueta nome">Menina</span><span class="radio"></span></button>
+        <button type="button" class="polaroid f b" data-escolha="f" role="radio" aria-checked="false"><span class="foto"><img src="assets/nanda.svg?v=e637a904f1" alt=""></span><span class="etiqueta nome">Menina</span><span class="radio"></span></button>
       </div>
       <div class="acao"><button id="btn-confirmar-1" class="botao inativo" type="button" disabled>Confirmar</button></div>
       <div class="aviso">🔒 Só quem guarda o segredo vê esta tela.<br>O botão fica cinza até escolher.</div>
@@ -131,7 +134,7 @@
         <div class="crawl-janela"><div class="crawl" id="crawl">
           <h2><small>Episódio I</small>OS PAIS NA ADOLESCÊNCIA</h2>
           <p>Era o fim dos anos 80. Num quintal de terra no GUARUJÁ, entre um ipê amarelo, uma amoreira e um pé de jenipapo, nasceu um menino de chinelo. Ele sobreviveu ao banana boat, ao parque itinerante e a todos os filmes do Steven Seagal que passaram na Sessão da Tarde.</p>
-          <p>Em 1993, em SÃO JOSÉ DOS CAMPOS, numa família que não cabe na foto, nasceu uma menina que ia assistir Duro de Matar com o pai, pintar a franja de preto e cantar emo no chuveiro.</p>
+          <p>Em 1993, em SÃO JOSÉ DOS CAMPOS, numa família que não cabe na foto, nasceu uma menina que ia assistir Duro de Matar com o pai, passar chapinha na franja loira e cantar emo no chuveiro.</p>
           <p>Os dois cresceram de uniforme de escola pública, com os pais trabalhando e as avós por perto. Ele ouvia Engenheiros do Hawaii. Ela ouvia MOPTOP. Ele passou a ouvir Moptop sem parar. Nunca mais parou.</p>
           <p>Antes de se verem, eles se falaram pelo ORKUT, do jeito mais vergonhoso que a humanidade já inventou. Eram jovens e bestas. Depois se encontraram no baile da igreja. E naquele baile ele já sabia: era com ela que ele ia ter filhos.</p>
           <p>Voltaram a se cruzar na escola da EMBRAER, onde fizeram o ensino médio. Ele tinha lá os seus problemas e nunca tinha superado direito a própria formatura. Mas, depois que a Fernanda se formou, nunca mais pisou lá. Coincidência?</p>
@@ -180,6 +183,21 @@
         </div>
       </div>
 
+      <div class="cena cena-carta" data-cena="carta">
+        <div class="velas"></div>
+        <svg class="prop coruja"><use href="#coruja"/></svg>
+        <div class="carta">
+          <div class="selo-cera">H</div>
+          <div class="carta-escola">Escola de Magia e Bruxaria de Hogwarts</div>
+          <div class="carta-texto">
+            <p>Prezados Sr. Kaio e Sra. Nanda,</p>
+            <p>temos o prazer de informar que a vaga de seu filho ou filha está <b>reservada para o ano letivo de 2037</b>. A lista de materiais segue por coruja. O Chapéu Seletor cuida do resto.</p>
+            <p class="ass">Atenciosamente,<br>Minerva McGonagall, Diretora Substituta</p>
+          </div>
+          <div class="carta-ps">P.S.: não, isso não decide o nome.</div>
+        </div>
+      </div>
+
       <div class="cena cena-aventura" data-cena="aventura">
         <div class="synth">
           <div class="estrelas"></div><div class="sol"></div><div class="montanhas"></div><div class="mar"></div><div class="areia"></div>
@@ -198,7 +216,7 @@
             <path d="M440 330l12-100q50-30 100 0l12 100z" fill="#ff5fa8"/>
             <path d="M470 236l4-30M526 236l-4-30" stroke="#ff5fa8" stroke-width="12"/>
             <circle cx="500" cy="150" r="70" fill="#f6dcc5"/>
-            <g fill="#a9713f"><circle cx="446" cy="150" r="30"/><circle cx="466" cy="104" r="32"/><circle cx="500" cy="86" r="34"/><circle cx="534" cy="104" r="32"/><circle cx="554" cy="150" r="30"/><circle cx="448" cy="196" r="26"/><circle cx="552" cy="196" r="26"/><circle cx="500" cy="150" r="56"/></g>
+            <g fill="#d9a84f"><circle cx="446" cy="150" r="30"/><circle cx="466" cy="104" r="32"/><circle cx="500" cy="86" r="34"/><circle cx="534" cy="104" r="32"/><circle cx="554" cy="150" r="30"/><circle cx="448" cy="196" r="26"/><circle cx="552" cy="196" r="26"/><circle cx="500" cy="150" r="56"/></g>
             <g transform="translate(548 118)"><g fill="#d1203a" stroke-width="2"><circle cy="-10" r="7"/><circle cx="9" cy="-3" r="7"/><circle cx="6" cy="8" r="7"/><circle cx="-6" cy="8" r="7"/><circle cx="-9" cy="-3" r="7"/></g><circle r="5" fill="#ffd23f" stroke-width="2"/></g>
             <path d="M436 330q-14-50 16-80M564 330q14-50-16-80" fill="none" stroke-width="22" stroke="#2a1a12"/>
             <path d="M436 330q-14-50 16-80M564 330q14-50-16-80" fill="none" stroke-width="12" stroke="#f1cfb4"/>
@@ -225,7 +243,7 @@
         <svg class="linhas" viewBox="0 0 620 620" aria-hidden="true"><g fill="none" stroke="#f2efe4" stroke-width="8" stroke-linecap="round" filter="url(#giz)"><path d="M155 20v580M310 20v580M465 20v580M20 155h580M20 310h580M20 465h580"/></g></svg>
         <div class="celulas" id="celulas"></div>
       </div>
-      <img class="pers k" src="assets/kaio.svg?v=3945b25e9f" alt=""><img class="pers n" src="assets/nanda.svg?v=b2601d0f10" alt="">
+      <img class="pers k" src="assets/kaio.svg?v=3945b25e9f" alt=""><img class="pers n" src="assets/nanda.svg?v=e637a904f1" alt="">
       <div class="rodape-jogo">Clique numa casa. O giz decide se sai X ou O. Quatro iguais em linha, coluna ou diagonal revelam o bebê.</div>
     </section>
 
@@ -237,7 +255,7 @@
       <svg class="rabisco sparkle" style="right:300px;top:620px;width:60px;height:60px"><use href="#sparkle"/></svg>
       <svg class="rabisco sparkle" style="left:620px;top:720px;width:50px;height:50px"><use href="#sparkle"/></svg>
       <div class="titulo"><div class="pre">Quatro em linha. Tá revelado:</div><div class="grande" id="grande">É MENINA!</div></div>
-      <img class="pers" id="pers-resultado" src="assets/nanda.svg?v=b2601d0f10" alt="">
+      <img class="pers" id="pers-resultado" src="assets/nanda.svg?v=e637a904f1" alt="">
       <div class="polaroids">
         <div class="polaroid-foto a"><img src="assets/img/kaio-crianca.jpg?v=9eb587d80c" alt="Kaio criança"><span>o pai</span></div>
         <div class="polaroid-foto b"><img src="assets/img/nanda-crianca.jpg?v=a128d3359a" alt="Nanda criança"><span>a mãe</span></div>

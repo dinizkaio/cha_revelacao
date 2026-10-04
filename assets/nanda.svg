@@ -9,11 +9,11 @@
   <path d="M158 378h44q10 10 6 18q-6 14-12 14h-38z" fill="#ff4fa3" class="t"/>
   <path d="M152 396h58" stroke="#fff" stroke-width="6"/>
   <!-- cabelo (parte de trás) -->
-  <g fill="#a9713f" stroke="#2a1a12" stroke-width="5">
+  <g fill="#d9a84f" stroke="#2a1a12" stroke-width="5">
     <circle cx="62" cy="200" r="26"/><circle cx="238" cy="200" r="26"/><circle cx="58" cy="160" r="26"/><circle cx="242" cy="160" r="26"/>
     <circle cx="70" cy="236" r="22"/><circle cx="230" cy="236" r="22"/>
   </g>
-  <g fill="#a9713f"><circle cx="62" cy="200" r="26"/><circle cx="238" cy="200" r="26"/><circle cx="58" cy="160" r="26"/><circle cx="242" cy="160" r="26"/>
+  <g fill="#d9a84f"><circle cx="62" cy="200" r="26"/><circle cx="238" cy="200" r="26"/><circle cx="58" cy="160" r="26"/><circle cx="242" cy="160" r="26"/>
     <circle cx="70" cy="236" r="22"/><circle cx="230" cy="236" r="22"/></g>
   <!-- braços -->
   <path d="M106 236q-40 36-28 90" fill="none" stroke="#2a1a12" stroke-width="22" stroke-linecap="round"/>
@@ -35,11 +35,11 @@
   <!-- cabeça -->
   <path d="M52 128q0-96 98-96t98 96q0 60-30 86-28 24-68 24t-68-24q-30-26-30-86z" fill="#f6dcc5" class="t"/>
   <!-- cabelo (frente) castanho claro, ondulado -->
-  <g fill="#b07a44" stroke="#2a1a12" stroke-width="5" stroke-linejoin="round">
+  <g fill="#e6b85a" stroke="#2a1a12" stroke-width="5" stroke-linejoin="round">
     <path d="M56 140q-6-78 60-100 36-12 68 0 66 22 60 100-10-26-30-26-10-32-40-20-18-26-42-6-20-16-40 2-18 4-24 24-10 2-12 26z"/>
     <circle cx="72" cy="104" r="22"/><circle cx="228" cy="104" r="22"/><circle cx="106" cy="66" r="24"/><circle cx="194" cy="66" r="24"/><circle cx="150" cy="52" r="24"/>
   </g>
-  <g fill="#b07a44"><path d="M56 140q-6-78 60-100 36-12 68 0 66 22 60 100-10-26-30-26-10-32-40-20-18-26-42-6-20-16-40 2-18 4-24 24-10 2-12 26z"/>
+  <g fill="#e6b85a"><path d="M56 140q-6-78 60-100 36-12 68 0 66 22 60 100-10-26-30-26-10-32-40-20-18-26-42-6-20-16-40 2-18 4-24 24-10 2-12 26z"/>
     <circle cx="72" cy="104" r="22"/><circle cx="228" cy="104" r="22"/><circle cx="106" cy="66" r="24"/><circle cx="194" cy="66" r="24"/><circle cx="150" cy="52" r="24"/></g>
   <!-- florzinha no cabelo -->
   <g transform="translate(218 78)"><g fill="#d1203a" stroke="#2a1a12" stroke-width="2"><circle cx="0" cy="-12" r="8"/><circle cx="11" cy="-4" r="8"/><circle cx="7" cy="9" r="8"/><circle cx="-7" cy="9" r="8"/><circle cx="-11" cy="-4" r="8"/></g><circle r="6" fill="#ffd23f" stroke="#2a1a12" stroke-width="2"/><circle cx="20" cy="-14" r="3" fill="#fff"/><circle cx="-20" cy="12" r="3" fill="#fff"/></g>

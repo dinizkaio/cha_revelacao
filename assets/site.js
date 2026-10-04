@@ -112,6 +112,7 @@
     delorean: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     jurassic: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     matrix: 'assets/som/07-sequencia.mp3?v=bc40be505d',
+    carta: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     aventura: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     jogo: 'assets/som/08-jogo.mp3?v=fb7f0564f2',
     resultado: 'assets/som/09-resultado.mp3?v=2603673d29',
@@ -254,7 +255,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 14000], ['jurassic', 13000], ['matrix', 14000], ['aventura', 20000]];
+  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['jurassic', 11000], ['matrix', 11000], ['carta', 11000], ['aventura', 16000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
@@ -276,6 +277,7 @@
       timersAbertura.push(t);
     }
     if (nome === 'jurassic') timersAbertura.push(setTimeout(() => ruido(.9, 'lowpass', 250, .6), 1500));
+    if (nome === 'carta') timersAbertura.push(setTimeout(() => ruido(.25, 'highpass', 2500, .15), 1800));
     if (nome === 'delorean') ruido(1.2, 'lowpass', 600, .35);
   }
   function limparAbertura() {
