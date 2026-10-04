@@ -394,7 +394,14 @@
       celulasEl.appendChild(b);
     }
   }
+  document.querySelectorAll('svg[data-personagem]').forEach(el => montarPersonagem(el, el.dataset.personagem));
+  const persK = $('#tela-jogo .pers.k'), persN = $('#tela-jogo .pers.n');
+  function pose(classe) { // '' | 'susto' | 'festa'; torcer segue a vez
+    [persK, persN].forEach(p => { p.classList.remove('susto', 'festa', 'torcer'); if (classe) p.classList.add(classe); });
+    if (!classe && !jogo.acabou) (jogo.vez === 'Nanda' ? persN : persK).classList.add('torcer');
+  }
   function pintarVez() {
+    pose('');
     vezEl.firstChild.textContent = (jogo.vez === 'Nanda' ? 'vez da Nanda' : 'vez do Kaio');
     jogadaEl.textContent = 'jogada ' + Math.min(jogo.jogada + 1, 16) + ' de 16';
   }
@@ -425,7 +432,7 @@
     if (linhaVencedora) {
       jogo.acabou = true;
       linhaVencedora.forEach(j => celulasEl.children[j].classList.add('venceu'));
-      quaseEl.hidden = true;
+      quaseEl.hidden = true; $('#aliens').hidden = true; pose('festa');
       vezEl.firstChild.textContent = 'quatro em linha!';
       jogadaEl.textContent = 'tá revelado';
       setTimeout(() => som.fanfarra(), 300);
@@ -445,7 +452,7 @@
       quaseEl.textContent = simb === 'X' ? 'quase! falta um X…' : 'quase! falta um O…';
       quaseEl.classList.toggle('azul', simb === 'X');
       if (quaseEl.hidden) som.quase();
-      quaseEl.hidden = false; $('#aliens').hidden = false; $('#tela-jogo .topo').classList.add('sumir');
+      quaseEl.hidden = false; $('#aliens').hidden = false; pose('susto'); $('#tela-jogo .topo').classList.add('sumir');
     } else {
       quaseEl.hidden = true; $('#aliens').hidden = true; $('#tela-jogo .topo').classList.remove('sumir');
     }
@@ -458,7 +465,7 @@
     const tela = $('#tela-resultado');
     tela.classList.toggle('menino', menino);
     $('#grande').textContent = menino ? 'É MENINO!' : 'É MENINA!';
-    $('#pers-resultado').src = menino ? 'assets/kaio.svg' : 'assets/nanda.svg';
+    montarPersonagem($('#pers-resultado'), menino ? 'kaio' : 'nanda');
     const fogos = $('#fogos'); fogos.innerHTML = '';
     const cores = menino ? ['#ffd23f', '#fff', '#36e2ff', '#ff7ac8'] : ['#ffd23f', '#fff', '#36e2ff', '#ff7ac8'];
     for (let k = 0; k < 12; k++) {
