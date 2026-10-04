@@ -510,6 +510,22 @@
       desligar() { cancelAnimationFrame(raf); raf = 0; pecas = []; cx.clearRect(0, 0, 1920, 1080); }
     };
   })();
+  // parallax: mouse manda; sem mouse por 3 s, um balanço lento assume
+  (() => {
+    if (reduzMovimento) return;
+    const palco = $('#palco'); let alvoX = 0, alvoY = 0, x = 0, y = 0, ultimoMouse = -1e9;
+    addEventListener('pointermove', e => {
+      alvoX = Math.max(-1, Math.min(1, (e.clientX / innerWidth - .5) * 2));
+      alvoY = Math.max(-1, Math.min(1, (e.clientY / innerHeight - .5) * 2));
+      ultimoMouse = performance.now();
+    });
+    (function passo(t) {
+      if (t - ultimoMouse > 3000) { alvoX = Math.sin(t / 5200) * .6; alvoY = Math.cos(t / 7300) * .4; }
+      x += (alvoX - x) * .04; y += (alvoY - y) * .04;
+      palco.style.setProperty('--px', x.toFixed(3)); palco.style.setProperty('--py', y.toFixed(3));
+      requestAnimationFrame(passo);
+    })(0);
+  })();
   let timerFogos = null;
   aoEntrar.resultado = () => {
     const menino = jogo.vencedor === 'm';

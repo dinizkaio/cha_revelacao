@@ -138,7 +138,16 @@ acabamento.
   "tec… tec…" e voltar a girar, duas ou três vezes, antes de "ainda não
   decidiu".
 
-## 4. O que eu faria primeiro, em ordem
+## 4. O que eu faria primeiro, em ordem (tudo feito)
+
+Todas as sete etapas abaixo entraram no site, nesta ordem, em commits
+separados: luz e profundidade; poses e piscar; confete e pó de giz;
+transições de VHS (mais flash do trovão, cortina Matrix e pomo fugindo
+da capa); parallax com mouse e balanço lento; tipografia 3D com cromado
+no trailer e tremulação no neon. Os detalhes de cena da seção 3 que ainda
+não entraram ficam como próxima rodada, se quiserem.
+
+Ordem original:
 
 1. Luz e profundidade na capa, na praia e no resultado (gradientes, halos,
    sombras).
