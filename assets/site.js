@@ -105,7 +105,7 @@
     capa: 'assets/som/01-capa.mp3?v=b293531d2b',
     seletor: 'assets/som/02-seletor.mp3?v=eb929f4b64',
     confirmar: 'assets/som/03-confirmar.mp3?v=697a7d6159',
-    play: 'assets/som/04-play.mp3',
+    play: 'assets/som/04-play.mp3?v=61e23149b0',
     vhs: 'assets/som/05-fita.mp3',
     crawl: 'assets/som/06-letreiro.mp3',
     delorean: 'assets/som/07-sequencia.mp3',
@@ -124,7 +124,8 @@
   const LOOP = {
     capa: { fim: 170.0, cruzar: 1.5 },
     seletor: { fim: 175.0, cruzar: 1.5, inicio: 45 },
-    confirmar: { fim: 58.5, cruzar: 1.5, inicio: 1 }
+    confirmar: { fim: 58.5, cruzar: 1.5, inicio: 1 },
+    play: { fim: 57.0, cruzar: 1.5, inicio: 2.5 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
