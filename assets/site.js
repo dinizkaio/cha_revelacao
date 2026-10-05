@@ -86,6 +86,7 @@
     clique() { nota(600, 0, .06, 'square', .05); },
     tracking() { ruido(.32, 'bandpass', 2400, .22); ruido(.18, 'lowpass', 300, .25); },
     carimbo() { ruido(.08, 'lowpass', 500, .5); nota(80, 0, .18, 'square', .22); },
+    apito() { nota(880, 0, .5, 'square', .08); nota(1109, 0, .5, 'square', .06); nota(880, .6, .9, 'square', .08); nota(1109, .6, .9, 'square', .06); },
     rachar() { ruido(.14, 'highpass', 1800, .35); nota(140, 0, .09, 'square', .14); nota(220, .05, .06, 'square', .1); },
     tec() { nota(1500, 0, .025, 'square', .07); }
   };
@@ -290,7 +291,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['matrix', 11000], ['carta', 14000], ['aventura', 24000]];
+  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['matrix', 11000], ['carta', 24000], ['aventura', 14000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
@@ -304,7 +305,7 @@
       osd.textContent = '0:00:00';
       timersAbertura.push(setInterval(tic, 1000));
     }
-    if (nome === 'carta') timersAbertura.push(setTimeout(() => som.rachar(), 4400));
+    if (nome === 'carta') { timersAbertura.push(setTimeout(() => som.rachar(), 22600)); timersAbertura.push(setTimeout(() => som.apito(), 6600)); timersAbertura.push(setTimeout(() => som.tracking(), 5300)); }
     if (nome === 'matrix') {
       montarChuva();
       const alvo = 'Pílula azul ou pílula rosa?', el = $('#matrix-texto'); el.textContent = '';
@@ -313,7 +314,7 @@
       timersAbertura.push(t);
     }
     if (nome === 'jurassic') timersAbertura.push(setTimeout(() => ruido(.9, 'lowpass', 250, .6), 1500));
-    if (nome === 'carta') timersAbertura.push(setTimeout(() => ruido(.25, 'highpass', 2500, .15), 1800));
+    if (nome === 'carta') timersAbertura.push(setTimeout(() => ruido(.25, 'highpass', 2500, .15), 9000));
     if (nome === 'delorean') ruido(1.2, 'lowpass', 600, .35);
   }
   function limparAbertura() {

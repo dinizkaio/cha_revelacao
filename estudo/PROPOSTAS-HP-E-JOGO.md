@@ -53,7 +53,14 @@ A proposta A inteira, e no último quadro, em vez da carta, a janela do trem
 vira o Espelho de Ojesed por 5 s com o berço e o "?". Mais denso. Só vale
 se a cena puder ter 24 s (tirando 10 da praia, que fica com 14).
 
-**Minha recomendação:** A. É a mais reconhecível no telão, tem movimento
+**Decisão (5 de outubro): a proposta A entrou no site**, com a carta
+reescrita como resposta da Minerva: ela consultou a Trelawney (que previu
+um bruxinho, depois uma bruxinha, depois pediu mais chá), lamenta não poder
+ajudar com a resposta, e garante que, bruxinho ou bruxinha, vem muita magia
+por aí. P.S.: o nome, infelizmente, também não. A cena dura 24 s
+(plataforma 6, Expresso 6, carta 12) e a praia ficou com 14.
+
+**Minha recomendação era** A. É a mais reconhecível no telão, tem movimento
 (correr, atravessar, trem chegando), e a carta vira uma piada rápida em vez
 de um texto para ler. Se quiser o lado emotivo, D.
 

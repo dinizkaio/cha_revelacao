@@ -137,9 +137,9 @@ img{-webkit-user-drag:none}
 #tela-capa .ep{position:absolute;right:110px;top:410px;font-family:var(--f-poster);font-size:34px;color:var(--amarelo);text-shadow:0 0 12px rgba(255,210,63,.7);letter-spacing:.06em;z-index:3}
 #tela-capa .pomo{left:560px;top:90px;width:150px;height:75px;z-index:3;animation:voar 9s ease-in-out infinite alternate}
 @keyframes voar{0%{transform:translate(0,0) rotate(-6deg)}50%{transform:translate(260px,-40px) rotate(4deg)}100%{transform:translate(480px,30px) rotate(-3deg)}}
-#tela-capa .placa-9{position:absolute;right:70px;top:690px;z-index:3;background:#7a2a1e;color:#fff;border:4px solid #3a1208;border-radius:8px;padding:6px 14px 8px;text-align:center;font-family:var(--f-maquina);line-height:1;box-shadow:4px 4px 0 #2a0c06;transform:rotate(-4deg)}
-#tela-capa .placa-9 span{display:block;font-size:14px;letter-spacing:.14em}
-#tela-capa .placa-9 b{display:block;font-family:var(--f-poster);font-size:40px;font-weight:400;color:#ffd23f;margin-top:2px}
+.placa-9{position:absolute;right:70px;top:690px;z-index:3;background:#7a2a1e;color:#fff;border:4px solid #3a1208;border-radius:8px;padding:6px 14px 8px;text-align:center;font-family:var(--f-maquina);line-height:1;box-shadow:4px 4px 0 #2a0c06;transform:rotate(-4deg)}
+.placa-9 span{display:block;font-size:14px;letter-spacing:.14em}
+.placa-9 b{display:block;font-family:var(--f-poster);font-size:40px;font-weight:400;color:#ffd23f;margin-top:2px}
 #tela-capa .acao{bottom:34px}
 #tela-capa .botao.neon{font-size:46px}
 
@@ -251,23 +251,10 @@ img{-webkit-user-drag:none}
 .pil.r span:first-child{background:var(--menina)}.pil.r span:last-child{background:#fff;color:var(--menina)}
 .cursor{display:inline-block;width:.6em;height:1em;background:var(--matrix);vertical-align:-.15em;margin-left:.1em;animation:blink .8s steps(2) infinite}
 /* 5.5b a carta de Hogwarts */
-.cena-carta{background:radial-gradient(ellipse at 50% 30%,#2a1c3a,#0a0612 70%)}
-.velas{position:absolute;inset:0;background-image:radial-gradient(#ffd98a 2px,transparent 3px),radial-gradient(rgba(255,217,138,.6) 1.5px,transparent 2.5px);background-size:260px 180px,170px 140px;background-position:40px 30px,120px 90px;animation:piscar 2.4s ease-in-out infinite alternate}
-.cena-carta .coruja{left:-300px;top:90px;width:260px;height:160px;fill:#1a1210;filter:drop-shadow(0 0 12px rgba(0,0,0,.6))}
-.cena.ativa .coruja{animation:cruzar 7s linear 1s forwards}
-@keyframes cruzar{from{transform:translateX(0) translateY(0)}50%{transform:translateX(1200px) translateY(-60px)}to{transform:translateX(2400px) translateY(20px)}}
-.cena-carta .carta{position:absolute;left:50%;top:50%;width:1100px;transform:translate(-50%,-50%) rotate(-1.5deg) scale(.2);opacity:0;background:#f3e6c4;color:#2a1a12;padding:60px 70px 50px;border-radius:4px;box-shadow:0 30px 60px rgba(0,0,0,.7),inset 0 0 80px rgba(120,80,20,.25);font-family:var(--f-maquina)}
-.cena.ativa .carta{animation:chegar-carta 1.4s cubic-bezier(.2,.8,.3,1) .6s forwards}
-@keyframes chegar-carta{to{transform:translate(-50%,-50%) rotate(-1.5deg) scale(1);opacity:1}}
-.selo-cera{position:absolute;right:50px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d64040,#7a1010);border:4px solid #5a0c0c;display:grid;place-items:center;font-family:var(--f-poster);font-size:56px;color:#f3c4c4;box-shadow:0 8px 16px rgba(0,0,0,.5);transform:rotate(8deg)}
-.carta-escola{font-family:var(--f-poster);font-size:34px;letter-spacing:.06em;color:#5a2a10;text-align:center;border-bottom:3px double #8a5a30;padding-bottom:14px;margin-bottom:22px}
-.carta-texto p{font-size:30px;line-height:1.45;margin:0 0 16px}
-.carta-texto .ass{margin-top:24px;font-size:26px;color:#5a3a20}
-.carta-ps{margin-top:10px;font-size:22px;color:#7a4a20;font-style:italic}
 /* 5.6 uma nova aventura */
 .cena-aventura .synth{background:linear-gradient(180deg,#2a0f4a 0%,#7a2a7a 30%,#ff5a6e 55%,#ff9a3c 72%,#ffd23f 85%)}
 .cena-aventura .synth .sol{top:30%;-webkit-mask:none;mask:none;box-shadow:0 0 140px 50px rgba(255,170,80,.55),0 0 320px 120px rgba(255,90,110,.25)}
-.cena.ativa.cena-aventura .sol{animation:nascer 16s ease-out forwards}
+.cena.ativa.cena-aventura .sol{animation:nascer 12s ease-out forwards}
 @keyframes nascer{from{transform:translateY(120px)}to{transform:none}}
 .cena-aventura .synth .areia{height:24%;background:linear-gradient(180deg,#5a2a6a,#2a1040)}
 .cena-aventura .synth .areia::before{height:18%;background:linear-gradient(180deg,rgba(255,180,200,.35),transparent)}
@@ -284,6 +271,56 @@ img{-webkit-user-drag:none}
 .cena-aventura .criancas{position:absolute;left:50%;bottom:60px;width:800px;height:340px;margin-left:-400px;z-index:3}
 .cena-aventura .gato{right:430px;bottom:70px;width:130px;height:156px;fill:#120a2a}
 .cena-aventura .grafite{position:absolute;left:140px;bottom:120px;font-family:var(--f-giz);font-size:60px;color:var(--amarelo);transform:rotate(-8deg);text-shadow:3px 3px 0 #7a1a5a;z-index:3}
+
+/* ---------- cena Hogwarts: plataforma 9¾ → Expresso → resposta da Minerva (24 s) ---------- */
+.cena-carta{background:#0a0612}
+.cena-carta .quadro{position:absolute;inset:0;opacity:0}
+.cena.ativa .plataforma{animation:quadro-plat 6.4s linear both}
+.cena.ativa .expresso{animation:quadro-exp 6.6s linear 5.8s both}
+.cena.ativa .resposta{animation:quadro-resp 12s linear 12s both}
+@keyframes quadro-plat{0%,96%{opacity:1}100%{opacity:0}}
+@keyframes quadro-exp{0%{opacity:0}4%,96%{opacity:1}100%{opacity:0}}
+@keyframes quadro-resp{0%{opacity:0}5%,100%{opacity:1}}
+.tijolos{position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,#5a2418 0 6px,transparent 6px 60px),
+  repeating-linear-gradient(90deg,#5a2418 0 6px,transparent 6px 150px),
+  repeating-linear-gradient(0deg,transparent 0 60px,#5a2418 60px 66px,transparent 66px 120px),
+  #9c4a34;background-blend-mode:normal}
+.tijolos::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,transparent 40%,rgba(10,6,18,.75) 100%)}
+.placa-plat{right:auto;left:50%;top:150px;transform:translateX(-50%) rotate(-2deg);z-index:2;padding:10px 26px 14px;background:#1d3b2a;border-color:#0b1a12;box-shadow:4px 4px 0 #061009,0 0 30px rgba(0,0,0,.5)}
+.placa-plat span{font-size:20px}.placa-plat b{font-size:64px}
+.cena-carta .carrinho{left:230px;bottom:150px;width:260px;height:236px;z-index:2;filter:drop-shadow(0 10px 12px rgba(0,0,0,.5))}
+.cena-carta .plataforma .bebedino{left:285px;bottom:382px;width:150px;height:105px;z-index:3;animation:torcer 1.2s ease-in-out infinite}
+.cena-carta .costas{left:50%;bottom:40px;width:800px;height:340px;margin-left:-400px;z-index:3;transform-origin:50% 100%}
+.cena.ativa .costas{animation:correr-parede 4.8s cubic-bezier(.3,.1,.7,.6) .4s both}
+@keyframes correr-parede{0%{transform:translateY(0) scale(1);opacity:1}85%{transform:translateY(-110px) scale(.42);opacity:1}100%{transform:translateY(-130px) scale(.36);opacity:0}}
+.clarao{position:absolute;inset:0;background:#fff;opacity:0;z-index:5}
+.cena.ativa .clarao{animation:clarao 1.2s steps(3) 5.2s both}
+@keyframes clarao{0%{opacity:0}30%,60%{opacity:1}100%{opacity:0}}
+.noite{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,#1d1438,#06040e 70%);background-image:radial-gradient(#fff 1px,transparent 1.6px),radial-gradient(ellipse at 50% 20%,#1d1438,#06040e 70%);background-size:220px 170px,100% 100%}
+.chao-plat{position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(180deg,#3a2a28,#1a1210);border-top:10px solid #c9a66b}
+.cena-carta .trem{left:1920px;bottom:120px;width:1500px;height:500px;z-index:2;filter:drop-shadow(0 20px 30px rgba(0,0,0,.7))}
+.cena.ativa .trem{animation:chegar-trem 5.2s cubic-bezier(.2,.7,.3,1) 6s both}
+@keyframes chegar-trem{from{transform:translateX(0)}to{transform:translateX(-1720px)}}
+.vapor{position:absolute;left:80px;bottom:560px;z-index:3}
+.vapor i{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.85),rgba(255,255,255,0) 70%);opacity:0}
+.cena.ativa .vapor i{animation:subir-vapor 2.2s ease-out infinite}
+.cena.ativa .vapor i:nth-child(2){animation-delay:.4s;left:60px}.cena.ativa .vapor i:nth-child(3){animation-delay:.8s;left:120px}.cena.ativa .vapor i:nth-child(4){animation-delay:1.2s;left:30px}.cena.ativa .vapor i:nth-child(5){animation-delay:1.6s;left:90px}
+@keyframes subir-vapor{0%{transform:translate(0,0) scale(.3);opacity:0}20%{opacity:.9}100%{transform:translate(160px,-320px) scale(2.2);opacity:0}}
+.cena-carta .coruja{left:-300px;top:120px;width:260px;height:160px;fill:#1a1210;z-index:4;filter:drop-shadow(0 0 12px rgba(0,0,0,.6))}
+.cena.ativa .coruja{animation:cruzar 4s linear 8s forwards}
+@keyframes cruzar{from{transform:translateX(0) translateY(0)}50%{transform:translateX(1200px) translateY(-60px)}to{transform:translateX(2400px) translateY(20px)}}
+.resposta{background:radial-gradient(ellipse at 50% 30%,#2a1c3a,#0a0612 70%)}
+.velas{position:absolute;inset:0;background-image:radial-gradient(#ffd98a 2px,transparent 3px),radial-gradient(rgba(255,217,138,.6) 1.5px,transparent 2.5px);background-size:260px 180px,170px 140px;background-position:40px 30px,120px 90px;animation:piscar 2.4s ease-in-out infinite alternate}
+.cena-carta .carta{position:absolute;left:50%;top:50%;width:1180px;transform:translate(-50%,-50%) rotate(-1.5deg) scale(.2);opacity:0;background:#f3e6c4;color:#2a1a12;padding:50px 70px 44px;border-radius:4px;box-shadow:0 30px 60px rgba(0,0,0,.7),inset 0 0 80px rgba(120,80,20,.25);font-family:var(--f-maquina)}
+.cena.ativa .carta{animation:cair-carta 1.3s cubic-bezier(.3,.9,.4,1.1) 12.4s forwards}
+@keyframes cair-carta{0%{transform:translate(-50%,-160%) rotate(12deg) scale(.5);opacity:0}30%{opacity:1}100%{transform:translate(-50%,-50%) rotate(-1.5deg) scale(1);opacity:1}}
+.selo-cera{position:absolute;right:50px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d64040,#7a1010);border:4px solid #5a0c0c;display:grid;place-items:center;font-family:var(--f-poster);font-size:56px;color:#f3c4c4;box-shadow:0 8px 16px rgba(0,0,0,.5);transform:rotate(8deg)}
+.cena.ativa .selo-cera{animation:lacre-pular .7s cubic-bezier(.4,0,.9,.6) 22.5s forwards}
+.carta-escola{font-family:var(--f-poster);font-size:32px;letter-spacing:.06em;color:#5a2a10;text-align:center;border-bottom:3px double #8a5a30;padding-bottom:12px;margin-bottom:18px}
+.carta-texto p{font-size:29px;line-height:1.4;margin:0 0 14px}
+.carta-texto .ass{margin-top:18px;font-size:25px;color:#5a3a20}
+.carta-ps{margin-top:8px;font-size:22px;color:#7a4a20;font-style:italic}
 
 /* ---------- 6. jogo ---------- */
 .lousa{position:absolute;inset:0;background:radial-gradient(ellipse at 40% 30%,#2a3a33,#17211c 70%)}
@@ -514,11 +551,7 @@ img{-webkit-user-drag:none}
 @keyframes ovo-tremer{from{transform:rotate(-7deg) translateY(0)}to{transform:rotate(7deg) translateY(-6px)}}
 @keyframes sumir-ovo{to{opacity:0}}
 @keyframes nascer-bebe{from{opacity:0;transform:scale(.4) translateY(30px)}to{opacity:1;transform:none}}
-/* carta: a coruja passa e solta a carta; o lacre pula fora */
-.cena.ativa .coruja{animation:cruzar 4.2s linear .2s forwards}
-.cena.ativa .carta{animation:cair-carta 1.3s cubic-bezier(.3,.9,.4,1.1) 2s forwards}
 @keyframes cair-carta{0%{transform:translate(-50%,-160%) rotate(12deg) scale(.5);opacity:0}30%{opacity:1}100%{transform:translate(-50%,-50%) rotate(-1.5deg) scale(1);opacity:1}}
-.cena.ativa .selo-cera{animation:lacre-pular .7s cubic-bezier(.4,0,.9,.6) 4.3s forwards}
 @keyframes lacre-pular{0%{transform:none}20%{transform:scale(1.15) rotate(-8deg)}100%{transform:translate(90px,220px) rotate(70deg);opacity:0}}
 /* trailer: roleta com paradas de mentira */
 .fita-nomes{animation:none;transition:none}

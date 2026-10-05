@@ -19,8 +19,9 @@ uma TV de tubo", como uma fita de locadora dos anos 90. As telas, em ordem:
 4. **Play:** fita VHS com botão play. Pizza Planet, Slinky, chapéu do
    Woody, Rex, lata de tinta pendurada (Esqueceram de Mim).
 5. **Abertura**, seis cenas: a fita entra · letreiro Star Wars com a
-   história dos dois · DeLorean · Matrix · carta de Hogwarts · praia ao
-   pôr do sol com a Pedra do Rei ao fundo.
+   história dos dois · DeLorean · Matrix · Hogwarts (Plataforma 9¾, o
+   Expresso e a carta da Minerva) · praia ao pôr do sol com a Pedra do
+   Rei ao fundo.
 6. **Jogo:** jogo da velha de giz numa lousa, 4×4, quatro em linha revela.
    Os aliens gritam "Ooooooh!" quando falta um.
 7. **Resultado:** "É MENINA!" ou "É MENINO!", confete, fogos, selo "Ao
@@ -187,15 +188,19 @@ Fernanda do futuro TALVEZ saiba.
     junto." **Inspiração: Matrix**, Don Davis e "Clubbed to Death": graves
     eletrônicos pulsantes, batida industrial leve, metais em cluster
     curtos. Um blip de computador a cada letra nos primeiros 2 s.
-  - **23 a 45 s · Carta de Hogwarts.** A coruja atravessa a tela e solta a
-    carta; ela cai girando e pousa; o lacre de cera pula fora. Texto:
-    "Prezados Sr. Kaio e Sra. Nanda, a vaga de seu filho ou filha está
-    reservada para 2037. P.S.: não, isso não decide o nome." **Inspiração:
-    Harry Potter**, Williams: celesta do tema da Hedwig, cordas em
-    tremolo, flauta de corujinha, um sininho mágico quando o lacre pula
-    (segundo 43). É a parte mais longa e mais doce da sequência; dá tempo
-    de ler a carta.
-  - **45 a 61 s · Uma nova aventura.** Pôr do sol synthwave na praia, os
+  - **23 a 47 s · Hogwarts.** Três batidas: a Plataforma 9¾ (parede de
+    tijolos, placa, carrinho de bagagem com o bebê dinossauro em cima; os
+    dois crianças correm contra a parede e atravessam num clarão aos
+    28 s); o Expresso de Hogwarts entrando pela direita soltando vapor,
+    com "DESTINO 2027", e a coruja cruzando o céu (29 a 35 s); e a carta
+    da Minerva McGonagall caindo e pousando (35 s), que a plateia lê até o
+    lacre pular aos 45,5 s. **Inspiração: Harry Potter**, Williams: a
+    celesta do tema da Hedwig começa na plataforma, um acorde de metais
+    curto no clarão, a locomotiva entra com cordas em movimento e um
+    apito (o site faz o apito), e a carta volta à celesta com cordas em
+    tremolo e um sininho mágico no lacre (45 s). É a parte mais longa e
+    mais doce da sequência.
+  - **47 a 61 s · Uma nova aventura.** Pôr do sol synthwave na praia, os
     dois crianças de costas olhando o mar, o gato, o bebê dinossauro, e ao
     fundo a Pedra do Rei com o Rafiki erguendo o filhote. "Uma nova
     aventura está prestes a começar." **Inspiração: Rei Leão**, Zimmer: a
