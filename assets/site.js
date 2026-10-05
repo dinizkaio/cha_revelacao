@@ -122,10 +122,10 @@
     carta: 'assets/som/07-sequencia.mp3?v=4335776f61',
     aventura: 'assets/som/07-sequencia.mp3?v=4335776f61',
     jogo: 'assets/som/08-jogo.mp3?v=163cbf24a2',
-    resultado: 'assets/som/09-resultado.mp3?v=37c527c630',
-    fim: 'assets/som/10-fim.mp3?v=e7f5f74ceb',
+    resultado: 'assets/som/09-resultado.mp3?v=a70821017c',
+    fim: 'assets/som/10-fim.mp3?v=4e56647eca',
     trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb',
-    final: 'assets/som/12-final.mp3?v=15c6bc8414'
+    final: 'assets/som/12-final.mp3?v=30e5d44488'
   };
   // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
   // Com entrada, o tocador para em `fim` e emenda com o começo num crossfade de `cruzar` segundos
@@ -140,10 +140,10 @@
     crawl: { umaVez: true },
     delorean: { fim: 56.5, cruzar: 2 }, // enquanto a sequência longa não chega, repete sem cair no silêncio
     jogo: { fim: 68.0, cruzar: 1.5 },
-    resultado: { fim: 59.5, cruzar: 1.5, inicio: 1.5 },
-    fim: { fim: 52.0, cruzar: 2 },
+    resultado: { fim: 72.0, cruzar: 1.5, inicio: 1.2 },
+    fim: { fim: 50.5, cruzar: 2, inicio: 1 },
     trailer: { fim: 51.5, cruzar: 1.5 },
-    final: { fim: 51.0, cruzar: 1.5 }
+    final: { fim: 49.5, cruzar: 1.5, inicio: 1 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
