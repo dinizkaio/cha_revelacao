@@ -165,11 +165,15 @@ mesmos do v2. Aqui o foco é a referência.
   fanfare returns, building to a huge sustained final chord at 113 s.
   Exact length: 113 seconds. Instrumental, no vocals, no choir."
 
-### 07-sequencia.mp3 · Quatro cenas em uma música · 61 s, sem loop
+### 07-sequencia.mp3 · Quatro cenas em uma música · 74 s, sem loop
 
-Uma faixa só, com quatro referências emendadas. Se o gerador não segurar
-quatro climas numa faixa, gere quatro pedaços separados (10 s, 10 s, 29 s,
-12 s) e me manda; eu emendo com crossfade.
+**Pedido novo (6 de outubro):** a carta da Minerva precisa de 30 s de
+leitura, então a sequência passou de 61 para **74 s**: DeLorean 0 a 10,
+Matrix 10 a 20, Hogwarts 20 a 62 (plataforma 20 a 26, Expresso 26 a 32,
+carta 32 a 62), praia 62 a 74. A "The Iron Path Ahead" atual tem 61 s; o
+ideal é uma versão de 74 s com a parte de Hogwarts mais longa. Se o
+gerador não segurar quatro climas numa faixa, gere quatro pedaços
+separados (10 s, 10 s, 42 s, 12 s) e me manda; eu emendo com crossfade.
 
 - **0 a 10 s · DeLorean.** Referência: **De Volta para o Futuro**, o tema
   no momento da viagem no tempo. Reconhece-se: fanfarra de metais com
@@ -193,27 +197,29 @@ quatro climas numa faixa, gere quatro pedaços separados (10 s, 10 s, 29 s,
   - EN: "10 seconds of cinematic trip-hop: slow heavy beat, repeated
     classical piano notes on top, low cinematic strings, electronic bass,
     cold elegant hacker-movie mood, with computer blips."
-- **20 a 49 s · Hogwarts.** Referência: **Tema da Hedwig** completo, da
+- **20 a 62 s · Hogwarts.** Referência: **Tema da Hedwig** completo, da
   celesta sozinha à orquestra. Reconhece-se: a celesta em valsa menor, o
   salto para cima e a descida com trinado, depois cordas em tremolo,
   flautas, harpa, e o momento em que a orquestra inteira pega o tema. No
   meio (26 a 32 s), o trem chegando: cordas em movimento e metais, como a
   chegada do Expresso no primeiro filme. Depois volta a celesta, mais
   doce, até um sininho no fim.
-  - PT: "29 segundos de tema de escola de magia estilo John Williams:
+  - PT: "42 segundos de tema de escola de magia estilo John Williams:
     começa com celesta sozinha em valsa 3/4 em tom menor, melodia que
     salta para cima e desce com trinado; aos 6 segundos um acorde curto de
     metais (um clarão); aos 6 a 12 segundos cordas em movimento rápido e
     metais, como um trem a vapor chegando, com apito; depois volta a
-    celesta com cordas em tremolo, flauta e harpa, mais doce, e termina
-    com um sininho e um acorde suave."
-  - EN: "29-second wizard-school theme in John Williams' style: solo
+    celesta com cordas em tremolo, flauta e harpa, mais doce, por 30
+    segundos (a carta sendo lida), e termina com um sininho e um acorde
+    suave."
+  - EN: "42-second wizard-school theme in John Williams' style: solo
     celesta waltz in 3/4, minor key, leaping-up-then-stepping-down melody
     with a trill; at 6 s a short brass stab (a flash); 6 to 12 s fast
     moving strings and brass like a steam train arriving, with a whistle;
     then back to celesta with tremolo strings, flute and harp, sweeter,
-    ending with a little bell and a soft chord."
-- **49 a 61 s · Praia.** Referência: **"Circle of Life", Rei Leão** (Hans
+    for 30 seconds (a letter being read), ending with a little bell and a
+    soft chord."
+- **62 a 74 s · Praia.** Referência: **"Circle of Life", Rei Leão** (Hans
   Zimmer e Elton John), a parte instrumental do nascer do sol. Reconhece-se:
   percussão africana suave, cordas largas em tom maior, flauta de madeira,
   um acorde que abre como o sol subindo.
@@ -353,7 +359,7 @@ quatro climas numa faixa, gere quatro pedaços separados (10 s, 10 s, 29 s,
 | 04 play | Amigo Estou Aqui (Toy Story) + Holiday Flight (Esqueceram de Mim) |
 | 05 fita | vinheta 20th Century Fox / THX |
 | 06 letreiro | tema de Star Wars + tema de amor de Superman |
-| 07 sequência | De Volta para o Futuro → Clubbed to Death → Tema da Hedwig → Circle of Life |
+| 07 sequência (74 s) | De Volta para o Futuro → Clubbed to Death → Tema da Hedwig → Circle of Life |
 | 08 jogo | Matilda + Setting the Trap (Esqueceram de Mim) |
 | 09 resultado | Circle of Life (Simba erguido) + tema de Jurassic Park + fanfarra do Buzz |
 | 10 fim | Somewhere in My Memory + final de E.T. |

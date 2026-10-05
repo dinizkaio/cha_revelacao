@@ -137,6 +137,8 @@
     confirmar: { fim: 57.5, cruzar: 1.5, inicio: 1 },
     play: { fim: 57.5, cruzar: 1.5 },
     vhs: { fim: 55.5, cruzar: 1.5, inicio: 2.5 },
+    crawl: { umaVez: true },
+    delorean: { fim: 56.5, cruzar: 2 }, // enquanto a sequência longa não chega, repete sem cair no silêncio
     jogo: { fim: 68.0, cruzar: 1.5 },
     resultado: { fim: 87.5, cruzar: 1.5, inicio: 4 },
     fim: { fim: 52.0, cruzar: 2 },
@@ -156,8 +158,9 @@
       const t = setInterval(() => { i++; a.volume = Math.max(0, Math.min(1, de + (para - de) * i / passos)); if (i >= passos) { clearInterval(t); depois && depois(); } }, dt);
     }
     function ligar(a, nome, volumeInicial, msFade) {
-      const cfg = LOOP[nome];
-      a.loop = !cfg;
+      const cfg = LOOP[nome] || (TRILHA[nome] === TRILHA.delorean ? LOOP.delorean : null);
+      a.loop = !cfg || false;
+      if (cfg && cfg.umaVez) a.loop = false;
       a.volume = volumeInicial;
       a.play().then(() => { if (msFade) fade(a, volumeInicial, 1, msFade); else a.volume = 1; }).catch(() => {
         // o navegador só libera som depois de um gesto: tenta de novo no primeiro clique ou tecla
@@ -166,7 +169,7 @@
         addEventListener('pointerdown', tentar, { once: true, capture: true });
         addEventListener('keydown', tentar, { once: true, capture: true });
       });
-      if (!cfg) return null;
+      if (!cfg || cfg.umaVez) return null;
       // vigia o ponto de corte e emenda com uma segunda instância do mesmo arquivo
       return setInterval(() => {
         if (!tocando || tocando.a !== a) return;
@@ -295,7 +298,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 10000], ['matrix', 10000], ['carta', 29000], ['aventura', 12000]];
+  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 10000], ['matrix', 10000], ['carta', 42000], ['aventura', 12000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
@@ -309,7 +312,7 @@
       osd.textContent = '0:00:00';
       timersAbertura.push(setInterval(tic, 1000));
     }
-    if (nome === 'carta') [[5300, () => som.tracking()], [6600, () => som.apito()], [9200, () => som.piar()], [17600, () => som.sininho()], [27600, () => som.rachar()]].forEach(([t, f]) => timersAbertura.push(setTimeout(f, t)));
+    if (nome === 'carta') [[5300, () => som.tracking()], [6600, () => som.apito()], [9200, () => som.piar()], [18600, () => som.sininho()], [40600, () => som.rachar()]].forEach(([t, f]) => timersAbertura.push(setTimeout(f, t)));
     if (nome === 'matrix') {
       montarChuva();
       const alvo = 'Pílula azul ou pílula rosa?', el = $('#matrix-texto'); el.textContent = '';

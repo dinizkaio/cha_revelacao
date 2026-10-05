@@ -10,8 +10,8 @@ estão na tabela `TRILHA`, no começo de `assets/site.js`:
 | `03-confirmar.mp3` | confirmação da escolha | em loop |
 | `04-play.mp3` | "Tá tudo pronto!" | em loop, até o play |
 | `05-fita.mp3` | cena 1, a fita entra (NANDA & KAIO) | 8 s, a partir do segundo 2,5 do arquivo |
-| `06-letreiro.mp3` | cena 2, letreiro Star Wars | cerca de 112 s |
-| `07-sequencia.mp3` | cenas 3 a 6: DeLorean, Matrix, carta de Hogwarts, praia | 61 s (10 + 10 + 29 + 12) |
+| `06-letreiro.mp3` | cena 2, letreiro Star Wars | 113 s, toca uma vez |
+| `07-sequencia.mp3` | cenas 3 a 6: DeLorean, Matrix, Hogwarts, praia | 74 s (10 + 10 + 42 + 12); enquanto o arquivo tiver 61 s, ele repete com crossfade |
 | `08-jogo.mp3` | jogo da velha | em loop, 1 a 3 min |
 | `09-resultado.mp3` | resultado | em loop |
 | `10-fim.mp3` | tela de FIM | em loop |
