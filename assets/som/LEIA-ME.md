@@ -9,7 +9,7 @@ estão na tabela `TRILHA`, no começo de `assets/site.js`:
 | `02-seletor.mp3` | escolha menino/menina | em loop |
 | `03-confirmar.mp3` | confirmação da escolha | em loop |
 | `04-play.mp3` | "Tá tudo pronto!" | em loop, até o play |
-| `05-fita.mp3` | cena 1, a fita entra (NANDA & KAIO) | 8 s |
+| `05-fita.mp3` | cena 1, a fita entra (NANDA & KAIO) | 8 s, a partir do segundo 2,5 do arquivo |
 | `06-letreiro.mp3` | cena 2, letreiro Star Wars | cerca de 112 s |
 | `07-sequencia.mp3` | cenas 3 a 6: DeLorean, Matrix, carta de Hogwarts, praia | 61 s (10 + 10 + 29 + 12) |
 | `08-jogo.mp3` | jogo da velha | em loop, 1 a 3 min |

@@ -111,11 +111,11 @@
   // Uma faixa por momento. Troque os nomes aqui quando os arquivos chegarem.
   // Momentos que apontam para o mesmo arquivo continuam a mesma música, sem recomeçar.
   const TRILHA = {
-    capa: 'assets/som/01-capa.mp3?v=b293531d2b',
-    seletor: 'assets/som/02-seletor.mp3?v=eb929f4b64',
-    confirmar: 'assets/som/03-confirmar.mp3?v=697a7d6159',
-    play: 'assets/som/04-play.mp3?v=61e23149b0',
-    vhs: 'assets/som/05-fita.mp3?v=37c527c630',
+    capa: 'assets/som/01-capa.mp3?v=0ef6c3590b',
+    seletor: 'assets/som/02-seletor.mp3?v=6f531e44b3',
+    confirmar: 'assets/som/03-confirmar.mp3?v=fe16c3062a',
+    play: 'assets/som/04-play.mp3?v=caae384060',
+    vhs: 'assets/som/05-fita.mp3?v=bb2ea3583e',
     crawl: 'assets/som/06-letreiro.mp3?v=71b926360e',
     delorean: 'assets/som/07-sequencia.mp3?v=bc40be505d',
     matrix: 'assets/som/07-sequencia.mp3?v=bc40be505d',
@@ -132,10 +132,11 @@
   // (serve para faixas que terminam em silêncio ou com fade).
   // `inicio` (opcional) é onde a volta recomeça, para pular uma narração que só deve tocar uma vez.
   const LOOP = {
-    capa: { fim: 170.0, cruzar: 1.5 },
-    seletor: { fim: 175.0, cruzar: 1.5, inicio: 45 },
-    confirmar: { fim: 58.5, cruzar: 1.5, inicio: 1 },
-    play: { fim: 57.0, cruzar: 1.5, inicio: 2.5 },
+    capa: { fim: 117.0, cruzar: 1.5, inicio: 1 },
+    seletor: { fim: 52.5, cruzar: 1.5 },
+    confirmar: { fim: 57.5, cruzar: 1.5, inicio: 1 },
+    play: { fim: 57.5, cruzar: 1.5 },
+    vhs: { fim: 55.5, cruzar: 1.5, inicio: 2.5 },
     jogo: { fim: 162.0, cruzar: 1.5 },
     resultado: { fim: 176.5, cruzar: 1.5 },
     fim: { fim: 57.5, cruzar: 1.5 },
