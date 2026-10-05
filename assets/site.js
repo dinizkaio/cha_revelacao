@@ -124,7 +124,7 @@
     jogo: 'assets/som/08-jogo.mp3?v=163cbf24a2',
     resultado: 'assets/som/09-resultado.mp3?v=463970a9ff',
     fim: 'assets/som/10-fim.mp3?v=e7f5f74ceb',
-    trailer: 'assets/som/11-trailer.mp3?v=f4653f6ff8',
+    trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb',
     final: 'assets/som/12-final.mp3?v=15c6bc8414'
   };
   // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
@@ -142,7 +142,7 @@
     jogo: { fim: 68.0, cruzar: 1.5 },
     resultado: { fim: 87.5, cruzar: 1.5, inicio: 4 },
     fim: { fim: 52.0, cruzar: 2 },
-    trailer: { fim: 52.5, cruzar: 1.5 },
+    trailer: { fim: 51.5, cruzar: 1.5 },
     final: { fim: 51.0, cruzar: 1.5 }
   };
   const trilha = (() => {
@@ -602,8 +602,7 @@
     const fita = $('#fita-nomes'); fita.innerHTML = ''; fita.className = 'fita-nomes'; fita.style.transform = '';
     [...itens, ...itens].forEach(t => { const d = document.createElement('div'); d.textContent = t; if (!/\?$/.test(t)) d.classList.add('duvida'); fita.appendChild(d); });
     roleta.preparar(itens, menino);
-    clearTimeout(timerTrailer);
-    timerTrailer = setTimeout(mostrarTrailer, 4500);
+    clearTimeout(timerTrailer); // o trailer só entra com clique
   };
   function mostrarTrailer() {
     clearTimeout(timerTrailer);

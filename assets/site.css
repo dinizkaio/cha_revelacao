@@ -475,6 +475,8 @@ img{-webkit-user-drag:none}
 .fim-grande{font-family:var(--f-vhs);font-size:300px;line-height:1;letter-spacing:.1em;text-shadow:5px 0 #0ff,-5px 0 #f0f}
 .fim-sub{font-family:var(--f-maquina);font-size:34px;text-transform:uppercase;letter-spacing:.1em;color:#ddd;margin-top:10px}
 .fim-mini{font-family:var(--f-vhs);font-size:30px;color:#777;letter-spacing:.14em;margin-top:30px}
+.fim-dica{position:absolute;left:0;right:0;bottom:30px;text-align:center;font:24px var(--f-vhs);color:#666;letter-spacing:.12em;animation:blink 1.4s steps(2) infinite}
+#tela-fim.trailer-ativo .fim-dica{display:none}
 #tela-fim .polaroids{left:auto;right:90px;bottom:auto;top:70px}
 #tela-fim.trailer-ativo .centro-fim,#tela-fim.trailer-ativo .polaroids,#tela-fim.trailer-ativo .osd-fim{display:none}
 .trailer{position:absolute;inset:0;background:#02030c;animation:aparecer .8s forwards}

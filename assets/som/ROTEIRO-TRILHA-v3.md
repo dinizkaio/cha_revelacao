@@ -309,6 +309,9 @@ separados (10 s, 10 s, 42 s, 12 s) e me manda; eu emendo com crossfade.
 
 ### 11-trailer.mp3 · A Galáxia dos Nomes · em loop · 45 a 60 s
 
+**Decisão (6 de outubro):** a faixa anterior, com a voz de locutor, ficou
+melhor que a nova e foi mantida. Não precisa gerar outra.
+
 - **Referência principal:** fanfarra de **Star Wars** tocada por banda de
   **novela mexicana** (Chaves, Maria do Bairro). **Secundária:** o coral
   eletrônico dos aliens de **Toy Story** ("a garra"), em sintetizador.

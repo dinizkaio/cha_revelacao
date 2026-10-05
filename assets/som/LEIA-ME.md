@@ -15,7 +15,7 @@ estão na tabela `TRILHA`, no começo de `assets/site.js`:
 | `08-jogo.mp3` | jogo da velha | em loop, 1 a 3 min |
 | `09-resultado.mp3` | resultado | em loop |
 | `10-fim.mp3` | tela de FIM | em loop |
-| `11-trailer.mp3` | trailer "A Galáxia dos Nomes" | em loop |
+| `11-trailer.mp3` | trailer "A Galáxia dos Nomes" (versão com voz, mantida) | em loop |
 | `12-final.mp3` | tela final, o Mapa do Maroto (para no "Nox") | em loop, cerca de 13 s por volta |
 
 Toda faixa toca em loop, com fade de entrada e saída na troca. Momentos que
