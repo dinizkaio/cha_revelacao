@@ -11,10 +11,10 @@
   <link rel="preload" href="assets/fontes/Bungee-400.woff2?v=126eec706b" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fontes/Special_Elite-400.woff2?v=770493d84c" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fontes/fontes.css?v=650d52fe2c">
-  <link rel="stylesheet" href="assets/site.css?v=5f67334f87">
-  <script src="assets/props.js?v=8e571f31f3" defer></script>
-  <script src="assets/personagens.js?v=ac89c6cc82" defer></script>
-  <script src="assets/site.js?v=731c1325c0" defer></script>
+  <link rel="stylesheet" href="assets/site.css?v=77562e84b7">
+  <script src="assets/props.js?v=02eabce935" defer></script>
+  <script src="assets/personagens.js?v=5a21c3f878" defer></script>
+  <script src="assets/site.js?v=f24a37d1ab" defer></script>
 </head>
 <body>
 <div class="aviso-retrato"><p>Vira o celular na horizontal, como uma TV. 📺</p></div>
@@ -266,7 +266,12 @@
       <svg class="rabisco" style="right:470px;bottom:160px;color:#ff6fb8;width:80px;height:80px;transform:rotate(25deg)"><use href="#heart"/></svg>
       <svg class="rabisco" style="right:560px;bottom:300px;color:#5aa0ff;width:70px;height:70px"><use href="#bolt"/></svg>
       <div class="topo"><span class="etiqueta grande">Vamos jogar?</span><div class="sub" id="jogo-sub">Quatro em linha para descobrir<br>nosso maior presente!</div></div>
-      <div class="legenda-xo"><b class="x">X</b> = menino<br><b class="o">O</b> = menina</div>
+      <div class="ampulhetas">
+        <div class="ampulheta x" style="--n:0"><div class="tubo"><div class="gemas"></div></div><div class="rotulo"><b>X</b> menino</div><div class="pontos" id="pontos-x">0</div></div>
+        <div class="ampulheta o" style="--n:0"><div class="tubo"><div class="gemas"></div></div><div class="rotulo"><b>O</b> menina</div><div class="pontos" id="pontos-o">0</div></div>
+      </div>
+      <svg class="prop varinha"><use href="#varinha"/></svg>
+      <svg class="prop pomo pomo-jogo"><use href="#pomo"/></svg>
       <div class="vez" id="vez">vez da Nanda<small id="jogada">jogada 1 de 16</small></div>
       <div class="quase" id="quase" hidden>quase! falta um…</div>
       <svg class="prop gizmagico"><use href="#gizflutuante"/></svg>

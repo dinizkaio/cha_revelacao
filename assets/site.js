@@ -461,6 +461,11 @@
     pose('');
     vezEl.firstChild.textContent = (jogo.vez === 'Nanda' ? 'vez da Nanda' : 'vez do Kaio');
     jogadaEl.textContent = 'jogada ' + Math.min(jogo.jogada + 1, 16) + ' de 16';
+    const nx = jogo.tab.filter((v, i) => v && simboloDe(v) === 'X').length, no = jogo.tab.filter((v, i) => v && simboloDe(v) === 'O').length;
+    const ax = $('.ampulheta.x'), ao = $('.ampulheta.o');
+    if (+ax.style.getPropertyValue('--n') !== nx) { ax.style.setProperty('--n', nx); ax.classList.remove('pulso'); void ax.offsetWidth; ax.classList.add('pulso'); }
+    if (+ao.style.getPropertyValue('--n') !== no) { ao.style.setProperty('--n', no); ao.classList.remove('pulso'); void ao.offsetWidth; ao.classList.add('pulso'); }
+    $('#pontos-x').textContent = nx; $('#pontos-o').textContent = no;
   }
   aoEntrar.jogo = () => {
     jogo.vencedor = lerSegredo() || (ENSAIO ? (Math.random() < .5 ? 'm' : 'f') : 'm');

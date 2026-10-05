@@ -416,8 +416,25 @@ img{-webkit-user-drag:none}
 @keyframes balancar{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
 #tela-jogo .vez{position:absolute;right:120px;top:70px;font-family:var(--f-giz);font-size:46px;color:#ffd23f;transform:rotate(3deg);text-shadow:0 0 12px rgba(255,210,63,.3)}
 #tela-jogo .vez small{display:block;font-size:26px;color:#f2efe4}
-.legenda-xo{position:absolute;left:120px;top:70px;font-family:var(--f-giz);font-size:32px;color:#f2efe4;transform:rotate(-3deg);line-height:1.5}
-.legenda-xo b{font-weight:400}.legenda-xo .x{color:#5aa0ff}.legenda-xo .o{color:#ff6fb8}
+/* Hogwarts na lousa: chapéus, ampulhetas de pontos, varinha, pomo */
+.pers .chapeu-bruxo{display:none}
+#tela-jogo .pers .chapeu-bruxo{display:block}
+.ampulhetas{position:absolute;left:110px;top:60px;display:flex;gap:26px;z-index:3}
+.ampulheta{position:relative;width:120px;text-align:center;font-family:var(--f-giz);color:#f2efe4}
+.ampulheta .tubo{position:relative;width:96px;height:150px;margin:0 auto;background:linear-gradient(90deg,rgba(255,255,255,.14),rgba(255,255,255,.04) 40%,rgba(255,255,255,.18));clip-path:polygon(0 0,100% 0,100% 6%,58% 50%,100% 94%,100% 100%,0 100%,0 94%,42% 50%,0 6%);box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)}
+.ampulheta .tubo::before,.ampulheta .tubo::after{content:"";position:absolute;left:-6px;right:-6px;height:12px;background:#c9a66b;border-radius:4px;box-shadow:0 3px 0 #7a5a30}
+.ampulheta .tubo::before{top:-8px}.ampulheta .tubo::after{bottom:-8px}
+.ampulheta .gemas{position:absolute;left:0;right:0;bottom:0;height:calc(var(--n) * 16px);max-height:72px;transition:height .5s cubic-bezier(.2,1.2,.4,1);background-image:radial-gradient(circle,var(--gema) 3px,transparent 4px),radial-gradient(circle,var(--gema) 3px,transparent 4px);background-size:14px 12px,14px 12px;background-position:0 0,7px 6px;filter:drop-shadow(0 0 4px var(--gema))}
+.ampulheta.x{--gema:#5aa0ff}.ampulheta.o{--gema:#ff6fb8}
+.ampulheta .rotulo{margin-top:16px;font-size:26px;line-height:1.1}
+.ampulheta.x .rotulo b{color:#5aa0ff;font-weight:400}.ampulheta.o .rotulo b{color:#ff6fb8;font-weight:400}
+.ampulheta .pontos{position:absolute;left:0;right:0;top:26px;font-size:30px;color:#f2efe4;text-shadow:0 0 8px rgba(255,255,255,.5)}
+.ampulheta.pulso .vidro{animation:pulsar2 .4s ease-out}
+#tela-jogo .varinha{right:130px;top:196px;width:240px;height:40px;z-index:3;transform:rotate(-8deg);filter:drop-shadow(0 6px 6px rgba(0,0,0,.5))}
+#tela-jogo .varinha .lumos{filter:drop-shadow(0 0 6px #fff8d6) drop-shadow(0 0 14px #ffd98a);animation:lumos 1.6s ease-in-out infinite alternate}
+@keyframes lumos{from{opacity:.6}to{opacity:1}}
+#tela-jogo .pomo-jogo{left:-200px;top:240px;width:120px;height:60px;z-index:2;animation:pomo-cruzar 14s linear 3s infinite}
+@keyframes pomo-cruzar{0%{transform:translate(0,0) rotate(0)}10%{transform:translate(600px,-60px) rotate(-10deg)}20%{transform:translate(1100px,40px) rotate(8deg)}30%{transform:translate(2200px,-30px)}100%{transform:translate(2200px,-30px)}}
 .quase{position:absolute;left:50%;top:190px;transform:translateX(-50%) rotate(-4deg);font-family:var(--f-giz);font-size:60px;color:#ff6fb8;text-shadow:0 0 16px rgba(255,111,184,.6);z-index:4;white-space:nowrap}
 .quase.azul{color:#5aa0ff;text-shadow:0 0 16px rgba(90,160,255,.6)}
 .quase[hidden]{display:none}
