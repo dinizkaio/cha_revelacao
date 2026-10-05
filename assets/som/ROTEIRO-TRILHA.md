@@ -176,33 +176,34 @@ Fernanda do futuro TALVEZ saiba.
   uma, sem parar. Entre as cenas a imagem dá um pulo de VHS (o site faz o
   chiado).
 - **Estrutura no tempo:**
-  - **0 a 12 s · DeLorean.** Painel do circuito de tempo (destino: 2026,
-    chegada do bebê), o carro entra com rastro de fogo, "88 MPH", e a fala
-    do Doc: "Pra onde a gente vai não precisa de estradas. Precisa de um
-    nome. A Fernanda do futuro TALVEZ saiba." **Inspiração: De Volta para
-    o Futuro**, Silvestri: sintetizador heroico e bateria com reverb,
-    motor acelerando até o segundo 4, e um "whoosh" de viagem no tempo no
-    segundo 11 que vira a transição.
-  - **12 a 23 s · Matrix.** Chuva de código verde, "Pílula azul ou pílula
-    rosa?" digitada letra a letra, "Faça a sua escolha. A fralda vem
-    junto." **Inspiração: Matrix**, Don Davis e "Clubbed to Death": graves
-    eletrônicos pulsantes, batida industrial leve, metais em cluster
-    curtos. Um blip de computador a cada letra nos primeiros 2 s.
-  - **23 a 47 s · Hogwarts.** Três batidas: a Plataforma 9¾ (parede de
-    tijolos, placa, carrinho de bagagem com o bebê dinossauro em cima; os
-    dois crianças correm contra a parede e atravessam num clarão aos
-    28 s); o Expresso de Hogwarts entrando pela direita soltando vapor,
-    com "DESTINO 2027", a coruja cruzando o céu e piando (30 a 35 s), e a
-    carta
-    da Minerva McGonagall caindo e pousando (35 s), que a plateia lê até o
-    lacre pular aos 45,5 s. **Inspiração: Harry Potter**, Williams: a
-    celesta do tema da Hedwig começa na plataforma, um acorde de metais
-    curto no clarão, a locomotiva entra com cordas em movimento e um
-    apito (o site faz o apito), e a carta volta à celesta com cordas em
-    tremolo, um sininho quando a frase "vem muita magia por aí" brilha
-    (40 s) e um estalo no lacre (45,5 s). É a parte mais longa e mais
-    doce da sequência.
-  - **47 a 61 s · Uma nova aventura.** Pôr do sol synthwave na praia, os
+  - **0 a 10 s · DeLorean.** Painel do circuito de tempo (destino: maio de
+    2027, chegada do bebê), o carro entra com rastro de fogo, "88 MPH", e
+    a fala do Doc: "Pra onde a gente vai não precisa de estradas. Precisa
+    de um nome. A Fernanda do futuro TALVEZ saiba." **Inspiração: De
+    Volta para o Futuro**, Silvestri: sintetizador heroico e bateria com
+    reverb, motor acelerando até o segundo 3, e um "whoosh" de viagem no
+    tempo no segundo 9 que vira a transição.
+  - **10 a 20 s · Matrix.** Chuva de código verde, "Pílula azul ou pílula
+    rosa?" digitada letra a letra, "O Oráculo avisou: não importa a
+    pílula. O que vem aí é uma surpresa." **Inspiração: Matrix**, Don
+    Davis e "Clubbed to Death": graves eletrônicos pulsantes, batida
+    industrial leve, metais em cluster curtos. Um blip de computador a
+    cada letra nos primeiros 2 s.
+  - **20 a 49 s · Hogwarts.** Três batidas: a Plataforma 9¾ (parede de
+    tijolos, lampião, relógio, carrinho de bagagem com a coruja na gaiola e
+    o bebê dinossauro em cima; os dois crianças correm contra a parede e
+    atravessam num clarão aos 25 s); o Expresso de Hogwarts entrando pela
+    direita soltando vapor, com o castelo ao fundo, apito aos 27 s, a
+    coruja cruzando o céu e piando aos 29 s, soltando a carta (26 a 32 s);
+    e a carta da Minerva McGonagall caindo e pousando (32 s), com os
+    parágrafos aparecendo aos poucos até o lacre pular aos 47,5 s.
+    **Inspiração: Harry Potter**, Williams: a celesta do tema da Hedwig
+    começa na plataforma, um acorde de metais curto no clarão, a
+    locomotiva entra com cordas em movimento, e a carta volta à celesta
+    com cordas em tremolo, um sininho quando a frase "vem muita magia por
+    aí" brilha (37,5 s) e um estalo no lacre (47,5 s). É a parte mais
+    longa e mais doce da sequência: 29 s.
+  - **49 a 61 s · Uma nova aventura.** Pôr do sol synthwave na praia, os
     dois crianças de costas olhando o mar, o gato, o bebê dinossauro, e ao
     fundo a Pedra do Rei com o Rafiki erguendo o filhote. "Uma nova
     aventura está prestes a começar." **Inspiração: Rei Leão**, Zimmer: a

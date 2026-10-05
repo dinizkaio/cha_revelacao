@@ -254,7 +254,7 @@ img{-webkit-user-drag:none}
 /* 5.6 uma nova aventura */
 .cena-aventura .synth{background:linear-gradient(180deg,#2a0f4a 0%,#7a2a7a 30%,#ff5a6e 55%,#ff9a3c 72%,#ffd23f 85%)}
 .cena-aventura .synth .sol{top:30%;-webkit-mask:none;mask:none;box-shadow:0 0 140px 50px rgba(255,170,80,.55),0 0 320px 120px rgba(255,90,110,.25)}
-.cena.ativa.cena-aventura .sol{animation:nascer 12s ease-out forwards}
+.cena.ativa.cena-aventura .sol{animation:nascer 10s ease-out forwards}
 @keyframes nascer{from{transform:translateY(120px)}to{transform:none}}
 .cena-aventura .synth .areia{height:24%;background:linear-gradient(180deg,#5a2a6a,#2a1040)}
 .cena-aventura .synth .areia::before{height:18%;background:linear-gradient(180deg,rgba(255,180,200,.35),transparent)}
@@ -277,7 +277,7 @@ img{-webkit-user-drag:none}
 .cena-carta .quadro{position:absolute;inset:0;opacity:0}
 .cena.ativa .plataforma{animation:quadro-plat 6.4s linear both}
 .cena.ativa .expresso{animation:quadro-exp 6.6s linear 5.8s both}
-.cena.ativa .resposta{animation:quadro-resp 12s linear 12s both}
+.cena.ativa .resposta{animation:quadro-resp 17s linear 12s both}
 @keyframes quadro-plat{0%,96%{opacity:1}100%{opacity:0}}
 @keyframes quadro-exp{0%{opacity:0}4%,96%{opacity:1}100%{opacity:0}}
 @keyframes quadro-resp{0%{opacity:0}5%,100%{opacity:1}}
@@ -368,7 +368,7 @@ img{-webkit-user-drag:none}
 @keyframes cair-carta{0%{transform:translate(-50%,-160%) rotate(12deg) scale(.5);opacity:0}30%{opacity:1}100%{transform:translate(-50%,-50%) rotate(-1.5deg) scale(1);opacity:1}}
 .brasao-marca{position:absolute;right:120px;bottom:30px;width:160px;height:187px;opacity:.14}
 .selo-cera{position:absolute;right:50px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d64040,#7a1010);border:4px solid #5a0c0c;display:grid;place-items:center;font-family:var(--f-poster);font-size:56px;color:#f3c4c4;box-shadow:0 8px 16px rgba(0,0,0,.5),inset 0 0 14px rgba(0,0,0,.35);transform:rotate(8deg);z-index:2}
-.cena.ativa .selo-cera{animation:lacre-pular .7s cubic-bezier(.4,0,.9,.6) 22.5s forwards}
+.cena.ativa .selo-cera{animation:lacre-pular .7s cubic-bezier(.4,0,.9,.6) 27.5s forwards}
 .cena-carta .coruja-pousada{position:absolute;left:-40px;top:-96px;width:150px;height:122px;transform:scaleX(-1);filter:drop-shadow(0 8px 10px rgba(0,0,0,.5));opacity:0}
 .cena.ativa .coruja-pousada{animation:aparecer .4s 13.8s forwards,piscar-coruja 4s 14s infinite}
 @keyframes piscar-coruja{0%,92%,100%{filter:drop-shadow(0 8px 10px rgba(0,0,0,.5)) brightness(1)}95%{filter:drop-shadow(0 8px 10px rgba(0,0,0,.5)) brightness(.6)}}
@@ -378,17 +378,17 @@ img{-webkit-user-drag:none}
 .carta-ps{margin-top:8px;font-size:21px;color:#7a4a20;font-style:italic}
 .carta .l1,.carta .l2,.carta .l3,.carta .l4,.carta .l5{opacity:0}
 .cena.ativa .carta .l1{animation:aparecer .5s 13.4s forwards}
-.cena.ativa .carta .l2{animation:aparecer .6s 14s forwards}
-.cena.ativa .carta .l3{animation:aparecer .6s 16.2s forwards}
-.cena.ativa .carta .l4{animation:aparecer .6s 18.6s forwards}
-.cena.ativa .carta .l5{animation:aparecer .6s 19.8s forwards}
+.cena.ativa .carta .l2{animation:aparecer .6s 14.2s forwards}
+.cena.ativa .carta .l3{animation:aparecer .6s 17.2s forwards}
+.cena.ativa .carta .l4{animation:aparecer .6s 21s forwards}
+.cena.ativa .carta .l5{animation:aparecer .6s 22.6s forwards}
 .magia{color:#7a3a9a;text-shadow:0 0 1px #7a3a9a;background:linear-gradient(90deg,transparent,rgba(255,210,63,.35),transparent) no-repeat -300px 0/300px 100%}
-.cena.ativa .magia{animation:reluzir 2.4s 16.8s ease-in-out 2}
+.cena.ativa .magia{animation:reluzir 2.4s 17.8s ease-in-out 2}
 @keyframes reluzir{from{background-position:-300px 0}to{background-position:1300px 0}}
 .brilhos{position:absolute;inset:0;pointer-events:none;z-index:4}
 .brilhos i{position:absolute;width:10px;height:10px;background:#fff6c4;border-radius:50%;opacity:0;box-shadow:0 0 10px 3px rgba(255,230,150,.8)}
-.cena.ativa .brilhos i{animation:brilho-subir 2.6s ease-out 16.8s infinite}
-.brilhos i:nth-child(1){left:420px;top:560px}.brilhos i:nth-child(2){left:620px;top:600px;animation-delay:17.3s}.brilhos i:nth-child(3){left:900px;top:580px;animation-delay:17.8s}.brilhos i:nth-child(4){left:1150px;top:560px;animation-delay:17.1s}.brilhos i:nth-child(5){left:1350px;top:600px;animation-delay:17.6s}.brilhos i:nth-child(6){left:760px;top:620px;animation-delay:18.1s}
+.cena.ativa .brilhos i{animation:brilho-subir 2.6s ease-out 17.8s infinite}
+.brilhos i:nth-child(1){left:420px;top:560px}.brilhos i:nth-child(2){left:620px;top:600px;animation-delay:18.3s}.brilhos i:nth-child(3){left:900px;top:580px;animation-delay:18.8s}.brilhos i:nth-child(4){left:1150px;top:560px;animation-delay:18.1s}.brilhos i:nth-child(5){left:1350px;top:600px;animation-delay:18.6s}.brilhos i:nth-child(6){left:760px;top:620px;animation-delay:19.1s}
 @keyframes brilho-subir{0%{transform:translateY(0) scale(.4);opacity:0}20%{opacity:1}100%{transform:translateY(-160px) scale(1.2);opacity:0}}
 
 /* ---------- 6. jogo ---------- */

@@ -293,7 +293,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['matrix', 11000], ['carta', 24000], ['aventura', 14000]];
+  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 10000], ['matrix', 10000], ['carta', 29000], ['aventura', 12000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
@@ -307,7 +307,7 @@
       osd.textContent = '0:00:00';
       timersAbertura.push(setInterval(tic, 1000));
     }
-    if (nome === 'carta') [[5300, () => som.tracking()], [6600, () => som.apito()], [9200, () => som.piar()], [16800, () => som.sininho()], [22600, () => som.rachar()]].forEach(([t, f]) => timersAbertura.push(setTimeout(f, t)));
+    if (nome === 'carta') [[5300, () => som.tracking()], [6600, () => som.apito()], [9200, () => som.piar()], [17600, () => som.sininho()], [27600, () => som.rachar()]].forEach(([t, f]) => timersAbertura.push(setTimeout(f, t)));
     if (nome === 'matrix') {
       montarChuva();
       const alvo = 'Pílula azul ou pílula rosa?', el = $('#matrix-texto'); el.textContent = '';
