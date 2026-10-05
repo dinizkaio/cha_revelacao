@@ -281,46 +281,115 @@ img{-webkit-user-drag:none}
 @keyframes quadro-plat{0%,96%{opacity:1}100%{opacity:0}}
 @keyframes quadro-exp{0%{opacity:0}4%,96%{opacity:1}100%{opacity:0}}
 @keyframes quadro-resp{0%{opacity:0}5%,100%{opacity:1}}
+/* quadro 1: plataforma */
 .tijolos{position:absolute;inset:0;background:
   repeating-linear-gradient(0deg,#5a2418 0 6px,transparent 6px 60px),
   repeating-linear-gradient(90deg,#5a2418 0 6px,transparent 6px 150px),
   repeating-linear-gradient(0deg,transparent 0 60px,#5a2418 60px 66px,transparent 66px 120px),
-  #9c4a34;background-blend-mode:normal}
-.tijolos::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,transparent 40%,rgba(10,6,18,.75) 100%)}
-.placa-plat{right:auto;left:50%;top:150px;transform:translateX(-50%) rotate(-2deg);z-index:2;padding:10px 26px 14px;background:#1d3b2a;border-color:#0b1a12;box-shadow:4px 4px 0 #061009,0 0 30px rgba(0,0,0,.5)}
+  linear-gradient(180deg,#7a3426,#9c4a34 60%,#6a2e22);translate:calc(var(--px,0) * -6px) 0}
+.tijolos::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 75px,rgba(0,0,0,.08) 75px 81px,transparent 81px 150px) 0 66px,repeating-linear-gradient(90deg,transparent 0 60px,rgba(255,255,255,.04) 60px 66px,transparent 66px 150px)}
+.tijolos::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 50% 42%,transparent 30%,rgba(10,6,18,.8) 100%)}
+.luz-lampiao{position:absolute;left:50%;top:0;width:1400px;height:900px;margin-left:-700px;background:radial-gradient(ellipse 40% 55% at 50% 10%,rgba(255,200,120,.35),transparent 70%);pointer-events:none;animation:tremular-luz 3s ease-in-out infinite alternate}
+@keyframes tremular-luz{from{opacity:.85}to{opacity:1}}
+.lampiao{position:absolute;left:50%;top:0;width:60px;height:120px;margin-left:-30px;z-index:2}
+.lampiao .haste{position:absolute;left:28px;top:0;width:4px;height:50px;background:#222}
+.lampiao .lampada{position:absolute;left:5px;top:48px;width:50px;height:56px;background:linear-gradient(180deg,#333,#111);clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);box-shadow:0 20px 40px rgba(255,200,120,.6)}
+.lampiao .lampada::after{content:"";position:absolute;left:10px;right:10px;bottom:4px;height:14px;background:#ffe9b0;border-radius:4px;box-shadow:0 0 24px 8px rgba(255,220,150,.9)}
+.piso{position:absolute;left:0;right:0;bottom:0;height:110px;background:repeating-linear-gradient(90deg,#4a4a52 0 118px,#3a3a42 118px 122px),linear-gradient(180deg,#5a5a62,#2a2a32);background-blend-mode:multiply;border-top:8px solid #c9a66b;box-shadow:0 -10px 30px rgba(0,0,0,.6)}
+.placa-plat{right:auto;left:50%;top:150px;transform:translateX(-50%) rotate(-2deg);z-index:2;padding:10px 26px 14px;background:#1d3b2a;border-color:#0b1a12;box-shadow:4px 4px 0 #061009,0 0 30px rgba(0,0,0,.5),inset 0 0 20px rgba(255,255,255,.08);translate:calc(var(--px,0) * -10px) 0}
 .placa-plat span{font-size:20px}.placa-plat b{font-size:64px}
-.cena-carta .carrinho{left:230px;bottom:150px;width:260px;height:236px;z-index:2;filter:drop-shadow(0 10px 12px rgba(0,0,0,.5))}
-.cena-carta .plataforma .bebedino{left:285px;bottom:382px;width:150px;height:105px;z-index:3;animation:torcer 1.2s ease-in-out infinite}
-.cena-carta .costas{left:50%;bottom:40px;width:800px;height:340px;margin-left:-400px;z-index:3;transform-origin:50% 100%}
-.cena.ativa .costas{animation:correr-parede 4.8s cubic-bezier(.3,.1,.7,.6) .4s both}
+.relogio{position:absolute;right:240px;top:130px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff8e6,#d9ccaa);border:10px solid #222;box-shadow:0 10px 24px rgba(0,0,0,.6),inset 0 0 14px rgba(0,0,0,.2);z-index:2;translate:calc(var(--px,0) * -10px) 0}
+.relogio i,.relogio b{position:absolute;left:50%;bottom:50%;width:5px;background:#222;transform-origin:50% 100%;margin-left:-2.5px;border-radius:3px}
+.relogio i{height:38px;transform:rotate(300deg)}.relogio b{height:48px;transform:rotate(10deg);animation:ponteiro 24s linear infinite}
+@keyframes ponteiro{to{transform:rotate(370deg)}}
+.relogio::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:#222}
+.cena-carta .carrinho{left:230px;bottom:130px;width:260px;height:236px;z-index:2;filter:drop-shadow(0 14px 14px rgba(0,0,0,.6));translate:calc(var(--px,0) * -22px) 0}
+.cena-carta .plataforma .bebedino{left:285px;bottom:362px;width:150px;height:105px;z-index:3;animation:torcer 1.2s ease-in-out infinite;translate:calc(var(--px,0) * -22px) 0}
+.cena-carta .coruja-gaiola{left:310px;bottom:265px;width:84px;height:68px;z-index:3;translate:calc(var(--px,0) * -22px) 0}
+.cena-carta .costas{left:50%;bottom:60px;width:800px;height:340px;margin-left:-400px;z-index:3;transform-origin:50% 100%;filter:drop-shadow(0 16px 20px rgba(0,0,0,.6))}
+.cena.ativa .costas{animation:correr-parede 4.8s cubic-bezier(.3,.1,.7,.6) .4s both,trotar .22s linear infinite}
 @keyframes correr-parede{0%{transform:translateY(0) scale(1);opacity:1}85%{transform:translateY(-110px) scale(.42);opacity:1}100%{transform:translateY(-130px) scale(.36);opacity:0}}
+@keyframes trotar{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.faiscas{position:absolute;left:50%;top:48%;width:0;height:0;z-index:4}
+.faiscas i{position:absolute;width:14px;height:14px;background:#fff6c4;border-radius:50%;opacity:0;box-shadow:0 0 12px 4px rgba(255,230,150,.9)}
+.cena.ativa .faiscas i{animation:faisca .9s ease-out 4.9s forwards}
+.faiscas i:nth-child(1){--dx:-260px;--dy:-120px}.faiscas i:nth-child(2){--dx:240px;--dy:-160px}.faiscas i:nth-child(3){--dx:-180px;--dy:140px}.faiscas i:nth-child(4){--dx:200px;--dy:120px}.faiscas i:nth-child(5){--dx:-320px;--dy:20px;animation-delay:5s}.faiscas i:nth-child(6){--dx:300px;--dy:-20px;animation-delay:5s}.faiscas i:nth-child(7){--dx:-80px;--dy:-220px;animation-delay:5.05s}.faiscas i:nth-child(8){--dx:60px;--dy:220px;animation-delay:5.05s}
+@keyframes faisca{0%{transform:translate(0,0) scale(.2);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.4);opacity:0}}
 .clarao{position:absolute;inset:0;background:#fff;opacity:0;z-index:5}
 .cena.ativa .clarao{animation:clarao 1.2s steps(3) 5.2s both}
 @keyframes clarao{0%{opacity:0}30%,60%{opacity:1}100%{opacity:0}}
-.noite{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,#1d1438,#06040e 70%);background-image:radial-gradient(#fff 1px,transparent 1.6px),radial-gradient(ellipse at 50% 20%,#1d1438,#06040e 70%);background-size:220px 170px,100% 100%}
-.chao-plat{position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(180deg,#3a2a28,#1a1210);border-top:10px solid #c9a66b}
-.cena-carta .trem{left:1920px;bottom:120px;width:1500px;height:500px;z-index:2;filter:drop-shadow(0 20px 30px rgba(0,0,0,.7))}
-.cena.ativa .trem{animation:chegar-trem 5.2s cubic-bezier(.2,.7,.3,1) 6s both}
+/* quadro 2: expresso */
+.noite{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.6px),radial-gradient(rgba(255,255,255,.95) 1.8px,rgba(255,255,255,.2) 3.5px,transparent 6px),radial-gradient(ellipse at 50% 20%,#1d1438,#06040e 70%);background-size:220px 170px,520px 380px,100% 100%;background-position:0 0,160px 90px,0 0}
+.cena-carta .lua-hog{right:220px;top:50px;width:220px;height:220px;filter:drop-shadow(0 0 26px rgba(255,244,200,.7)) drop-shadow(0 0 90px rgba(255,225,150,.4))}
+.cena-carta .castelo{left:50%;bottom:300px;width:1300px;height:446px;margin-left:-650px;fill:#17122e;filter:drop-shadow(0 0 40px rgba(120,100,200,.35))}
+.neblina{position:absolute;left:0;right:0;bottom:140px;height:140px;background:linear-gradient(180deg,transparent,rgba(170,150,220,.18) 60%,rgba(170,150,220,.3));filter:blur(6px)}
+.arco{position:absolute;left:-10%;right:-10%;top:-40px;height:260px;border:14px solid #15131a;border-top-width:0;border-radius:0 0 50% 50%/0 0 100% 100%;box-shadow:inset 0 -30px 60px rgba(0,0,0,.6);pointer-events:none}
+.arco::before{content:"";position:absolute;left:0;right:0;top:0;height:100%;background:repeating-linear-gradient(90deg,transparent 0 118px,rgba(21,19,26,.9) 118px 128px);opacity:.7}
+.chao-plat{position:absolute;left:0;right:0;bottom:0;height:150px;background:repeating-linear-gradient(90deg,#4a4a52 0 118px,#3a3a42 118px 122px),linear-gradient(180deg,#5a5a62,#1a1210);background-blend-mode:multiply;border-top:10px solid #c9a66b;box-shadow:0 -10px 30px rgba(0,0,0,.6)}
+.chao-plat::after{content:"";position:absolute;left:0;right:0;top:-2px;height:6px;background:#8a8a94;box-shadow:0 60px 0 #8a8a94,0 120px 0 #8a8a94}
+.trem-grupo{position:absolute;left:1920px;bottom:120px;width:1500px;height:500px;z-index:2}
+.cena.ativa .trem-grupo{animation:chegar-trem 5.2s cubic-bezier(.2,.7,.3,1) 6s both}
 @keyframes chegar-trem{from{transform:translateX(0)}to{transform:translateX(-1720px)}}
-.vapor{position:absolute;left:80px;bottom:560px;z-index:3}
-.vapor i{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.85),rgba(255,255,255,0) 70%);opacity:0}
-.cena.ativa .vapor i{animation:subir-vapor 2.2s ease-out infinite}
-.cena.ativa .vapor i:nth-child(2){animation-delay:.4s;left:60px}.cena.ativa .vapor i:nth-child(3){animation-delay:.8s;left:120px}.cena.ativa .vapor i:nth-child(4){animation-delay:1.2s;left:30px}.cena.ativa .vapor i:nth-child(5){animation-delay:1.6s;left:90px}
-@keyframes subir-vapor{0%{transform:translate(0,0) scale(.3);opacity:0}20%{opacity:.9}100%{transform:translate(160px,-320px) scale(2.2);opacity:0}}
-.cena-carta .coruja{left:-300px;top:120px;width:260px;height:160px;fill:#1a1210;z-index:4;filter:drop-shadow(0 0 12px rgba(0,0,0,.6))}
-.cena.ativa .coruja{animation:cruzar 4s linear 8s forwards}
-@keyframes cruzar{from{transform:translateX(0) translateY(0)}50%{transform:translateX(1200px) translateY(-60px)}to{transform:translateX(2400px) translateY(20px)}}
-.resposta{background:radial-gradient(ellipse at 50% 30%,#2a1c3a,#0a0612 70%)}
-.velas{position:absolute;inset:0;background-image:radial-gradient(#ffd98a 2px,transparent 3px),radial-gradient(rgba(255,217,138,.6) 1.5px,transparent 2.5px);background-size:260px 180px,170px 140px;background-position:40px 30px,120px 90px;animation:piscar 2.4s ease-in-out infinite alternate}
-.cena-carta .carta{position:absolute;left:50%;top:50%;width:1180px;transform:translate(-50%,-50%) rotate(-1.5deg) scale(.2);opacity:0;background:#f3e6c4;color:#2a1a12;padding:50px 70px 44px;border-radius:4px;box-shadow:0 30px 60px rgba(0,0,0,.7),inset 0 0 80px rgba(120,80,20,.25);font-family:var(--f-maquina)}
+.cena-carta .trem{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 20px 30px rgba(0,0,0,.7))}
+.farol-feixe{position:absolute;left:1420px;top:270px;width:900px;height:260px;background:linear-gradient(90deg,rgba(255,235,160,.5),transparent 85%);clip-path:polygon(0 42%,0 58%,100% 100%,100% 0);filter:blur(4px);animation:tremular-luz 1.2s ease-in-out infinite alternate}
+.vapor{position:absolute;left:1340px;top:-60px}
+.vapor i{position:absolute;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,0) 70%);opacity:0}
+.cena.ativa .vapor i{animation:subir-vapor 2.4s ease-out infinite}
+.cena.ativa .vapor i:nth-child(2){animation-delay:.4s;left:40px}.cena.ativa .vapor i:nth-child(3){animation-delay:.8s;left:-30px}.cena.ativa .vapor i:nth-child(4){animation-delay:1.2s;left:70px}.cena.ativa .vapor i:nth-child(5){animation-delay:1.6s;left:20px}.cena.ativa .vapor i:nth-child(6){animation-delay:2s;left:-50px}
+@keyframes subir-vapor{0%{transform:translate(0,0) scale(.3);opacity:0}20%{opacity:.9}100%{transform:translate(220px,-340px) scale(2.4);opacity:0}}
+.janela-passageiros{position:absolute;left:170px;top:150px;width:150px;height:116px;overflow:hidden;border-radius:8px;background:linear-gradient(180deg,#3a3f55,#1a1d2b);box-shadow:inset 0 0 20px rgba(255,220,150,.35)}
+.janela-passageiros .pers.mini{position:absolute;top:10px;width:120px;height:168px}
+.janela-passageiros .pers.mini:first-child{left:-20px}.janela-passageiros .pers.mini:last-child{left:52px}
+.coruja-voo{position:absolute;left:-260px;top:110px;width:240px;height:195px;z-index:4;filter:drop-shadow(0 10px 14px rgba(0,0,0,.6))}
+.cena.ativa .coruja-voo{animation:cruzar-coruja 4.5s cubic-bezier(.3,.2,.5,1) 7.6s forwards}
+@keyframes cruzar-coruja{0%{transform:translate(0,0)}60%{transform:translate(1100px,-40px)}100%{transform:translate(1180px,60px)}}
+.coruja-voo .coruja{position:absolute;inset:0;width:100%;height:100%}
+.cena.ativa .coruja-voo .coruja.a{animation:bater-a .36s steps(1) infinite}
+.cena.ativa .coruja-voo .coruja.b{animation:bater-b .36s steps(1) infinite}
+@keyframes bater-a{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes bater-b{0%,49%{opacity:0}50%,100%{opacity:1}}
+.envelope{position:absolute;left:100px;top:170px;width:46px;height:32px;background:#f3e6c4;border:2px solid #8a6a3a;opacity:0}
+.envelope::before{content:"";position:absolute;left:0;right:0;top:0;height:0;border-left:21px solid transparent;border-right:21px solid transparent;border-top:14px solid #d9c49a}
+.envelope::after{content:"";position:absolute;left:17px;top:8px;width:10px;height:10px;border-radius:50%;background:#b4161b}
+.cena.ativa .envelope{animation:soltar-envelope 1.2s cubic-bezier(.4,0,.8,.6) 10.9s both}
+@keyframes soltar-envelope{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:1;transform:translate(-40px,420px) rotate(80deg)}}
+/* quadro 3: resposta */
+.salao{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,#2a1c3a,#0a0612 70%)}
+.salao::before{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:repeating-linear-gradient(90deg,transparent 0 300px,rgba(0,0,0,.35) 300px 360px,transparent 360px 420px),linear-gradient(180deg,transparent,#06040c)}
+.velas-grupo{position:absolute;inset:0;pointer-events:none}
+.velas-grupo i{position:absolute;width:14px;height:70px;background:linear-gradient(180deg,#f6ecd0,#d9c49a);border-radius:3px;opacity:.9;animation:flutuar-vela 5s ease-in-out infinite alternate}
+.velas-grupo i::before{content:"";position:absolute;left:50%;top:-22px;width:12px;height:22px;margin-left:-6px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff8d6,#ffb340 60%,rgba(255,120,40,0));box-shadow:0 0 18px 6px rgba(255,190,90,.55),0 0 60px 20px rgba(255,170,80,.18);animation:chama .18s ease-in-out infinite alternate}
+@keyframes chama{from{transform:scale(1) translateY(0)}to{transform:scale(1.15,.9) translateY(-2px)}}
+@keyframes flutuar-vela{from{translate:0 0}to{translate:0 -24px}}
+.velas-grupo i:nth-child(1){left:140px;top:120px}.velas-grupo i:nth-child(2){left:300px;top:60px;animation-delay:-1s;height:50px}.velas-grupo i:nth-child(3){left:460px;top:160px;animation-delay:-2s}.velas-grupo i:nth-child(4){left:700px;top:40px;animation-delay:-3s;height:60px}.velas-grupo i:nth-child(5){left:960px;top:110px;animation-delay:-1.5s}.velas-grupo i:nth-child(6){left:1200px;top:50px;animation-delay:-2.5s;height:56px}.velas-grupo i:nth-child(7){left:1420px;top:150px;animation-delay:-.5s}.velas-grupo i:nth-child(8){left:1640px;top:80px;animation-delay:-3.5s;height:64px}.velas-grupo i:nth-child(9){left:1760px;top:230px;animation-delay:-4s;height:44px}.velas-grupo i:nth-child(10){left:60px;top:300px;animation-delay:-2.2s;height:48px}
+.cena-carta .carta{position:absolute;left:50%;top:50%;width:1180px;transform:translate(-50%,-50%) rotate(-1.5deg) scale(.2);opacity:0;background:linear-gradient(135deg,#f6ebcf,#efe0bd 50%,#f3e6c4);color:#2a1a12;padding:50px 70px 40px;border-radius:4px;box-shadow:0 40px 80px rgba(0,0,0,.75),inset 0 0 90px rgba(120,80,20,.3);font-family:var(--f-maquina);z-index:3}
+.cena-carta .carta::before{content:"";position:absolute;inset:14px;border:2px solid rgba(138,90,48,.35);pointer-events:none}
 .cena.ativa .carta{animation:cair-carta 1.3s cubic-bezier(.3,.9,.4,1.1) 12.4s forwards}
 @keyframes cair-carta{0%{transform:translate(-50%,-160%) rotate(12deg) scale(.5);opacity:0}30%{opacity:1}100%{transform:translate(-50%,-50%) rotate(-1.5deg) scale(1);opacity:1}}
-.selo-cera{position:absolute;right:50px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d64040,#7a1010);border:4px solid #5a0c0c;display:grid;place-items:center;font-family:var(--f-poster);font-size:56px;color:#f3c4c4;box-shadow:0 8px 16px rgba(0,0,0,.5);transform:rotate(8deg)}
+.brasao-marca{position:absolute;right:120px;bottom:30px;width:160px;height:187px;opacity:.14}
+.selo-cera{position:absolute;right:50px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d64040,#7a1010);border:4px solid #5a0c0c;display:grid;place-items:center;font-family:var(--f-poster);font-size:56px;color:#f3c4c4;box-shadow:0 8px 16px rgba(0,0,0,.5),inset 0 0 14px rgba(0,0,0,.35);transform:rotate(8deg);z-index:2}
 .cena.ativa .selo-cera{animation:lacre-pular .7s cubic-bezier(.4,0,.9,.6) 22.5s forwards}
-.carta-escola{font-family:var(--f-poster);font-size:32px;letter-spacing:.06em;color:#5a2a10;text-align:center;border-bottom:3px double #8a5a30;padding-bottom:12px;margin-bottom:18px}
-.carta-texto p{font-size:29px;line-height:1.4;margin:0 0 14px}
-.carta-texto .ass{margin-top:18px;font-size:25px;color:#5a3a20}
-.carta-ps{margin-top:8px;font-size:22px;color:#7a4a20;font-style:italic}
+.cena-carta .coruja-pousada{position:absolute;left:-40px;top:-96px;width:150px;height:122px;transform:scaleX(-1);filter:drop-shadow(0 8px 10px rgba(0,0,0,.5));opacity:0}
+.cena.ativa .coruja-pousada{animation:aparecer .4s 13.8s forwards,piscar-coruja 4s 14s infinite}
+@keyframes piscar-coruja{0%,92%,100%{filter:drop-shadow(0 8px 10px rgba(0,0,0,.5)) brightness(1)}95%{filter:drop-shadow(0 8px 10px rgba(0,0,0,.5)) brightness(.6)}}
+.carta-escola{font-family:var(--f-poster);font-size:32px;letter-spacing:.06em;color:#5a2a10;text-align:center;border-bottom:3px double #8a5a30;padding-bottom:12px;margin-bottom:18px;text-shadow:0 1px 0 rgba(255,255,255,.4)}
+.carta-texto p{font-size:28px;line-height:1.4;margin:0 0 12px}
+.carta-texto .ass{margin-top:16px;font-size:24px;color:#5a3a20}
+.carta-ps{margin-top:8px;font-size:21px;color:#7a4a20;font-style:italic}
+.carta .l1,.carta .l2,.carta .l3,.carta .l4,.carta .l5{opacity:0}
+.cena.ativa .carta .l1{animation:aparecer .5s 13.4s forwards}
+.cena.ativa .carta .l2{animation:aparecer .6s 14s forwards}
+.cena.ativa .carta .l3{animation:aparecer .6s 16.2s forwards}
+.cena.ativa .carta .l4{animation:aparecer .6s 18.6s forwards}
+.cena.ativa .carta .l5{animation:aparecer .6s 19.8s forwards}
+.magia{color:#7a3a9a;text-shadow:0 0 1px #7a3a9a;background:linear-gradient(90deg,transparent,rgba(255,210,63,.35),transparent) no-repeat -300px 0/300px 100%}
+.cena.ativa .magia{animation:reluzir 2.4s 16.8s ease-in-out 2}
+@keyframes reluzir{from{background-position:-300px 0}to{background-position:1300px 0}}
+.brilhos{position:absolute;inset:0;pointer-events:none;z-index:4}
+.brilhos i{position:absolute;width:10px;height:10px;background:#fff6c4;border-radius:50%;opacity:0;box-shadow:0 0 10px 3px rgba(255,230,150,.8)}
+.cena.ativa .brilhos i{animation:brilho-subir 2.6s ease-out 16.8s infinite}
+.brilhos i:nth-child(1){left:420px;top:560px}.brilhos i:nth-child(2){left:620px;top:600px;animation-delay:17.3s}.brilhos i:nth-child(3){left:900px;top:580px;animation-delay:17.8s}.brilhos i:nth-child(4){left:1150px;top:560px;animation-delay:17.1s}.brilhos i:nth-child(5){left:1350px;top:600px;animation-delay:17.6s}.brilhos i:nth-child(6){left:760px;top:620px;animation-delay:18.1s}
+@keyframes brilho-subir{0%{transform:translateY(0) scale(.4);opacity:0}20%{opacity:1}100%{transform:translateY(-160px) scale(1.2);opacity:0}}
 
 /* ---------- 6. jogo ---------- */
 .lousa{position:absolute;inset:0;background:radial-gradient(ellipse at 40% 30%,#2a3a33,#17211c 70%)}

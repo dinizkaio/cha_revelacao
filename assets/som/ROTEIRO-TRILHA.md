@@ -192,14 +192,16 @@ Fernanda do futuro TALVEZ saiba.
     tijolos, placa, carrinho de bagagem com o bebê dinossauro em cima; os
     dois crianças correm contra a parede e atravessam num clarão aos
     28 s); o Expresso de Hogwarts entrando pela direita soltando vapor,
-    com "DESTINO 2027", e a coruja cruzando o céu (29 a 35 s); e a carta
+    com "DESTINO 2027", a coruja cruzando o céu e piando (30 a 35 s), e a
+    carta
     da Minerva McGonagall caindo e pousando (35 s), que a plateia lê até o
     lacre pular aos 45,5 s. **Inspiração: Harry Potter**, Williams: a
     celesta do tema da Hedwig começa na plataforma, um acorde de metais
     curto no clarão, a locomotiva entra com cordas em movimento e um
     apito (o site faz o apito), e a carta volta à celesta com cordas em
-    tremolo e um sininho mágico no lacre (45 s). É a parte mais longa e
-    mais doce da sequência.
+    tremolo, um sininho quando a frase "vem muita magia por aí" brilha
+    (40 s) e um estalo no lacre (45,5 s). É a parte mais longa e mais
+    doce da sequência.
   - **47 a 61 s · Uma nova aventura.** Pôr do sol synthwave na praia, os
     dois crianças de costas olhando o mar, o gato, o bebê dinossauro, e ao
     fundo a Pedra do Rei com o Rafiki erguendo o filhote. "Uma nova

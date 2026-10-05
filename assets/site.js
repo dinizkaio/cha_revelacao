@@ -86,6 +86,8 @@
     clique() { nota(600, 0, .06, 'square', .05); },
     tracking() { ruido(.32, 'bandpass', 2400, .22); ruido(.18, 'lowpass', 300, .25); },
     carimbo() { ruido(.08, 'lowpass', 500, .5); nota(80, 0, .18, 'square', .22); },
+    piar() { nota(520, 0, .22, 'sine', .12); nota(440, .25, .3, 'sine', .12); },
+    sininho() { [1760, 2217, 2637].forEach((f, i) => nota(f, i * .12, .6, 'triangle', .07)); },
     apito() { nota(880, 0, .5, 'square', .08); nota(1109, 0, .5, 'square', .06); nota(880, .6, .9, 'square', .08); nota(1109, .6, .9, 'square', .06); },
     rachar() { ruido(.14, 'highpass', 1800, .35); nota(140, 0, .09, 'square', .14); nota(220, .05, .06, 'square', .1); },
     tec() { nota(1500, 0, .025, 'square', .07); }
@@ -305,7 +307,7 @@
       osd.textContent = '0:00:00';
       timersAbertura.push(setInterval(tic, 1000));
     }
-    if (nome === 'carta') { timersAbertura.push(setTimeout(() => som.rachar(), 22600)); timersAbertura.push(setTimeout(() => som.apito(), 6600)); timersAbertura.push(setTimeout(() => som.tracking(), 5300)); }
+    if (nome === 'carta') [[5300, () => som.tracking()], [6600, () => som.apito()], [9200, () => som.piar()], [16800, () => som.sininho()], [22600, () => som.rachar()]].forEach(([t, f]) => timersAbertura.push(setTimeout(f, t)));
     if (nome === 'matrix') {
       montarChuva();
       const alvo = 'Pílula azul ou pílula rosa?', el = $('#matrix-texto'); el.textContent = '';
@@ -314,7 +316,6 @@
       timersAbertura.push(t);
     }
     if (nome === 'jurassic') timersAbertura.push(setTimeout(() => ruido(.9, 'lowpass', 250, .6), 1500));
-    if (nome === 'carta') timersAbertura.push(setTimeout(() => ruido(.25, 'highpass', 2500, .15), 9000));
     if (nome === 'delorean') ruido(1.2, 'lowpass', 600, .35);
   }
   function limparAbertura() {

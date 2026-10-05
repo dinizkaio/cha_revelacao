@@ -11,10 +11,10 @@
   <link rel="preload" href="assets/fontes/Bungee-400.woff2?v=126eec706b" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fontes/Special_Elite-400.woff2?v=770493d84c" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fontes/fontes.css?v=650d52fe2c">
-  <link rel="stylesheet" href="assets/site.css?v=c6b783d29e">
-  <script src="assets/props.js?v=d9d4684423" defer></script>
+  <link rel="stylesheet" href="assets/site.css?v=5f67334f87">
+  <script src="assets/props.js?v=8e571f31f3" defer></script>
   <script src="assets/personagens.js?v=ac89c6cc82" defer></script>
-  <script src="assets/site.js?v=2c0c688b92" defer></script>
+  <script src="assets/site.js?v=731c1325c0" defer></script>
 </head>
 <body>
 <div class="aviso-retrato"><p>Vira o celular na horizontal, como uma TV. 📺</p></div>
@@ -179,32 +179,50 @@
       <div class="cena cena-carta" data-cena="carta">
         <div class="quadro plataforma">
           <div class="tijolos"></div>
+          <div class="luz-lampiao"></div>
+          <div class="lampiao"><i class="haste"></i><i class="lampada"></i></div>
+          <div class="piso"></div>
           <div class="placa-9 placa-plat"><span>PLATAFORMA</span><b>9¾</b></div>
+          <div class="relogio"><i></i><b></b></div>
           <svg class="prop carrinho"><use href="#carrinho"/></svg>
           <svg class="prop bebedino"><use href="#bebedino"/></svg>
+          <svg class="prop coruja-gaiola"><use href="#coruja"/></svg>
           <svg class="prop costas"><use href="#costas"/></svg>
+          <div class="faiscas"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           <div class="clarao"></div>
         </div>
         <div class="quadro expresso">
           <div class="noite"></div>
+          <svg class="prop lua-hog"><use href="#moon"/></svg>
+          <svg class="prop castelo"><use href="#castelo"/></svg>
+          <div class="neblina"></div>
+          <div class="arco"></div>
           <div class="chao-plat"></div>
-          <div class="vapor"><i></i><i></i><i></i><i></i><i></i></div>
-          <svg class="prop trem"><use href="#trem"/></svg>
-          <svg class="prop coruja"><use href="#coruja"/></svg>
+          <div class="trem-grupo">
+            <div class="vapor"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="farol-feixe"></div>
+            <svg class="prop trem"><use href="#trem"/></svg>
+            <div class="janela-passageiros"><svg class="pers mini" data-personagem="kaio" aria-hidden="true"></svg><svg class="pers mini" data-personagem="nanda" aria-hidden="true"></svg></div>
+          </div>
+          <div class="coruja-voo"><svg class="prop coruja a"><use href="#coruja"/></svg><svg class="prop coruja b"><use href="#coruja2"/></svg><div class="envelope"></div></div>
         </div>
         <div class="quadro resposta">
-          <div class="velas"></div>
+          <div class="salao"></div>
+          <div class="velas-grupo"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           <div class="carta">
+            <svg class="brasao-marca"><use href="#brasao"/></svg>
             <div class="selo-cera">H</div>
             <div class="carta-escola">Escola de Magia e Bruxaria de Hogwarts</div>
             <div class="carta-texto">
-              <p>Prezados Sr. Kaio e Sra. Nanda,</p>
-              <p>consultei a Professora Trelawney, como pediram. Ela previu um bruxinho. Depois, uma bruxinha. Depois pediu mais chá.</p>
-              <p>Lamento não poder ajudar com a resposta. Mas, <b>bruxinho ou bruxinha, posso garantir: vem muita magia por aí.</b> A vaga está reservada para 2038.</p>
-              <p class="ass">Atenciosamente,<br>Minerva McGonagall, Diretora Substituta</p>
+              <p class="l1">Prezados Sr. Kaio e Sra. Nanda,</p>
+              <p class="l2">consultei a Professora Trelawney, como pediram. Ela previu um bruxinho. Depois, uma bruxinha. Depois pediu mais chá.</p>
+              <p class="l3">Lamento não poder ajudar com a resposta. Mas, <b class="magia">bruxinho ou bruxinha, posso garantir: vem muita magia por aí.</b> A vaga está reservada para 2038.</p>
+              <p class="ass l4">Atenciosamente,<br>Minerva McGonagall, Diretora Substituta</p>
             </div>
-            <div class="carta-ps">P.S.: o nome, infelizmente, também não.</div>
+            <div class="carta-ps l5">P.S.: Sobre o nome, a Trelawney só conseguiu prever indecisão. O futuro é incerto quando o presente é habitado por dúvidas.</div>
+            <svg class="prop coruja-pousada"><use href="#coruja"/></svg>
           </div>
+          <div class="brilhos"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
       </div>
 
