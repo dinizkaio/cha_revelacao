@@ -376,7 +376,9 @@ img{-webkit-user-drag:none}
 .carta-texto p{font-size:28px;line-height:1.4;margin:0 0 12px}
 .carta-texto .ass{margin-top:16px;font-size:24px;color:#5a3a20}
 .carta-ps{margin-top:8px;font-size:21px;color:#7a4a20;font-style:italic}
-.carta .l1,.carta .l2,.carta .l3,.carta .l4,.carta .l5{opacity:0}
+.carta .l1,.carta .l2,.carta .l3,.carta .l3b,.carta .l4,.carta .l5{opacity:0}
+.carta .l3b{font-size:34px;font-style:italic;color:#5a2a10;margin:4px 0 10px}
+.cena.ativa .carta .l3b{animation:aparecer .8s 22.5s forwards}
 .cena.ativa .carta .l1{animation:aparecer .5s 13.4s forwards}
 .cena.ativa .carta .l2{animation:aparecer .6s 14.4s forwards}
 .cena.ativa .carta .l3{animation:aparecer .6s 18.6s forwards}
