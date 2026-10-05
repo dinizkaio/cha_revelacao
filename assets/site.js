@@ -116,14 +116,14 @@
     confirmar: 'assets/som/03-confirmar.mp3?v=fe16c3062a',
     play: 'assets/som/04-play.mp3?v=caae384060',
     vhs: 'assets/som/05-fita.mp3?v=bb2ea3583e',
-    crawl: 'assets/som/06-letreiro.mp3?v=71b926360e',
-    delorean: 'assets/som/07-sequencia.mp3?v=bc40be505d',
-    matrix: 'assets/som/07-sequencia.mp3?v=bc40be505d',
-    carta: 'assets/som/07-sequencia.mp3?v=bc40be505d',
-    aventura: 'assets/som/07-sequencia.mp3?v=bc40be505d',
-    jogo: 'assets/som/08-jogo.mp3?v=fb7f0564f2',
-    resultado: 'assets/som/09-resultado.mp3?v=2603673d29',
-    fim: 'assets/som/10-fim.mp3?v=9624e41a83',
+    crawl: 'assets/som/06-letreiro.mp3?v=9a61b309a0',
+    delorean: 'assets/som/07-sequencia.mp3?v=4335776f61',
+    matrix: 'assets/som/07-sequencia.mp3?v=4335776f61',
+    carta: 'assets/som/07-sequencia.mp3?v=4335776f61',
+    aventura: 'assets/som/07-sequencia.mp3?v=4335776f61',
+    jogo: 'assets/som/08-jogo.mp3?v=163cbf24a2',
+    resultado: 'assets/som/09-resultado.mp3?v=463970a9ff',
+    fim: 'assets/som/10-fim.mp3?v=e7f5f74ceb',
     trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb',
     final: 'assets/som/12-final.mp3'
   };
@@ -137,9 +137,9 @@
     confirmar: { fim: 57.5, cruzar: 1.5, inicio: 1 },
     play: { fim: 57.5, cruzar: 1.5 },
     vhs: { fim: 55.5, cruzar: 1.5, inicio: 2.5 },
-    jogo: { fim: 162.0, cruzar: 1.5 },
-    resultado: { fim: 176.5, cruzar: 1.5 },
-    fim: { fim: 57.5, cruzar: 1.5 },
+    jogo: { fim: 68.0, cruzar: 1.5 },
+    resultado: { fim: 87.5, cruzar: 1.5, inicio: 4 },
+    fim: { fim: 52.0, cruzar: 2 },
     trailer: { fim: 51.5, cruzar: 1.5 }
   };
   const trilha = (() => {
