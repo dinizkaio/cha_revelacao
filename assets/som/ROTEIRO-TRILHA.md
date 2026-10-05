@@ -1,6 +1,6 @@
 # Trilha sonora do Chá Revelação · Nanda e Kaio · roteiro v2
 
-Roteiro para quem vai criar as músicas, escrito com o site pronto. Onze
+Roteiro para quem vai criar as músicas, escrito com o site pronto. Doze
 faixas, mesma numeração de antes, cada uma com a cena exata, o tempo exato
 e a referência de trilha de cinema que inspira. Tudo em **tom alegre** e
 **tudo instrumental**: nenhuma faixa tem voz, letra ou coro.
@@ -29,8 +29,9 @@ uma TV de tubo", como uma fita de locadora dos anos 90. As telas, em ordem:
    dormindo.
 9. **Trailer:** "A Galáxia dos Nomes", roleta de nomes que nunca decide, a
    garra e os aliens.
-10. **Final:** o Mapa do Maroto, "Malfeito feito", "Nox", a TV desliga.
-    **Esta tela não tem música de propósito.** Silêncio total.
+10. **Final:** o Mapa do Maroto se desenrola, as pegadas dos dois se
+    encontram, aparece um par de pegadinhas, "Malfeito feito", "Nox", a TV
+    desliga. Tem uma faixa curta e baixinha, de cena pós-créditos.
 
 Piada central: "seremos pais na adolescência (depois dos 30)". Piada
 secundária, que atravessa o site: o casal ainda não escolheu o nome, e a
@@ -272,11 +273,25 @@ Fernanda do futuro TALVEZ saiba.
 - **Estrutura:** fanfarra nos primeiros 4 s, depois a novela assume; o
   órgão dramático entra na metade e a faixa volta ao começo sem corte.
 
-### Tela final · sem música
+### 12-final.mp3 · Mapa do Maroto, pós-créditos · em loop · 30 a 45 s
 
-Depois do trailer, um clique leva ao Mapa do Maroto: as pegadas dos dois
-se encontram, aparece um par de pegadinhas, "Malfeito feito", "Nox", a TV
-desliga. **Silêncio proposital.** Não criar faixa para esta tela.
+- **Cena:** depois do trailer, um clique leva ao Mapa do Maroto. O
+  pergaminho se desenrola, "Juro solenemente que não estamos fazendo nada
+  de bom", as pegadas da Nanda e do Kaio vêm de lados opostos e se
+  encontram no meio, aparece um par de pegadinhas (rosa ou azul) com a
+  plaquinha "?", depois "Malfeito feito". Aos 12,5 s a tela escurece com
+  "Nox" e a música **para aí** (o site faz o fade). Aos 15 s a TV desliga.
+- **Inspiração de filme:** cena pós-créditos de **Harry Potter**: o tema
+  da Hedwig tocado só na celesta, bem baixo, como caixinha de música, com
+  cordas em pizzicato marcando passos (as pegadas andando). Um sininho
+  quando as pegadinhas aparecem (por volta do segundo 7). Clima de
+  "esperou até o fim dos créditos e ganhou um segredo".
+- **Instrumentação:** celesta, caixinha de música, pizzicato de cordas,
+  harpa, um pad de sintetizador muito suave. Sem percussão pesada.
+- **Andamento:** 70 a 80 bpm, compasso ternário. Volume mais baixo que as
+  outras faixas (cerca de -18 LUFS): é um sussurro de encerramento.
+- **Observação:** só os primeiros 13 s tocam de verdade; o resto é
+  segurança caso a pessoa demore a clicar.
 
 ## 4. Efeitos opcionais
 
@@ -301,7 +316,7 @@ da roleta). Se quiser substituir por gravações, estes arquivos são aceitos:
 4. **01-capa** (o tema do site).
 5. **08-jogo**, **04-play**.
 6. **02-seletor** e **03-confirmar**.
-7. **05-fita**, **10-fim**, **11-trailer** e os efeitos.
+7. **05-fita**, **10-fim**, **11-trailer**, **12-final** e os efeitos.
 
 ## 6. Resumo
 
@@ -318,4 +333,4 @@ da roleta). Se quiser substituir por gravações, estes arquivos são aceitos:
 | Resultado | 09-resultado.mp3 | 60 a 90 s | sim | Rei Leão, Toy Story, Jurassic Park |
 | Fim | 10-fim.mp3 | 45 a 60 s | sim | Esqueceram de Mim, E.T., Toy Story |
 | Trailer | 11-trailer.mp3 | 45 a 60 s | sim | Star Wars em banda de novela, aliens de Toy Story |
-| Final | (sem faixa) | | | silêncio proposital |
+| Final | 12-final.mp3 | 30 a 45 s | sim | pós-créditos de Harry Potter, caixinha de música |

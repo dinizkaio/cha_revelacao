@@ -11,11 +11,12 @@ estão na tabela `TRILHA`, no começo de `assets/site.js`:
 | `04-play.mp3` | "Tá tudo pronto!" | em loop, até o play |
 | `05-fita.mp3` | cena 1, a fita entra (NANDA & KAIO) | 8 s |
 | `06-letreiro.mp3` | cena 2, letreiro Star Wars | cerca de 112 s |
-| `07-sequencia.mp3` | cenas 3 a 6: DeLorean, Matrix, carta de Hogwarts, praia | 61 s (12 + 11 + 22 + 16) |
+| `07-sequencia.mp3` | cenas 3 a 6: DeLorean, Matrix, carta de Hogwarts, praia | 61 s (12 + 11 + 14 + 24) |
 | `08-jogo.mp3` | jogo da velha | em loop, 1 a 3 min |
 | `09-resultado.mp3` | resultado | em loop |
 | `10-fim.mp3` | tela de FIM | em loop |
 | `11-trailer.mp3` | trailer "A Galáxia dos Nomes" | em loop |
+| `12-final.mp3` | tela final, o Mapa do Maroto (para no "Nox") | em loop, cerca de 13 s por volta |
 
 Toda faixa toca em loop, com fade de entrada e saída na troca. Momentos que
 apontam para o mesmo arquivo continuam a música sem recomeçar (é o caso da

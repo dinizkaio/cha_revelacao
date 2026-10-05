@@ -229,6 +229,8 @@ img{-webkit-user-drag:none}
 .cena-delorean .fogo{position:absolute;height:22px;background:linear-gradient(90deg,transparent,#ff7a2e 40%,#ffd23f);filter:blur(4px);border-radius:10px;animation:rastro .15s steps(2) infinite}
 .cena-delorean .fogo.a{left:-200px;width:900px;bottom:180px}.cena-delorean .fogo.b{left:-200px;width:800px;bottom:222px;opacity:.8}
 .cena-delorean .mph{position:absolute;right:120px;bottom:240px;font-family:var(--f-vhs);font-size:60px;color:#ff3b3b;text-shadow:0 0 14px #ff3b3b;animation:blink .5s steps(2) infinite}
+.cena-delorean .frase .talvez{font-style:normal;margin:0 .3em;color:var(--amarelo);text-shadow:0 0 14px rgba(255,210,63,.9),0 0 30px rgba(255,210,63,.5);display:inline-block;animation:talvez-pular .9s ease-in-out infinite alternate}
+@keyframes talvez-pular{from{transform:scale(1) rotate(-3deg)}to{transform:scale(1.18) rotate(3deg)}}
 .cena-delorean .frase{position:absolute;left:0;right:0;bottom:60px;text-align:center;font-family:var(--f-poster);font-size:46px;line-height:1.25;color:#fff;text-shadow:0 0 20px var(--ciano);letter-spacing:.04em;opacity:0}
 .cena.ativa .frase{animation:aparecer 1s 2.6s forwards}
 @keyframes aparecer{to{opacity:1}}

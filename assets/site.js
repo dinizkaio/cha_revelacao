@@ -121,7 +121,8 @@
     jogo: 'assets/som/08-jogo.mp3?v=fb7f0564f2',
     resultado: 'assets/som/09-resultado.mp3?v=2603673d29',
     fim: 'assets/som/10-fim.mp3?v=9624e41a83',
-    trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb'
+    trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb',
+    final: 'assets/som/12-final.mp3'
   };
   // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
   // Com entrada, o tocador para em `fim` e emenda com o começo num crossfade de `cruzar` segundos
@@ -289,7 +290,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['matrix', 11000], ['carta', 22000], ['aventura', 16000]];
+  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 12000], ['matrix', 11000], ['carta', 14000], ['aventura', 24000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
@@ -362,58 +363,60 @@
   const LINHAS_DA_CASA = Array.from({ length: 16 }, (_, i) => LINHAS.filter(l => l.includes(i)));
 
   function completa(b, i, s) { return LINHAS_DA_CASA[i].some(l => l.every(j => (j === i ? s : b[j]) === s)); }
-  function temViva(b) { return LINHAS.some(l => l.every(j => b[j] !== 'L')); }
-  function regraMatar(b, i) {
-    const vivas = LINHAS.filter(l => l.every(j => b[j] !== 'L'));
-    if (completa(b, i, 'L')) return 'W';
-    if (!vivas.some(l => !l.includes(i))) return 'W';
-    return 'L';
+  // W = lado que vai vencer, L = lado que não pode vencer.
+  // "Vivas" de um lado: linhas sem nenhuma marca do outro lado. Enquanto os dois lados têm linha viva, a plateia
+  // não consegue saber o resultado. Prioridade: (1) L nunca fecha quatro; (2) W sempre mantém uma linha viva;
+  // (3) L mantém uma linha viva até a 14ª jogada; (4) W fecha o mais tarde possível.
+  const vivasW = b => LINHAS.filter(l => l.every(j => b[j] !== 'L'));
+  const vivasL = b => LINHAS.filter(l => l.every(j => b[j] !== 'W'));
+  function pontos(b, lado) {
+    const outro = lado === 'W' ? 'L' : 'W'; let p = 0;
+    for (const l of LINHAS) { if (l.some(j => b[j] === outro)) continue; const vaz = l.filter(j => !b[j]).length; p += vaz + (vaz === 4 ? 1 : 0); }
+    return p;
   }
-  // busca exata: valor esperado do clique em que o vencedor fecha, com ordem de cliques aleatória
-  const memo = new Map();
-  function valor(b) {
-    const chave = b.join('');
-    if (memo.has(chave)) return memo.get(chave);
-    const vazias = []; b.forEach((v, i) => { if (!v) vazias.push(i); });
-    const t = 16 - vazias.length;
-    let total = 0;
-    for (const i of vazias) {
-      let melhor = -1;
-      for (const s of ['W', 'L']) {
-        let v;
-        if (s === 'L') {
-          if (completa(b, i, 'L')) continue;
-          const nb = b.slice(); nb[i] = 'L';
-          if (!temViva(nb)) continue;
-          v = valor(nb);
-        } else if (completa(b, i, 'W')) v = t + 1;
-        else { const nb = b.slice(); nb[i] = 'W'; v = valor(nb); }
-        if (v > melhor) melhor = v;
-      }
-      total += melhor;
-    }
-    const r = vazias.length ? total / vazias.length : 16;
-    memo.set(chave, r); return r;
-  }
-  function melhorSimbolo(b, i) {
-    const t = 16 - b.filter(v => !v).length;
-    let melhor = -1, escolhido = 'W';
+  // começo de jogo (mais de 10 casas vazias): mantém os dois lados vivos e equilibrados
+  function heuristica(b, i) {
+    const opcoes = [];
     for (const s of ['W', 'L']) {
-      let v;
-      if (s === 'L') {
-        if (completa(b, i, 'L')) continue;
-        const nb = b.slice(); nb[i] = 'L';
-        if (!temViva(nb)) continue;
-        v = valor(nb);
-      } else if (completa(b, i, 'W')) v = t + 1;
-      else { const nb = b.slice(); nb[i] = 'W'; v = valor(nb); }
-      if (v > melhor) { melhor = v; escolhido = s; }
+      if (completa(b, i, s)) continue;
+      const nb = b.slice(); nb[i] = s;
+      if (!vivasW(nb).length) continue;
+      const pw = pontos(nb, 'W'), pl = pontos(nb, 'L');
+      opcoes.push({ s, score: (vivasL(nb).length ? 0 : -1000) + Math.min(pw, pl) * 10 - Math.abs(pw - pl) + Math.random() });
     }
-    return escolhido;
+    if (!opcoes.length) return 'W';
+    opcoes.sort((x, y) => y.score - x.score); return opcoes[0].s;
+  }
+  // fim de jogo: busca exata. V(b) = valor esperado, com ordem de cliques aleatória, da recompensa futura:
+  // 100 por jogada concluída (até a 14ª) com L ainda vivo, mais o número da jogada em que W fecha.
+  const PESO = 100;
+  const memo = new Map();
+  function V(b) {
+    const k = b.map(v => v || '.').join('');
+    if (memo.has(k)) return memo.get(k);
+    const vazias = []; b.forEach((v, i) => { if (!v) vazias.push(i); });
+    if (!vazias.length) { memo.set(k, 0); return 0; }
+    let total = 0;
+    for (const i of vazias) total += melhor(b, i).v;
+    const r = total / vazias.length; memo.set(k, r); return r;
+  }
+  function melhor(b, i) {
+    const t = 16 - b.filter(v => !v).length + 1; // jogada que este clique conclui
+    let m = { v: -Infinity, s: 'W' };
+    for (const s of ['W', 'L']) {
+      if (s === 'L' && completa(b, i, 'L')) continue;
+      const nb = b.slice(); nb[i] = s;
+      if (s === 'L' && !vivasW(nb).length) continue;
+      let v;
+      if (s === 'W' && completa(b, i, 'W')) v = t;
+      else v = (t <= 14 && vivasL(nb).length ? PESO : 0) + V(nb);
+      if (v > m.v) m = { v, s };
+    }
+    return m;
   }
   function decidir(b, i) {
     const vazias = b.filter(v => !v).length;
-    return vazias <= 10 ? melhorSimbolo(b, i) : regraMatar(b, i);
+    return vazias <= 10 ? melhor(b, i).s : heuristica(b, i);
   }
 
   const jogo = { tab: [], vencedor: null, jogada: 0, vez: 'Nanda', acabou: false };
@@ -664,7 +667,7 @@
     passo(718, 446, 90, 6.2, true); passo(740, 428, 90, 6.5, true);
     tag('?', 730, 380, 7, true);
     const atraso = reduzMovimento ? 0 : 1;
-    timersFinal = [setTimeout(() => tela.classList.add('nox'), 12500 * atraso + 10), setTimeout(() => tela.classList.add('apagar'), 15000 * atraso + 20)];
+    timersFinal = [setTimeout(() => { tela.classList.add('nox'); trilha.parar(); }, 12500 * atraso + 10), setTimeout(() => tela.classList.add('apagar'), 15000 * atraso + 20)];
   };
   aoSair.final = () => { timersFinal.forEach(clearTimeout); timersFinal = []; $('#tela-final').classList.remove('nox', 'apagar'); };
   $('#tela-final').addEventListener('click', () => { if ($('#tela-final').classList.contains('nox')) irPara('capa'); });
