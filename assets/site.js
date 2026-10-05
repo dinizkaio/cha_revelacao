@@ -124,8 +124,8 @@
     jogo: 'assets/som/08-jogo.mp3?v=163cbf24a2',
     resultado: 'assets/som/09-resultado.mp3?v=463970a9ff',
     fim: 'assets/som/10-fim.mp3?v=e7f5f74ceb',
-    trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb',
-    final: 'assets/som/12-final.mp3'
+    trailer: 'assets/som/11-trailer.mp3?v=f4653f6ff8',
+    final: 'assets/som/12-final.mp3?v=15c6bc8414'
   };
   // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
   // Com entrada, o tocador para em `fim` e emenda com o começo num crossfade de `cruzar` segundos
@@ -140,7 +140,8 @@
     jogo: { fim: 68.0, cruzar: 1.5 },
     resultado: { fim: 87.5, cruzar: 1.5, inicio: 4 },
     fim: { fim: 52.0, cruzar: 2 },
-    trailer: { fim: 51.5, cruzar: 1.5 }
+    trailer: { fim: 52.5, cruzar: 1.5 },
+    final: { fim: 51.0, cruzar: 1.5 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
