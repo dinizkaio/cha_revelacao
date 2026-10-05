@@ -2,7 +2,8 @@
 
 Roteiro para quem vai criar as músicas, escrito com o site pronto. Onze
 faixas, mesma numeração de antes, cada uma com a cena exata, o tempo exato
-e a referência de trilha de cinema que inspira. Tudo em **tom alegre**.
+e a referência de trilha de cinema que inspira. Tudo em **tom alegre** e
+**tudo instrumental**: nenhuma faixa tem voz, letra ou coro.
 
 ## 1. O que o site é agora
 
@@ -54,9 +55,10 @@ Fernanda do futuro TALVEZ saiba.
   acorde segurado ou crescendo.
 - **Trocas:** o site faz fade de 0,6 s saindo e 0,8 s entrando. Cada faixa
   pode começar direto.
-- **Vozes:** só onde está escrito. Português do Brasil, voz grave de
-  narrador de trailer, com reverb de cinema. Nunca revelar o sexo.
-- **Sem letra cantada**, exceto coro sem palavras ("oh-oh", "lá lá").
+- **Só instrumental.** Nenhuma faixa tem voz: nem letra cantada, nem
+  narração, nem coro, nem "oh-oh" ou "lá lá". Onde uma trilha de filme
+  teria coro, use metais, cordas ou sintetizador no lugar. Se o gerador
+  tender a pôr voz, escreva "instrumental, sem vocais" no pedido.
 - **Técnica:** MP3 320 kbps ou M4A, 44,1 kHz, estéreo, cerca de -14 LUFS,
   sem silêncio no começo e no fim. Nomes de arquivo exatamente como abaixo.
 
@@ -88,19 +90,12 @@ Fernanda do futuro TALVEZ saiba.
   fadas. Com uma pitada do **tema da Força, de Star Wars**, na trompa,
   para a "missão confiada". É mistério que faz sorrir, não que assusta.
 - **Instrumentação:** celesta ou glockenspiel, cordas em tremolo, harpa,
-  trompa ao longe, coro de sintetizador ("aaah"), timbales suaves.
+  trompa ao longe, pad de sintetizador, timbales suaves.
 - **Andamento:** 90 a 100 bpm, valsa (3/4) ou 6/8, tom maior com um acorde
   de suspense.
-- **Voz, uma vez, no começo; depois a música segue sozinha e faz o loop
-  sem repetir a voz:**
-
-  > "Atenção. A você foi confiada a missão mais importante desta festa:
-  > guardar o segredo da Nanda e do Kaio. Escolha com sabedoria. Confirme
-  > com coragem. E, aconteça o que acontecer… não conte pra ninguém. Nem
-  > para a sua mãe. Nem para a mãe deles."
-
-- **Se a voz tiver que ficar dentro do loop**, tudo bem: o site corta a
-  faixa antes de ela repetir.
+- **Estrutura:** começa no mistério (celesta sozinha, 8 compassos),
+  cresce com as cordas, a trompa entra com o "chamado da missão", e volta
+  ao começo sem corte.
 
 ### 03-confirmar.mp3 · Tem certeza? · em loop · 30 a 45 s
 
@@ -115,11 +110,9 @@ Fernanda do futuro TALVEZ saiba.
   tam-tam, cordas graves em staccato, trovão como efeito, um órgão de
   igreja de filme de terror cômico.
 - **Andamento:** 80 a 90 bpm, marcha.
-- **Voz, no começo, voz de trovão com reverb grande:**
-
-  > "Você tem certeza? Depois deste botão não existe volta. Nem Ctrl+Z.
-  > Nem 'era brincadeira'. Nem 'achei que fosse o outro'. Respire fundo…
-  > e confirme."
+- **Estrutura:** um trovão e um acorde grave de órgão no segundo zero, a
+  marcha entra em seguida e fica girando; sem crescendo final, porque
+  repete.
 
 ### 04-play.mp3 · Tá tudo pronto! · em loop · 45 a 60 s
 
@@ -159,8 +152,8 @@ Fernanda do futuro TALVEZ saiba.
   heroica, cordas em arpejo rápido por baixo, tímpanos. O meio do letreiro
   é romântico e aí a referência muda para o tema de amor de **Superman**
   ou o "Across the Stars": cordas, oboé, harpa.
-- **Instrumentação:** orquestra completa de trailer, com coro sem
-  palavras no final.
+- **Instrumentação:** orquestra completa de trailer; no final, metais e
+  cordas em uníssono fazem o papel que um coro faria.
 - **Estrutura no tempo** (o texto sobe em velocidade constante):
   - 0 a 8 s: fanfarra de abertura, forte, acorde grande, junto com
     "Episódio I".
@@ -205,8 +198,8 @@ Fernanda do futuro TALVEZ saiba.
     dois crianças de costas olhando o mar, o gato, o bebê dinossauro, e ao
     fundo a Pedra do Rei com o Rafiki erguendo o filhote. "Uma nova
     aventura está prestes a começar." **Inspiração: Rei Leão**, Zimmer: a
-    abertura de "Circle of Life" sem a voz, coro africano sem palavras,
-    percussão suave, cordas largas, e por cima um pad de synthwave quente.
+    abertura de "Circle of Life" sem a voz e sem o coro (o clima fica por
+    conta da percussão e das cordas), percussão suave, cordas largas, e por cima um pad de synthwave quente.
     Termina numa subida de 3 s que dá a deixa para o jogo.
 
 ### 08-jogo.mp3 · Jogo da velha na lousa · em loop · 60 a 90 s
@@ -239,8 +232,8 @@ Fernanda do futuro TALVEZ saiba.
   infinito e além") e do tema de **Jurassic Park** na chegada à ilha, que
   é a melhor música de "olha isso!" que existe. Por baixo, pop de
   celebração dos anos 90.
-- **Instrumentação:** fanfarra de metais, coro grande sem palavras,
-  bateria grande, tímpanos e pratos, guitarra, sintetizadores brilhantes,
+- **Instrumentação:** fanfarra de metais, cordas em uníssono no lugar
+  do coro, bateria grande, tímpanos e pratos, guitarra, sintetizadores brilhantes,
   palmas, sinos. Pode ter uma pitada de batucada brasileira no groove.
 - **Andamento:** 125 a 135 bpm. Entrada explosiva no segundo zero: a tela
   corta direto do "quatro em linha" para o resultado.
@@ -252,11 +245,11 @@ Fernanda do futuro TALVEZ saiba.
   Kaio e quem vem aí agradecem a presença", "você tem um amigo em nós",
   as fotos dos dois, o chapéu do Woody e o bebê dinossauro dormindo.
 - **Inspiração de filme:** **"Somewhere in My Memory", de Esqueceram de
-  Mim** (Williams): celesta, coro de crianças sem palavras, cordas doces,
+  Mim** (Williams): celesta, cordas doces no lugar do coro de crianças,
   sinos de Natal sem ser Natal. Com o final de **E.T.**, quando a nave vai
   embora e fica o arco-íris: ternura e luz. E um pouco de "Amigo estou
   aqui" de **Toy Story** no piano, como canção de ninar.
-- **Instrumentação:** piano, celesta, cordas, coro infantil sem palavras,
+- **Instrumentação:** piano, celesta, cordas, caixinha de música,
   violão, um sintetizador quente.
 - **Andamento:** 70 a 80 bpm. Sem tristeza nenhuma.
 
@@ -271,15 +264,13 @@ Fernanda do futuro TALVEZ saiba.
   cara de novela mexicana. Comece com a fanfarra de **Star Wars** tocada
   por uma banda de novela (trompetes mariachi, violão com rasgueado,
   timbales), entre o órgão dramático de **Maria do Bairro**, e no meio
-  deixe entrar a música dos aliens de **Toy Story** (aquele coral
-  eletrônico de "a garra"). Dramático de brincadeira, alegre por baixo.
+  deixe entrar o clima dos aliens de **Toy Story** (sintetizador
+  espacial em vez do coral). Dramático de brincadeira, alegre por baixo.
 - **Instrumentação:** trompetes mariachi, violão, cordas dramáticas,
-  timbales, órgão de novela, coro "ah-ah", theremin ou sintetizador
-  espacial para a galáxia.
-- **Voz opcional, no começo, locutor de trailer:**
-
-  > "Em breve, numa discussão de carro perto de você: Nanda e Kaio em…
-  > A Galáxia dos Nomes."
+  timbales, órgão de novela, theremin ou sintetizador espacial para a
+  galáxia.
+- **Estrutura:** fanfarra nos primeiros 4 s, depois a novela assume; o
+  órgão dramático entra na metade e a faixa volta ao começo sem corte.
 
 ### Tela final · sem música
 
@@ -309,22 +300,22 @@ da roleta). Se quiser substituir por gravações, estes arquivos são aceitos:
 3. **07-sequencia** (a mais técnica: quatro climas em 61 s).
 4. **01-capa** (o tema do site).
 5. **08-jogo**, **04-play**.
-6. **02-seletor** e **03-confirmar** (as faixas com voz).
+6. **02-seletor** e **03-confirmar**.
 7. **05-fita**, **10-fim**, **11-trailer** e os efeitos.
 
 ## 6. Resumo
 
-| Faixa | Arquivo | Duração | Loop | Voz | Filme de referência |
-|---|---|---|---|---|---|
-| Capa | 01-capa.mp3 | 60 a 90 s | sim | não | De Volta para o Futuro, E.T., synthwave |
-| Seletor | 02-seletor.mp3 | 45 a 60 s | sim | sim | Harry Potter (Hedwig), Star Wars (Força) |
-| Confirmar | 03-confirmar.mp3 | 30 a 45 s | sim | sim | Marcha Imperial de brincadeira, Matilda |
-| Play | 04-play.mp3 | 45 a 60 s | sim | não | Toy Story, Esqueceram de Mim |
-| Fita | 05-fita.mp3 | 8 s | não | não | vinheta de distribuidora de vídeo |
-| Letreiro | 06-letreiro.mp3 | 113 s | não | não | Star Wars, Superman |
-| Sequência | 07-sequencia.mp3 | 61 s | não | não | De Volta para o Futuro · Matrix · Harry Potter · Rei Leão |
-| Jogo | 08-jogo.mp3 | 60 a 90 s | sim | não | Matilda, Esqueceram de Mim, Game Boy |
-| Resultado | 09-resultado.mp3 | 60 a 90 s | sim | não | Rei Leão, Toy Story, Jurassic Park |
-| Fim | 10-fim.mp3 | 45 a 60 s | sim | não | Esqueceram de Mim, E.T., Toy Story |
-| Trailer | 11-trailer.mp3 | 45 a 60 s | sim | opcional | Star Wars em banda de novela, aliens de Toy Story |
-| Final | (sem faixa) | | | | silêncio proposital |
+| Faixa | Arquivo | Duração | Loop | Filme de referência |
+|---|---|---|---|---|
+| Capa | 01-capa.mp3 | 60 a 90 s | sim | De Volta para o Futuro, E.T., synthwave |
+| Seletor | 02-seletor.mp3 | 45 a 60 s | sim | Harry Potter (Hedwig), Star Wars (Força) |
+| Confirmar | 03-confirmar.mp3 | 30 a 45 s | sim | Marcha Imperial de brincadeira, Matilda |
+| Play | 04-play.mp3 | 45 a 60 s | sim | Toy Story, Esqueceram de Mim |
+| Fita | 05-fita.mp3 | 8 s | não | vinheta de distribuidora de vídeo |
+| Letreiro | 06-letreiro.mp3 | 113 s | não | Star Wars, Superman |
+| Sequência | 07-sequencia.mp3 | 61 s | não | De Volta para o Futuro · Matrix · Harry Potter · Rei Leão |
+| Jogo | 08-jogo.mp3 | 60 a 90 s | sim | Matilda, Esqueceram de Mim, Game Boy |
+| Resultado | 09-resultado.mp3 | 60 a 90 s | sim | Rei Leão, Toy Story, Jurassic Park |
+| Fim | 10-fim.mp3 | 45 a 60 s | sim | Esqueceram de Mim, E.T., Toy Story |
+| Trailer | 11-trailer.mp3 | 45 a 60 s | sim | Star Wars em banda de novela, aliens de Toy Story |
+| Final | (sem faixa) | | | silêncio proposital |
