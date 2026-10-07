@@ -111,60 +111,71 @@
   // Uma faixa por momento. Troque os nomes aqui quando os arquivos chegarem.
   // Momentos que apontam para o mesmo arquivo continuam a mesma música, sem recomeçar.
   const TRILHA = {
-    capa: 'assets/som/01-capa.mp3?v=0ef6c3590b',
-    seletor: 'assets/som/02-seletor.mp3?v=6f531e44b3',
-    confirmar: 'assets/som/03-confirmar.mp3?v=fe16c3062a',
-    play: 'assets/som/04-play.mp3?v=caae384060',
-    vhs: 'assets/som/05-fita.mp3?v=bb2ea3583e',
-    crawl: 'assets/som/06-letreiro.mp3?v=9a61b309a0',
-    delorean: 'assets/som/07-sequencia.mp3?v=4335776f61',
-    matrix: 'assets/som/07-sequencia.mp3?v=4335776f61',
-    carta: 'assets/som/07-sequencia.mp3?v=4335776f61',
-    aventura: 'assets/som/07-sequencia.mp3?v=4335776f61',
-    jogo: 'assets/som/08-jogo.mp3?v=163cbf24a2',
-    resultado: 'assets/som/09-resultado.mp3?v=a70821017c',
-    fim: 'assets/som/10-fim.mp3?v=4e56647eca',
+    capa: 'assets/som/01-capa.mp3?v=113d021d7d',
+    seletor: 'assets/som/02-seletor.mp3?v=51c90c1341',
+    confirmar: 'assets/som/03-confirmar.mp3?v=3ade5654e3',
+    play: 'assets/som/04-play.mp3?v=14d939873d',
+    vhs: 'assets/som/05-fita.mp3?v=ed41fd1429',
+    crawl: 'assets/som/06-letreiro.mp3?v=342ec8d3eb',
+    delorean: 'assets/som/07-sequencia-1.mp3?v=1a886ffbe8',
+    matrix: 'assets/som/07-sequencia-2.mp3?v=5cc02c85f8',
+    carta: 'assets/som/07-sequencia-3.mp3?v=933d545ae2',
+    aventura: 'assets/som/07-sequencia-4.mp3?v=c10f6cae8c',
+    jogo: 'assets/som/08-jogo.mp3?v=5311303bcc',
+    resultado: 'assets/som/09-resultado.mp3?v=b69d53c3dc',
+    fim: 'assets/som/10-fim.mp3?v=362f2996b3',
     trailer: 'assets/som/11-trailer.mp3?v=a3d10521fb',
-    final: 'assets/som/12-final.mp3?v=30e5d44488'
+    final: 'assets/som/12-final.mp3?v=6f7cb4dc5b'
   };
-  // Ponto de corte do loop, por faixa (segundos). Sem entrada aqui, a faixa repete inteira.
-  // Com entrada, o tocador para em `fim` e emenda com o começo num crossfade de `cruzar` segundos
-  // (serve para faixas que terminam em silêncio ou com fade).
-  // `inicio` (opcional) é onde a volta recomeça, para pular uma narração que só deve tocar uma vez.
+  // Como cada faixa toca, em segundos do arquivo:
+  //   entrada: onde começa a tocar ao entrar na tela (padrão 0)
+  //   fim / cruzar / inicio: o tocador para em `fim` e emenda em `inicio` com crossfade de `cruzar`
+  //   umaVez: toca uma vez e para (cenas de duração fixa)
+  //   vol: volume relativo, para equilibrar as faixas (medido; referência -25 dB)
+  // Sem entrada aqui, a faixa toca do começo e repete inteira.
   const LOOP = {
-    capa: { fim: 117.0, cruzar: 1.5, inicio: 1 },
-    seletor: { fim: 52.5, cruzar: 1.5 },
-    confirmar: { fim: 57.5, cruzar: 1.5, inicio: 1 },
-    play: { fim: 57.5, cruzar: 1.5 },
-    vhs: { fim: 55.5, cruzar: 1.5, inicio: 2.5 },
-    crawl: { umaVez: true },
-    delorean: { fim: 56.5, cruzar: 2 }, // enquanto a sequência longa não chega, repete sem cair no silêncio
-    jogo: { fim: 68.0, cruzar: 1.5 },
-    resultado: { fim: 72.0, cruzar: 1.5, inicio: 1.2 },
-    fim: { fim: 50.5, cruzar: 2, inicio: 1 },
-    trailer: { fim: 51.5, cruzar: 1.5 },
-    final: { fim: 49.5, cruzar: 1.5, inicio: 1 }
+    capa: { entrada: 2, fim: 205.5, cruzar: 1.5, inicio: 2, vol: .66 },
+    seletor: { entrada: 0, fim: 94, cruzar: 1.5, inicio: .5, vol: 1 },
+    confirmar: { entrada: 2.3, fim: 50.5, cruzar: 1, inicio: 2.3, vol: .81 },
+    play: { entrada: 0, fim: 121, cruzar: 1.5, inicio: 0, vol: .43 },
+    vhs: { entrada: 2.8, umaVez: true, vol: .38 },
+    crawl: { entrada: 1.2, umaVez: true, vol: .66 },
+    delorean: { entrada: 148.6, umaVez: true, vol: .72 },  // ataque do tema aos 149,5
+    matrix: { entrada: 23.6, umaVez: true, vol: .74 },     // a batida entra aos 24,5
+    carta: { entrada: 151.8, umaVez: true, vol: .52 },     // orquestra explode aos 157, junto do clarão da parede
+    aventura: { entrada: 185.6, umaVez: true, vol: .36 },  // explosão aos 186,5
+    jogo: { entrada: 0, fim: 42, cruzar: 1.2, inicio: 0, vol: .86 },
+    resultado: { entrada: 189.4, fim: 235, cruzar: 1.5, inicio: 189.5, vol: 1 }, // começa na vitória; o momento de 3:12 cai na revelação
+    fim: { entrada: 0, fim: 179, cruzar: 2, inicio: 0, vol: .4 },
+    trailer: { fim: 51.5, cruzar: 1.5, vol: .32 },
+    final: { entrada: 0, fim: 70, cruzar: 1.5, inicio: 0, vol: .5 }
   };
   const trilha = (() => {
     let tocando = null;        // { nome, arquivo, a: Audio, vigia: intervalo }
     const falhou = new Set();
     function novoAudio(arquivo) {
       const a = new Audio(arquivo); a.preload = 'auto'; a.muted = !somLigado;
-      a.addEventListener('error', () => falhou.add(arquivo));
+      a.addEventListener('error', () => { if (!a.descartado) falhou.add(arquivo); }); // descartar a cópia velha do loop também dispara 'error'
       return a;
+    }
+    // pula para um ponto do arquivo assim que o navegador souber a duração (antes disso o pulo se perde)
+    function posicionar(a, t) {
+      if (!t) return;
+      const ir = () => { try { a.currentTime = t; } catch (e) {} };
+      if (a.readyState >= 1) ir(); else a.addEventListener('loadedmetadata', ir, { once: true });
     }
     function fade(a, de, para, ms, depois) {
       const passos = 24, dt = ms / passos; let i = 0;
       const t = setInterval(() => { i++; a.volume = Math.max(0, Math.min(1, de + (para - de) * i / passos)); if (i >= passos) { clearInterval(t); depois && depois(); } }, dt);
     }
     function ligar(a, nome, volumeInicial, msFade) {
-      const cfg = LOOP[nome] || (TRILHA[nome] === TRILHA.delorean ? LOOP.delorean : null);
-      a.loop = !cfg || false;
-      if (cfg && cfg.umaVez) a.loop = false;
+      const cfg = LOOP[nome];
+      const alvo = cfg && cfg.vol != null ? cfg.vol : 1;
+      a.loop = !cfg;
       a.volume = volumeInicial;
-      a.play().then(() => { if (msFade) fade(a, volumeInicial, 1, msFade); else a.volume = 1; }).catch(() => {
+      a.play().then(() => { if (msFade) fade(a, volumeInicial, alvo, msFade); else a.volume = alvo; }).catch(() => {
         // o navegador só libera som depois de um gesto: tenta de novo no primeiro clique ou tecla
-        a.volume = 1;
+        a.volume = alvo;
         const tentar = () => { if (tocando && tocando.a === a && a.paused) a.play().catch(() => {}); };
         addEventListener('pointerdown', tentar, { once: true, capture: true });
         addEventListener('keydown', tentar, { once: true, capture: true });
@@ -175,12 +186,12 @@
         if (!tocando || tocando.a !== a) return;
         if (a.currentTime >= cfg.fim - cfg.cruzar) {
           const b = novoAudio(a.currentSrc || a.src);
-          if (cfg.inicio) b.currentTime = cfg.inicio;
+          posicionar(b, cfg.inicio);
           const velho = a;
           clearInterval(tocando.vigia);
           tocando.a = b;
           tocando.vigia = ligar(b, nome, 0, cfg.cruzar * 1000);
-          fade(velho, velho.volume, 0, cfg.cruzar * 1000, () => { velho.pause(); velho.src = ''; });
+          fade(velho, velho.volume, 0, cfg.cruzar * 1000, () => { velho.pause(); velho.descartado = true; velho.src = ''; });
         }
       }, 40);
     }
@@ -196,6 +207,7 @@
         if (tocando) { desligar(tocando, 600); tocando = null; }
         if (!arquivo || falhou.has(arquivo)) return;
         const a = novoAudio(arquivo);
+        if (LOOP[nome]) posicionar(a, LOOP[nome].entrada);
         tocando = { nome, arquivo, a, vigia: null };
         tocando.vigia = ligar(a, nome, 0, 800);
       },
@@ -298,7 +310,7 @@
   $('#reset-sim').addEventListener('click', () => { apagarSegredo(); location.href = location.pathname + (ENSAIO ? '?ensaio' : ''); });
 
   // ---------- 5. abertura ----------
-  const CENAS = [['vhs', 8000], ['crawl', 113000], ['delorean', 10000], ['matrix', 10000], ['carta', 42000], ['aventura', 12000]];
+  const CENAS = [['vhs', 19500], ['crawl', 113000], ['delorean', 10000], ['matrix', 10000], ['carta', 42000], ['aventura', 12000]];
   let timersAbertura = [];
   let cenaAtual = null;
   let timerProximaCena = null;
@@ -503,7 +515,7 @@
       quaseEl.hidden = true; $('#aliens').hidden = true; pose('festa');
       vezEl.firstChild.textContent = 'quatro em linha!';
       jogadaEl.textContent = 'tá revelado';
-      setTimeout(() => som.fanfarra(), 300);
+      trilha.tocar('resultado'); // a música do resultado entra na vitória, pra subir até a revelação
       setTimeout(() => irPara('resultado'), 2600);
       return;
     }
