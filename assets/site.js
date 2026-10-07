@@ -41,12 +41,18 @@
   if (ENSAIO) $('#ensaio').hidden = false;
 
   // ---------- o palco escala pra caber na tela ----------
-  const palco = $('#palco');
+  // mede a moldura (do tamanho real da tela), não a janela: no celular a janela pode mentir
+  const palco = $('#palco'), moldura = $('#moldura');
   function ajustar() {
-    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
-    palco.style.transform = `translate(-50%,-50%) scale(${s})`;
+    const W = moldura.clientWidth, H = moldura.clientHeight;
+    if (!W || !H) return;
+    const s = Math.min(W / 1920, H / 1080);
+    palco.style.transform = `translate(${(W - 1920 * s) / 2}px, ${(H - 1080 * s) / 2}px) scale(${s})`;
   }
   addEventListener('resize', ajustar);
+  addEventListener('orientationchange', () => { ajustar(); setTimeout(ajustar, 250); setTimeout(ajustar, 700); });
+  if (window.visualViewport) visualViewport.addEventListener('resize', ajustar);
+  if (window.ResizeObserver) new ResizeObserver(ajustar).observe(moldura);
   ajustar();
 
   // ---------- som (sintetizado, sem arquivo) ----------

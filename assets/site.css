@@ -14,14 +14,17 @@
   --f-corpo:"Nunito","Segoe UI",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;background:#000;overflow:hidden}
+html,body{margin:0;height:100%;background:#000;overflow:hidden;overscroll-behavior:none;touch-action:manipulation}
 body{font-family:var(--f-maquina);color:var(--tinta);font-size:24px;-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible{outline:4px solid var(--ciano);outline-offset:4px}
 img{-webkit-user-drag:none}
 
 /* ---------- o palco (a TV) ---------- */
-#palco{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(.5);transform-origin:50% 50%;overflow:hidden}
+/* A moldura tem exatamente o tamanho da tela e corta o que sobra: assim a TV de 1920 px
+   não empurra a largura da página no celular (o navegador achava que a tela era maior). */
+#moldura{position:fixed;inset:0;overflow:hidden;contain:strict}
+#palco{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;transform:scale(.2);overflow:hidden}
 .crt{background:var(--bisel);box-shadow:inset 0 0 0 6px #2a2a2e}
 .crt .pontos{position:absolute;top:14px;left:28px;display:flex;gap:9px;z-index:9}
 .crt .pontos i{width:14px;height:14px;border-radius:50%;background:#ff5f56}.crt .pontos i:nth-child(2){background:#ffbd2e}.crt .pontos i:nth-child(3){background:#27c93f}
@@ -38,6 +41,7 @@ img{-webkit-user-drag:none}
 .tela{position:absolute;inset:0;display:none;overflow:hidden}
 .tela.ativa{display:block}
 .aviso-retrato{display:none;position:fixed;inset:0;z-index:100;background:#0b0820;color:#fff;font:700 22px/1.4 var(--f-corpo);text-align:center;padding:40px 24px;align-items:center;justify-content:center}
+.aviso-retrato p{max-width:100%;margin:0;overflow-wrap:break-word}
 @media (orientation:portrait) and (max-width:820px){.aviso-retrato{display:flex}}
 .ensaio{position:fixed;right:12px;top:12px;z-index:90;background:var(--amarelo);color:#1b1510;font:700 16px var(--f-maquina);letter-spacing:.2em;padding:6px 12px;border-radius:6px;transform:rotate(3deg)}
 .ensaio[hidden]{display:none}
